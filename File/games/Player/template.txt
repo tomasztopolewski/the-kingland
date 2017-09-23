@@ -1,3 +1,3 @@
 [username];
-[name_of_group_buildings].[code_of_building]:[#[number_of_building]:[value_of_building];];
-date-save: [date];
+[name_of_group].[name_of_element]:[#[number_of_argument]:[value_of_argument];];
+date-save: [date]; //not yet 
