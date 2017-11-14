@@ -509,3 +509,5 @@ public class ManagerObjects {
     }
 
 }
+
+// Tomasz Topolewski

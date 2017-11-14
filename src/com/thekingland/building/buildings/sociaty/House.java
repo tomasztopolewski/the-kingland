@@ -83,3 +83,5 @@ public class House extends Building implements EssentialsBuilding, BuildingWithS
         return numberOfPeople[levelUpgrade];
     }
 }
+
+// Tomasz Topolewski

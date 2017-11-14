@@ -45,3 +45,5 @@ public class Time {
         this.currentTimeMil = (int) System.currentTimeMillis();
     }
 }
+
+// Tomasz Topolewski

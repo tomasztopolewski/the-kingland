@@ -56,3 +56,5 @@ public class Building implements EssentialsBuilding {
     }
     public int getLevelOfAdvancementBuilding(int numberLevel) { return levelOfAdvancementBuilding[numberLevel];}
 }
+
+// Tomasz Topolewski

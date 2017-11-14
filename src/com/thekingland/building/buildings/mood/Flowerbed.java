@@ -94,3 +94,5 @@ public class Flowerbed extends Building implements EssentialsBuilding, BuildingW
         return embellishmentsPoints[numberLevel];
     }
 }
+
+// Tomasz Topolewski

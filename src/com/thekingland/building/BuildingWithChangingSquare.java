@@ -5,3 +5,5 @@ public interface BuildingWithChangingSquare {
     void addSquare(int square);
     int getMaximumSquare();
 }
+
+// Tomasz Topolewski

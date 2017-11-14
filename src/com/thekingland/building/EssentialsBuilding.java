@@ -16,3 +16,5 @@ public interface EssentialsBuilding {
     int getCostUpgradeStoneOneLevel(int numberLevel);
     int getLevelOfAdvancementBuilding(int numberLevel);
 }
+
+// Tomasz Topolewski

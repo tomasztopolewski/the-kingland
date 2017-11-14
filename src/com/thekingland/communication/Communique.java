@@ -105,3 +105,5 @@ public class Communique {
         System.exit(1);
     }
 }
+
+// Tomasz Topolewski

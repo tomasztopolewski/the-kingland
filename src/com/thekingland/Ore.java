@@ -7,3 +7,5 @@ public interface Ore {
     public int getProducedQuantity();
     public int getSumQuantity();
 }
+
+// Tomasz Topolewski

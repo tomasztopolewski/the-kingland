@@ -83,3 +83,5 @@ public class Quarry extends Building implements EssentialsBuilding, BuildingWith
         return powerOfFactory[numberLevel];
     }
 }
+
+// Tomasz Topolewski

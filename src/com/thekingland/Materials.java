@@ -135,3 +135,5 @@ public abstract class Materials implements Ore {
         successProduction = true;
     }
 }
+
+// Tomasz Topolewski

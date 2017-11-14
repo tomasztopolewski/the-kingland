@@ -52,3 +52,5 @@ public class Authentication {
         return true;
     }
 }
+
+// Tomasz Topolewski

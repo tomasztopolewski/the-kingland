@@ -8,3 +8,5 @@ public class Stone extends Materials {
         super();
     }
 }
+
+// Tomasz Topolewski

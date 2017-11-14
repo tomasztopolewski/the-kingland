@@ -307,3 +307,5 @@ public class  SettingsObject {
     }
 
 }
+
+// Tomasz Topolewski

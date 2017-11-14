@@ -8,3 +8,5 @@ public class Wood extends Materials {
         super();
     }
 }
+
+// Tomasz Topolewski

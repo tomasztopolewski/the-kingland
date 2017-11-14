@@ -56,3 +56,5 @@ public class Sociaty {
         return (((this.quantityWomen + this.quantityMen) / 100) * this.joy);
     }
 }
+
+// Tomasz Topolewski
