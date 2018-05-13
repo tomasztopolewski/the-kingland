@@ -1,3 +1,5 @@
 [username];
 [name_of_group_buildings].[code_of_building]:[#[number_of_building]:[value_of_building];];
 date-save: [date];
+
+//template file
