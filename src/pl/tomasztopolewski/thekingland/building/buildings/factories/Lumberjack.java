@@ -5,9 +5,9 @@ Przechowuje poziom rozwinięcia chaty drwala.
  */
 package pl.tomasztopolewski.thekingland.building.buildings.factories;
 
+import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
 import pl.tomasztopolewski.thekingland.building.Building;
 import pl.tomasztopolewski.thekingland.building.BuildingWithStaticSquare;
-import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
 
 public class Lumberjack extends Building implements EssentialsBuilding, BuildingWithStaticSquare {
     private final int square = 4;

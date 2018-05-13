@@ -6,9 +6,9 @@ Przechowuje poziom rozwinięcia architekta..
 package pl.tomasztopolewski.thekingland.building.buildings.management;
 
 
+import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
 import pl.tomasztopolewski.thekingland.building.Building;
 import pl.tomasztopolewski.thekingland.building.BuildingWithStaticSquare;
-import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
 
 public class Architect extends Building implements EssentialsBuilding, BuildingWithStaticSquare {
     private final int square = 1;

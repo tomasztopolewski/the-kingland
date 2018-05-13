@@ -1,10 +1,10 @@
 package pl.tomasztopolewski.thekingland.building.buildings.management;
 
-import pl.tomasztopolewski.thekingland.building.Building;
-import pl.tomasztopolewski.thekingland.building.BuildingWithStaticSquare;
 import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
 import pl.tomasztopolewski.thekingland.handlingdata.ClassLoadFile;
 import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
+import pl.tomasztopolewski.thekingland.building.Building;
+import pl.tomasztopolewski.thekingland.building.BuildingWithStaticSquare;
 
 import java.io.FileNotFoundException;
 

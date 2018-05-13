@@ -1,12 +1,11 @@
 package pl.tomasztopolewski.thekingland.building;
 
+import pl.tomasztopolewski.thekingland.building.buildings.factories.Lumberjack;
+import pl.tomasztopolewski.thekingland.building.buildings.factories.Quarry;
 import pl.tomasztopolewski.thekingland.building.buildings.management.Architect;
 import pl.tomasztopolewski.thekingland.building.buildings.management.Warehouse;
-import pl.tomasztopolewski.thekingland.building.buildings.factories.Quarry;
-import pl.tomasztopolewski.thekingland.building.buildings.factories.Lumberjack;
 import pl.tomasztopolewski.thekingland.building.buildings.mood.Flowerbed;
 import pl.tomasztopolewski.thekingland.building.buildings.sociaty.House;
-
 import pl.tomasztopolewski.thekingland.handlingdata.ClassLoadFile;
 import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
 

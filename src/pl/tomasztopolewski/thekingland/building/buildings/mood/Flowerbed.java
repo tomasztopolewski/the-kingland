@@ -5,9 +5,9 @@ Przechowuje metry kwadratowe powierzchni obiektu.
  */
 package pl.tomasztopolewski.thekingland.building.buildings.mood;
 
+import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
 import pl.tomasztopolewski.thekingland.building.Building;
 import pl.tomasztopolewski.thekingland.building.BuildingWithChangingSquare;
-import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
 
 public class Flowerbed extends Building implements EssentialsBuilding, BuildingWithChangingSquare {
     private int square;
