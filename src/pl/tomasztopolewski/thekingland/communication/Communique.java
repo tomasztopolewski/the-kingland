@@ -170,7 +170,7 @@ public abstract class Communique {
         Thread.sleep(2000);
         System.out.println("\nCreated by " + author + "\n\n\n\n\n");
         Thread.sleep(2000);
-        System.out.println(newVersion + " / " + version);
+        System.out.print(newVersion + " / " + version);
         System.exit(1);
     }
 }

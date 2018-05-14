@@ -9,6 +9,7 @@ public class Authentication {
 
     public int start() throws InterruptedException {
         boolean continuation = false; //okresla 'true' jesli pobieranie sie udalo
+        System.out.println("thekingland_" + Communique.newVersion + ": Uruchamianie aplikacji...\n");
         Communique.viewHeaderWelcome();
 
         //int returnValue = command.process();
