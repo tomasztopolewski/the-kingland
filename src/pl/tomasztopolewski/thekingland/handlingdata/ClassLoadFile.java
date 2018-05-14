@@ -104,7 +104,7 @@ public class ClassLoadFile {
 
         } catch (FileNotFoundException fnfe) {
             loaded = false;
-            System.out.print("Error-ClassLoadFile::loadFile: Plik \"" + name + "\" nie istnieje w takiej sciezce dostepu: \"" + url + "\\" + name + enlargement + "\"\n");
+            System.out.print("Error-ClassLoadFile::loadFile: Plik \"" + name + "\" nie istnieje w następującej ścieżce dostępu: \"" + url + "\\" + name + enlargement + "\"\n");
             for (int i = 0; i <= 99; i++) loadedLines = null;
         }
     }

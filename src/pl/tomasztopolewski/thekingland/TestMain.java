@@ -1,19 +1,37 @@
 package pl.tomasztopolewski.thekingland;
 
+import pl.tomasztopolewski.thekingland.communication.Communique;
 import pl.tomasztopolewski.thekingland.security.Decryption;
 import pl.tomasztopolewski.thekingland.security.Encryption;
 
 public abstract class TestMain {
 
     public static void main(String[] args) {
+        String str = "too maszz ";
+        char[] charsOfStr = str.trim().toCharArray();
+
+        System.out.print("'too maszz ': '");
+        for (int i = 0; i < charsOfStr.length; i++) System.out.print(charsOfStr[i]);
+        System.out.print("'");
+    }
+
+    /*public static void main(String[] args) {
+        Communique.viewWelcome();
+        System.out.println("\n\n");
+        Communique.viewHeaderWelcome();
+        System.out.println("\n\n");
+        Communique.viewSpecialWelcome();
+
+    }*/
+
+    /*public static void main(String[] args) {
         Encryption encryption = new Encryption("players");
         Decryption decryption = new Decryption(encryption.encodeString());
         decryption.decodeString();
 
-    }
+    }*/
 
-    /*
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
             /*Order[] order = new Order[100];
 

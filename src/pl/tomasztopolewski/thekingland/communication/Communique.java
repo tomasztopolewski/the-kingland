@@ -1,20 +1,63 @@
+/**
+ * Klasa 'Communique' odpowiedzialna jest za generowanie podstawowych informacji o grze.
+ *
+ * System zapisywania wersji:
+ *     - branchowy: zapisywana jest wersja główna programu np. (v45.75.820) oznaczająca
+ *                  poszczególne zmiany w grze i wprowadzone rozwiązania, usprawnienia,
+ *                  poprawki kodu etc. Następnie po myślniku dawana jest gałąź rozwoju
+ *                  aplikacji.
+ *                  Główna to 'branch' (dla GIT jest to master). W użyciu nie
+ *                  funkcjonuje inna poza główną. W domyśle projektowania powstała
+ *                  gałąź główna 'branch' - w celu rozwoju głównego aplikacji - oraz
+ *                  testowa gałąź 'tested' służąca rozwoju testowych rozwiązań w
+ *                  aplkiacji oraz możliwych kolokacji łączeniowych (np. z interfejsem).
+ *                  Ostatnią gąłęzią jest 'undermain' służąca rozwoju odmiennej wizji
+ *                  aplikacji.
+ *                  Po nazwie gałęzi rozwoju aplikacji, w nawiasach, dodawana jest
+ *                  skrócona data (miesiąc i rok) rozpoczęcia prac nad główną wersją
+ *                  aplikacji. Po osiągnięciu wersji następujące zmiana celu i zmiana
+ *                  daty rozpoczęcia. Na koniec dodawany jest opisowy kształt aplikacji.
+ *                  Opisy rozwoju aplikacji:
+ *                      - preDEV: przygotowanie podstawowych mechanizów aplikacji,
+ *                                niezbędnych klas
+ *                      - DEV_alpha: rozwijanie aplikacji do wersji DEV, tworzenie
+ *                                   mechaniki gry, elementów podstawowych w grze,
+ *                                   rozwój aplikacji i funkcji konsolowej
+ *                      - DEV_beta: wersja aplikacji, w której użytkownik będzie mógł
+ *                                  zagrać w pierwszą rozgrywkę i poznać doznać
+ *                                  mechaniki gry
+ *                      - DEV: poprawna wersja aplikacji, poprawianie i usprawnianie
+ *                             poszczególnych elementów, mechaniki gry
+ *                      - BETA: rozwojowa wersja aplikacji, wprowadzająca funkcjonalności
+ *                              w prognozowanym kształcie, usprawnianie aplikacji i gry
+ *                      - releaseBETA: wersja testowa aplikacji pozwalająca korzystać
+ *                                     z aplikacji z mniejszymi lub większymi błędami
+ *                      - RTM: stabilna wersja aplikacji z drobymi błędami
+ *
+ *     - nowy: zapisywana jest numer wersji oraz opis rozwoju aplikacji
+ *
+ */
 package pl.tomasztopolewski.thekingland.communication;
 
-public class Communique {
-    public final String nameGame = "The KingLand";
-    public final String author = "Tomasz Topolewski";
-    public final String version = " v45.75.820-branch(Jun 2017) DEV_alpha";
-    public final String newVersion = "v45.75.820 DEV_alpha";
-    public final String longStartDateWork = "October 11th 2015";
-    public final String medianStartDateWork = "October 2015";
-    public final String shortStartDateWork = "Oct 2015";
-    public final String longDate = "May 13th 2018";
-    public final String medianDate = "May 2018";
-    public final String shortDate = "May 2018";
+public abstract class Communique {
+    public static final String nameGame = "The KingLand";
+    public static final String author = "Tomasz Topolewski";
 
-    /*public final String welcome =  "\t" + nameGame + version + "\n";
-    public final String startWelcome = "\t" + nameGame + version + "\n\t" + shortStartDateWork + " - " + shortDate + "\n\n";
-    public final String shortWelcome = "\n---------------------------------------------------\n\t" + nameGame + version + " - Oct2015\n\n";*/
+    public static final String numberOfVersion = "v46.03.590";
+    public static final String typeOfVersion = "DEV_alpha";
+    public static final String version = numberOfVersion + "-branch(Jun 2017) " + typeOfVersion;
+    public static final String newVersion = numberOfVersion + " " + typeOfVersion;
+
+    public static final String longStartDateWork = "October 11th 2015";
+    public static final String medianStartDateWork = "October 2015";
+    public static final String shortStartDateWork = "Oct 2015";
+    public static final String longDate = "May 13th 2018";
+    public static final String medianDate = "May 2018";
+    public static final String shortDate = "May 2018";
+
+    /*public static final String welcome =  "\t" + nameGame + version + "\n";
+    public static final String startWelcome = "\t" + nameGame + version + "\n\t" + shortStartDateWork + " - " + shortDate + "\n\n";
+    public static final String shortWelcome = "\n---------------------------------------------------\n\t" + nameGame + version + " - Oct2015\n\n";*/
 
 
     public Communique() {}
@@ -47,11 +90,19 @@ public class Communique {
     public void viewStartWelcome() {
         System.out.print(startWelcome);
     }*/
-    public void viewWelcome() {
+    public static void viewWelcome() {
         System.out.print("\t" + nameGame + " " + version + "\n");
-        System.out.print("\t" + medianStartDateWork + " - " + medianDate + "\n\n");
+        System.out.print("\t\t\t" + medianStartDateWork + " - " + medianDate + "\n\n");
     }
 
+    public static void viewHeaderWelcome() {
+        System.out.println("\t" + nameGame + " " + newVersion + " by " + author);
+    }
+    public static void viewSpecialWelcome() {
+        System.out.println("****************************************************************");
+        System.out.println("*    The KingLand v45.75.820 DEV_alpha by Tomasz Topolewski    *");
+        System.out.println("****************************************************************");
+    }
 
     public void viewNameGame() {
         System.out.print("Name game: " + nameGame);
@@ -82,7 +133,23 @@ public class Communique {
         }
         System.out.print("\n");
     }
-    public void animationStartLoadingSettings() throws InterruptedException {
+    public static void animationStartLoadingSettings() throws InterruptedException {
+        Thread.sleep(500);
+        System.out.print("Loading settings ");
+        Thread.sleep(200);
+        System.out.print("0% ");
+        for (int k = 0; k < 3; k++) {
+            Thread.sleep(500);
+            System.out.print(".");
+        }
+        System.out.println("");
+    }
+    public static void animationEndLoadingSettings() throws InterruptedException {
+        Thread.sleep(1500);
+        System.out.print("Loading settings 100%\n\n");
+        //Thread.sleep(500);
+    }
+    /*public static void animationStartLoadingSettings() throws InterruptedException {
         Thread.sleep(500);
         System.out.print("Loading settings ");
         Thread.sleep(200);
@@ -92,17 +159,18 @@ public class Communique {
             System.out.print(".");
         }
     }
-    public void animationEndLoadingSettings() throws InterruptedException {
+    public static void animationEndLoadingSettings() throws InterruptedException {
         Thread.sleep(1000);
         System.out.print(" 100%\n\n");
         Thread.sleep(1000);
-    }
+    }*/
 
-    public void viewGoodbay() throws InterruptedException {
-        System.out.print("Good bay!\n");
-        Thread.sleep(5000);
-        System.out.print("\n\nCreated by " + author + "\n");
-        Thread.sleep(2500);
+    public static void viewGoodbay() throws InterruptedException {
+        System.out.println("Good bay!\n");
+        Thread.sleep(2000);
+        System.out.println("\nCreated by " + author + "\n\n\n\n\n");
+        Thread.sleep(2000);
+        System.out.println(newVersion + " / " + version);
         System.exit(1);
     }
 }

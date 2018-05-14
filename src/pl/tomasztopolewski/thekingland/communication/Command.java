@@ -1,5 +1,9 @@
 package pl.tomasztopolewski.thekingland.communication;
 
+import javafx.scene.layout.Pane;
+import pl.tomasztopolewski.thekingland.authentication.Authentication;
+import pl.tomasztopolewski.thekingland.authentication.Player;
+
 import java.util.Scanner;
 
 public class Command {
@@ -10,6 +14,10 @@ public class Command {
     private boolean successDownload;
 
     public Command() {}
+
+    public String getArguments() {
+        return arguments;
+    }
 
     public boolean downloadOrder(String separator) {
         Scanner scanner = new Scanner(System.in);
@@ -22,39 +30,61 @@ public class Command {
             downloadedOrder = scanner.nextLine();
             downloadedOrder = downloadedOrder.trim();
 
-            if (downloadedOrder.length() == 6 && downloadedOrder.startsWith("login")) {
-                this.order = "login";
-                this.arguments = "/0";
-                return true;
-            }
-            if (downloadedOrder.length() == 8 && downloadedOrder.startsWith("register")) {
+            if (downloadedOrder.startsWith("login")) {
+                if (downloadedOrder.length() == 5) {
+                    this.order = "login";
+                    this.arguments = "";
+                    return true;
+                } else if (downloadedOrder.length() > 5) {//&&
+                    //downloadedOrder.length() <= "login".length() + new Player().getMaxLenghtOfUsername()) {
+                    this.order = "login";
+                    if (checkSyntaxArgumentsOfLogin(downloadedOrder.substring(5, downloadedOrder.length()).trim())) {
+                        this.arguments = downloadedOrder.substring(5, downloadedOrder.length()).trim();
+                        return true;
+                    } else System.out.println("SYSTEM ERROR: Argumenty z polecenia 'login' nie zostały rozpoznane. Spróbuj ponownie.");
+                }
+            } else if (downloadedOrder.length() == 8 && downloadedOrder.startsWith("register")) {
                 this.order = "register";
-                this.arguments = "/0";
+                this.arguments = "";
                 return true;
-            }
-            if (downloadedOrder.length() == 4 && downloadedOrder.startsWith("exit")) {
+            } else if (downloadedOrder.length() == 4 && downloadedOrder.startsWith("exit")) {
                 this.order = "exit";
-                this.arguments = "/0";
+                this.arguments = "";
                 return true;
+            } else if (downloadedOrder.length() == 4 && downloadedOrder.startsWith("/123")) {
+                this.order = "/123";
+                this.arguments = "";
+                return true;
+            } else {
+                System.out.print("SYSTEM-WARN: Wrong command. Check syntax.\n");
+                //downloadedOrder = "/0";
             }
-               System.out.print("INFO SYS: Wrong command. Check syntax.\n");
-                downloadedOrder = "/0";
-
-        }
-        return false;
+        } return false;
     }
 
     public int process() {
-        if (order.length() == 6 && order.startsWith("login")) return 1;
-        if (order.length() == 8 && order.startsWith("register")) return 2;
-        if (order.length() == 4 && order.startsWith("exit")) return 3;
+        if (downloadOrder("")) {
+            if (order.startsWith("login")) return 1;
+            if (order.startsWith("register")) return 2;
+            if (order.startsWith("exit")) return 999;
+            if (order.equals("/123")) return 123;
+        }
         return 0;
     }
 
     //zwraca określoną wartość (cele testowe dalszej części kodu)
-    private String processEX() {
-        return null;
+    private String processEX() { return null; }
+
+    private boolean checkSyntaxArgumentsOfLogin(String arguments) {
+        //sprawdza dopuszczalne znaki w arugmentach z polecenia login
+        char[] charsOfArguments = arguments.toCharArray();
+
+        for (int i = 0; i < charsOfArguments.length; i++) if (charsOfArguments[i]==' ') return false;
+
+        if (new Authentication().checkIsItInBasadatePlayers(arguments)) return true;
+        return false;
     }
+
 
     public void resetClass() {
         preliminaryOutline = null;

@@ -96,14 +96,11 @@ public class Order {
         if (order.startsWith("/")) {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku komendy.\n");
             createNumberForCommand();
-        } else if (order.startsWith("@/")) {
+        } else if (order.startsWith("$/")) {
                 //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku super komendy.\n");
                 createNumberForSuperCommand();
         } else {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku polecenia.\n");
-            //polecenie 'exit'
-            if (order.startsWith("exit") && order.length() == 4) setNumberSwitch(999);
-
             //polecenia 'buy'
             if (order.startsWith("buy")) {
                 addNumberSwitch(1);
@@ -149,6 +146,11 @@ public class Order {
 
         }
 
+        //polecenie 'exit'
+        if (order.startsWith("exit") && order.length() == 4) setNumberSwitch(999);
+        //polecenie 'help'
+        if (order.startsWith("help") && order.length() == 4) setNumberSwitch(100);
+
         /*
         //ustawiam liczbe dla polecen 'view'
         if (order.startsWith("view")) {
@@ -159,6 +161,7 @@ public class Order {
     }
 
     public void createNumberForCommand() {
+        if (order.startsWith("/100") && order.length() == 4) setNumberSwitch(100);
         if (order.startsWith("/999") && order.length() == 4) setNumberSwitch(999);
 
         //ustawiam numberSwitch dla numberSwitch poleceń 'buy'
@@ -178,8 +181,8 @@ public class Order {
         if (order.startsWith("/60102") && order.length() == 6) setNumberSwitch(60102);
 
         //ustawiam numberSwitch dla numberSwitch poleceń 'view'
-
-
+        /*
+         */
     }
 
     private void createNumberForSuperCommand() {}

@@ -110,7 +110,7 @@ public class  SettingsObject {
             }
         } catch (NullPointerException npe) {
             this.arguments = null;
-            System.out.print("Error-setArguments: Nie mozna zainicjalozowac zmiennej 'arguments', poniewaz argument z zmiennej do przepisania jest pusty.\n");
+            System.out.print("Error-setArguments: Nie można zainicjalozować zmiennej 'arguments', ponieważ argument z zmiennej do przepisania jest pusty.\n");
         }
     }
     public String[] getArguments() {
@@ -148,7 +148,7 @@ public class  SettingsObject {
         try {
             return values[indexValue];
         } catch (NullPointerException npe) {
-            System.out.print("Error-(SettingsObject.getValue()): Wartosc nr " + indexValue + " nie istnieje w tablicy 'values'.\n");
+            System.out.print("Error-(SettingsObject.getValue()): Wartość nr " + indexValue + " nie istnieje w tablicy 'values'.\n");
         } finally {}
         return null;
     }
@@ -182,7 +182,7 @@ public class  SettingsObject {
         try {
             for (int i = 0; i < numberOfArguments; i++) addValues(getValuesFromArgument(arguments[i]), i);
         } catch (NullPointerException npe) {
-            System.out.print("Error-prepareTabOfValues: Zmienna 'arguments' nie jest zainicjalizowana lub zostala blednie zformatowana.\n");
+            System.out.print("Error-prepareTabOfValues: Zmienna 'arguments' nie jest zainicjalizowana lub została błędnie sformatowana.\n");
         }
        // viewValues("prepareTabOfValues");
     }
@@ -202,7 +202,7 @@ public class  SettingsObject {
            x = y.split(Pattern.quote("]"));
            lineOfArgument = x[0];
        } catch (NullPointerException npe) {
-           System.out.print("Error-cutArgumentsFromLine: Linia z argumentami jest pusta. Nie mozna bylo przeprowadzic operacji.\n");
+           System.out.print("Error-cutArgumentsFromLine: Linia z argumentami jest pusta. Nie można było przeprowadzić operacji.\n");
        } finally {}
 
         //System.out.print("cutArgumentsFromLine :// Linia argumentów: " + lineOfArgument + "\n");
@@ -254,7 +254,7 @@ public class  SettingsObject {
 // metody sprawdzające zmiany w obiekcie; bardziej z punktu programistyczne
 
     public void viewArguments(String nameOfMethod) {
-        System.out.print("\nviewArguments in '" + nameOfMethod + "':// Wyswietlanie argumentow z linii: ");
+        System.out.print("\nviewArguments in '" + nameOfMethod + "':// Wyświetlanie argumentów z linii: ");
         int i = 1;
         try {
             for (String x : this.arguments) {

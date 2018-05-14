@@ -1,5 +1,6 @@
 package pl.tomasztopolewski.thekingland.building.buildings.management;
 
+import pl.tomasztopolewski.thekingland.authentication.preparation.Installation;
 import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
 import pl.tomasztopolewski.thekingland.handlingdata.ClassLoadFile;
 import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
@@ -42,7 +43,7 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
         setLevelUpgrade(levelUpgrade);
         occupiedSpaceByMaterials = new int[numberOfMaterials];
 
-        classLoadFileMaterialOfSpace  = new ClassLoadFile("materials-space", "C:\\Program Files\\TheKingLand\\bin");
+        classLoadFileMaterialOfSpace  = new ClassLoadFile(Installation.nameOfFile_SpaceOfWarehouse, Installation.pathToFolder);
         linesOfFileMaterialOfSpace = classLoadFileMaterialOfSpace.getDownloadedLines();
 
         settingsMaterials = new SettingsObject[numberOfMaterials];
