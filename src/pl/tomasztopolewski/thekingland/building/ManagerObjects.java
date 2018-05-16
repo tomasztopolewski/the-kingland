@@ -188,49 +188,49 @@ public class ManagerObjects {
     public void buyArchitect() {
         if (architect.getLevelUpgrade() == 0) {
             architect.setLevelUpgrade(1);
-            System.out.println("INFO: Kupiono budynek Architect.\n");
+            System.out.println("INFO: Building Architect is bought.\n");
         } else {
-            System.out.println("INFO: Budynek Architect zostal juz zakupiony. Nie realizowano transakcji.\n");
+            System.out.println("INFO: Building Architect was bought. Transaction isn't realized.\n");
         }
     }
     public void buyWarehouse() {
         if (warehouse.getLevelUpgrade() == 0) {
             warehouse.setLevelUpgrade(1);
-            System.out.println("INFO: Kupiono budynek Warehouse.\n");
+            System.out.println("INFO: Building Warehouse is bought.\n");
         } else {
-            System.out.println("INFO: Budynek Warehouse zostal juz zakupiony. Nie realizowano transakcji.\n");
+            System.out.println("INFO: Building Warehouse was bought. Transaction isn't realized.\n");
         }
     }
     public void buyQuarry() {
         if (quarry.getLevelUpgrade() == 0) {
             quarry.setLevelUpgrade(1);
-            System.out.println("INFO: Kupiono budynek Quarry.\n");
+            System.out.println("INFO: Building Quarry is bought.\n");
         } else {
-            System.out.println("INFO: Budynek Quarry zostal juz zakupiony. Nie realizowano transakcji.\n");
+            System.out.println("INFO: Building Quarry was bought. Transaction isn't realized.\n");
         }
     }
     public void buyLumberjack() {
         if (lumberjack.getLevelUpgrade() == 0) {
             lumberjack.setLevelUpgrade(1);
-            System.out.println("INFO: Kupiono budynek Lumberjack.\n");
+            System.out.println("INFO: Building Lumberjack is bought..\n");
         } else {
-            System.out.println("INFO: Budynek Lumberjack zostal juz zakupiony. Nie realizowano transakcji.\n");
+            System.out.println("INFO: Building Lumberjack was bought. Transaction isn't realized.\n");
         }
     }
     public void buyFlowerbed() {
         if (flowerbed.getLevelUpgrade() == 0) {
             flowerbed.setLevelUpgrade(1);
-            System.out.println("INFO: Kupiono budynek Flowerbed.\n");
+            System.out.println("INFO: Building Flowerbed is bought..\n");
         } else {
-            System.out.println("INFO: Budynek Architect zostal juz zakupiony. Nie realizowano transakcji.\n");
+            System.out.println("INFO: Building Architect was bought. Transaction isn't realized.\n");
         }
     }
     public void buyHouse() {
         if (house.getLevelUpgrade() == 0) {
             house.setLevelUpgrade(1);
-            System.out.println("INFO: Kupiono budynek House.\n");
+            System.out.println("INFO: Building House is bought..\n");
         } else {
-            System.out.println("INFO: Budynek House zostal juz zakupiony. Nie realizowano transakcji.\n");
+            System.out.println("INFO: Building House was bought. Transaction isn't realized.\n");
         }
     }
 
@@ -317,52 +317,52 @@ public class ManagerObjects {
 
     public void levelUpArchitect() {
         if (architect.getLevelUpgrade() == architect.getMaximumUpgradeLevel()) {
-            System.out.println("INFO: Budynek Architect osiagnal najwyzszy poziom. Ulepszenie jest niemozliwe.\n");
+            System.out.println("INFO: Building Architect has achieved the highest level.\n");
         } else if ((architect.getLevelUpgrade() < architect.getMaximumUpgradeLevel()) && (architect.getLevelUpgrade() >= architect.getMinimumUpgradeLevel())) {
             architect.addLevelUpgrade(1);
-            System.out.println("INFO: Budynek Architect zostal ulepszony o jeden poziom. Jego poziom to " + architect.getLevelUpgrade() + ".\n");
-        } else if (architect.getLevelUpgrade() == 0) System.out.println("INFO: Budynek Architect nie zostal wybudowany.\n");
+            System.out.println("INFO: Building Architect upgrades about one level. New level amounts " + architect.getLevelUpgrade() + ".\n");
+        } else if (architect.getLevelUpgrade() == 0) System.out.println("INFO: Building Architect hasn't existed. At first, you should buy the building.\n");
     }
     public void levelUpWarehouse() {
         if (warehouse.getLevelUpgrade() == warehouse.getMaximumUpgradeLevel()) {
-            System.out.println("INFO: Budynek Warehouse osiagnal najwyzszy poziom. Ulepszenie jest niemozliwe.\n");
+            System.out.println("INFO: Building Warehouse has achieved the highest level.\n");
         } else if ((warehouse.getLevelUpgrade() < warehouse.getMaximumUpgradeLevel()) && (warehouse.getLevelUpgrade() >= warehouse.getMinimumUpgradeLevel())) {
             warehouse.addLevelUpgrade(1);
-            System.out.println("INFO: Budynek Warehouse zostal ulepszony o jeden poziom. Jego poziom to " + warehouse.getLevelUpgrade() + ".\n");
-        } else if (warehouse.getLevelUpgrade() == 0) System.out.println("INFO: Budynek Warehouse nie zostal wybudowany.\n");
+            System.out.println("INFO: Building Warehouse upgrades about one level. New level amounts " + warehouse.getLevelUpgrade() + ".\n");
+        } else if (warehouse.getLevelUpgrade() == 0) System.out.println("INFO: Building Warehouse hasn't existed. At first, you should buy the building.\n");
     }
     public void levelUpQuarry() {
         if (quarry.getLevelUpgrade() == quarry.getMaximumUpgradeLevel()) {
-            System.out.println("INFO: Budynek Quarry osiagnal najwyzszy poziom. Ulepszenie jest niemozliwe.\n");
+            System.out.println("INFO: Building Quarry has achieved the highest level.\n");
         } else if ((quarry.getLevelUpgrade() < quarry.getMaximumUpgradeLevel()) && (quarry.getLevelUpgrade() >= quarry.getMinimumUpgradeLevel())) {
             quarry.addLevelUpgrade(1);
-            System.out.println("INFO: Budynek Quarry zostal ulepszony o jeden poziom. Jego poziom to " + quarry.getLevelUpgrade() + ".\n");
-        } else if (quarry.getLevelUpgrade() == 0) System.out.println("INFO: Budynek Quarry nie zostal wybudowany.\n");
+            System.out.println("INFO: Building Quarry upgrades about one level. New level amounts " + quarry.getLevelUpgrade() + ".\n");
+        } else if (quarry.getLevelUpgrade() == 0) System.out.println("INFO: Building Quarry hasn't existed. At first, you should buy the building.\n");
     }
     public void levelUpLumberjack() {
         if (lumberjack.getLevelUpgrade() == lumberjack.getMaximumUpgradeLevel()) {
-            System.out.println("INFO: Budynek Lumberjack osiagnal najwyzszy poziom. Ulepszenie jest niemozliwe.\n");
+            System.out.println("INFO: Building Lumberjack has achieved the highest level.\n");
         } else if ((lumberjack.getLevelUpgrade() < lumberjack.getMaximumUpgradeLevel()) && (lumberjack.getLevelUpgrade() >= lumberjack.getMinimumUpgradeLevel())) {
             lumberjack.addLevelUpgrade(1);
-            System.out.println("INFO: Budynek Lumberjack zostal ulepszony o jeden poziom. Jego poziom to " + lumberjack.getLevelUpgrade() + ".\n");
-        } else if (lumberjack.getLevelUpgrade() == 0) System.out.println("INFO: Budynek Lumberjack nie zostal wybudowany.\n");
+            System.out.println("INFO: Building Lumberjack upgrades about one level. New level amounts " + lumberjack.getLevelUpgrade() + ".\n");
+        } else if (lumberjack.getLevelUpgrade() == 0) System.out.println("INFO: Building Lumberjack hasn't existed. At first, you should buy the building.\n");
     }
     public void levelUpFlowerbed() {
         if (flowerbed.getLevelUpgrade() == flowerbed.getMaximumUpgradeLevel()) {
-            System.out.println("INFO: Budynek Flowerbed osiagnal najwyzszy poziom. Ulepszenie jest niemozliwe.\n");
+            System.out.println("INFO: Building Flowerbed has achieved the highest level.\n");
         } else if ((flowerbed.getLevelUpgrade() < flowerbed.getMaximumUpgradeLevel()) && (flowerbed.getLevelUpgrade() >= flowerbed.getMinimumUpgradeLevel())) {
             flowerbed.addLevelUpgrade(1);
-            System.out.println("INFO: Budynek Flowerbed zostal ulepszony o jeden poziom. Jego poziom to " + flowerbed.getLevelUpgrade() + ".\n");
-        } else if (flowerbed.getLevelUpgrade() == 0) System.out.println("INFO: Budynek Flowerbed nie zostal wybudowany.\n");
+            System.out.println("INFO: Building Flowerbed upgrades about one level. New level amounts " + flowerbed.getLevelUpgrade() + ".\n");
+        } else if (flowerbed.getLevelUpgrade() == 0) System.out.println("INFO: Building Flowerbed hasn't existed. At first, you should buy the building.\n");
     }
     public void levelUpHouse() {
         if (house.getLevelUpgrade() == house.getMaximumUpgradeLevel()) {
-            System.out.println("INFO: Budynek House osiagnal najwyzszy poziom. Ulepszenie jest niemozliwe.\n");
+            System.out.println("INFO: Building House has achieved the highest level.\n");
         } else if ((house.getLevelUpgrade() < house.getMaximumUpgradeLevel()) && (house.getLevelUpgrade() >= house.getMinimumUpgradeLevel())) {
             house.addLevelUpgrade(1);
-            System.out.println("INFO: Budynek House zostal ulepszony o jeden poziom. Jego poziom to " + house.getLevelUpgrade() + ".\n");
+            System.out.println("INFO: Building House upgrades about one level. New level amounts " + house.getLevelUpgrade() + ".\n");
         } else if (house.getLevelUpgrade() == 0)
-            System.out.println("INFO: Budynek House nie zostal wybudowany.\n");
+            System.out.println("INFO: Building House hasn't existed. At first, you should buy the building.\n");
     }
 
 
@@ -416,25 +416,70 @@ public class ManagerObjects {
     }
 
 
-    //////////////////////////////////////////////
-    // WYŚWIETLAJĄCE PARAMTERY BUDYNKÓW
-    /**/
+
 
 
     /**
-    private void destroyedBuilding(String building) {
-        // TODO: funkcja ma oddawać 30-40% z materiałów jakie trzeba dać na konkretny budnek o konretnym level
-        //if, gdy lvl budynku będzie równy 0 to: wyrzuci println
-        //gdy większy od 0 to ustaw budynek na 0
-       try {
-           if (buildings[returnIndexOfBuilding(building)].getLevelUpgrade() > 0) {
+     private void destroyedBuilding(String building) {
+     // TODO: funkcja ma oddawać 30-40% z materiałów jakie trzeba dać na konkretny budnek o konretnym level
+     //if, gdy lvl budynku będzie równy 0 to: wyrzuci println
+     //gdy większy od 0 to ustaw budynek na 0
+     try {
+     if (buildings[returnIndexOfBuilding(building)].getLevelUpgrade() > 0) {
 
-           }
-       } catch (ArrayIndexOutOfBoundsException aioobe) {
-           System.out.print("Error-ManagerObjects:destroyedBuilding() : Nie mozna wywolac funkcji 'ManagerObjects::destroyedBuilding' z powodu nie wlasciwego adresu refenecji do budynku.\n");
-       } finally {}
+     }
+     } catch (ArrayIndexOutOfBoundsException aioobe) {
+     System.out.print("Error-ManagerObjects:destroyedBuilding() : Nie mozna wywolac funkcji 'ManagerObjects::destroyedBuilding' z powodu nie wlasciwego adresu refenecji do budynku.\n");
+     } finally {}
+     }
+     */
+
+/////////////////////////////////////////////////////////////////////////////
+// METODY WYŚWIETLAJĄCE WYNIKI
+
+    //////////////////////////////////////////////
+    // WYŚWIETLAJĄCE PARAMTERY BUDYNKÓW
+
+    // LEVEL BUILDING
+    public void viewLevelArchitect() {
+        System.out.println("Architect level: " + architect.getLevelUpgrade());
     }
-    */
+    public void viewLevelWarehouse() {
+        System.out.println("Warehouse level: " + warehouse.getLevelUpgrade());
+    }
+    public void viewLevelQuarry() {
+        System.out.println("Quarry level: " + quarry.getLevelUpgrade());
+    }
+    public void viewLevelLumberjack() {
+        System.out.println("Lumberjack level: " + lumberjack.getLevelUpgrade());
+    }
+    public void viewLevelFlowerbed() {
+        System.out.println("Flowerbed level: " + flowerbed.getLevelUpgrade());
+    }
+    public void viewLevelHouse() {
+        System.out.println("House level: " + house.getLevelUpgrade());
+    }
+
+
+    // DETAILS BUILDING
+    public void viewDetailsArchitect() {
+        System.out.println("Architect: lvl. " + architect.getLevelUpgrade() + "  architect experience: " + architect.getArchitectExperience());
+    }
+    public void viewDetailsWarehouse() {
+        System.out.println("Warehouse: lvl. " + warehouse.getLevelUpgrade() + "  space: " + warehouse.getAllOccupiedSpaceByMaterials() + "/" + warehouse.getSpace());
+    }
+    public void viewDetailsQuarry() {
+        System.out.println("Quarry: lvl. " + quarry.getLevelUpgrade() + "  power of factory: " + quarry.getPowerOfFactory());
+    }
+    public void viewDetailsLumberjack() {
+        System.out.println("Lumberjack: lvl. " + lumberjack.getLevelUpgrade() + "  power of factory: " + lumberjack.getPowerOfFactory());
+    }
+    public void viewDetailsFlowerbed() {
+        System.out.println("Flowerbed: lvl. " + flowerbed.getLevelUpgrade() + "  square: " + flowerbed.getSquare() + " m2  embellishments points: " + flowerbed.getEmbellishmentsPoints() + " points");
+    }
+    public void viewDetailsHouse() {
+        System.out.println("House: lvl. " + house.getLevelUpgrade() + "  number of people: " + house.getNumberOfPeople());
+    }
 
 
 /////////////////////////////////////////////////////////////////////////////

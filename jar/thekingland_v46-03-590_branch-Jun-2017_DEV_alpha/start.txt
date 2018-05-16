@@ -1,0 +1,2 @@
+java -Xms512M -Xmx512M -jar thekingland_v46-03-590_branch-Jun-2017_DEV_alpha.jar -o true
+PAUSE

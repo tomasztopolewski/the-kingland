@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="thekingland_v50-10-607_DEV-alpha">
+    <output-path>$PROJECT_DIR$/out/artifacts/thekingland_v50-10-607_DEV-alpha</output-path>
+    <root id="archive" name="thekingland_v50-10-607_DEV-alpha.jar">
+      <element id="module-output" name="the-kingland_console" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

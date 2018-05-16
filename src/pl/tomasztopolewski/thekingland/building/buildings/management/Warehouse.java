@@ -110,7 +110,7 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
     }
 
     public int returnFreeSpace() {
-        return space[levelUpgrade] - getSumOfMaterials();
+        return space[levelUpgrade] - getAllOccupiedSpaceByMaterials();
     }
 
     public void setOccupiedSpaceByMaterial(int numberOfMaterial, int quantity) {
@@ -157,7 +157,7 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
         }
     }
 
-    public int getSumOfMaterials() {
+    public int getAllOccupiedSpaceByMaterials() {
         return occupiedSpaceByMaterials[indexOfMaterialWood] + occupiedSpaceByMaterials[indexOfMaterialStone];
     }
 

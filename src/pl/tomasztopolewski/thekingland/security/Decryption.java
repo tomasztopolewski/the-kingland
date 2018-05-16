@@ -80,7 +80,7 @@ public class Decryption {
 
         char[] signsToDecode = codeToDecode.toCharArray(); //zamiana stringu do deszyfracji w tablice char
 
-        String stringAfterDecoding = null;
+        String stringAfterDecoding = "";
         String signEncoded = "";
         int condiction = 0;
         while (codeToDecode.length() > condiction) {

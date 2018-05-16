@@ -3,6 +3,7 @@ package pl.tomasztopolewski.thekingland.authentication;
 import pl.tomasztopolewski.thekingland.authentication.preparation.Installation;
 import pl.tomasztopolewski.thekingland.communication.CommandPreparation;
 import pl.tomasztopolewski.thekingland.communication.Communique;
+import pl.tomasztopolewski.thekingland.security.Decryption;
 
 import java.util.Scanner;
 
@@ -91,7 +92,7 @@ public class Authentication {
 
     private boolean passAdmin() {
         System.out.print("SYSTEM-INFO: Wprowadź hasło administatora: ");
-        return new Scanner(System.in).nextLine().trim().equals("$/123");
+        return new Scanner(System.in).nextLine().trim().equals("$/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString());
     }
 
 

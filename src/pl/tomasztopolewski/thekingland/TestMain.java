@@ -7,13 +7,18 @@ import pl.tomasztopolewski.thekingland.security.Encryption;
 public abstract class TestMain {
 
     public static void main(String[] args) {
+        System.out.println(new Encryption("123").encodeString());
+        System.out.println(new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString());
+    }
+
+    /*public static void main(String[] args) {
         String str = "too maszz ";
         char[] charsOfStr = str.trim().toCharArray();
 
         System.out.print("'too maszz ': '");
         for (int i = 0; i < charsOfStr.length; i++) System.out.print(charsOfStr[i]);
         System.out.print("'");
-    }
+    }*/
 
     /*public static void main(String[] args) {
         Communique.viewWelcome();

@@ -3,6 +3,7 @@ package pl.tomasztopolewski.thekingland.communication;
 import javafx.scene.layout.Pane;
 import pl.tomasztopolewski.thekingland.authentication.Authentication;
 import pl.tomasztopolewski.thekingland.authentication.Player;
+import pl.tomasztopolewski.thekingland.security.Decryption;
 
 import java.util.Scanner;
 
@@ -51,8 +52,8 @@ public class CommandPreparation {
                 this.order = "exit";
                 this.arguments = "";
                 return true;
-            } else if (downloadedOrder.length() == 4 && downloadedOrder.startsWith("/123")) {
-                this.order = "/123";
+            } else if (downloadedOrder.length() == 4 && downloadedOrder.startsWith("/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString())) {
+                this.order = "/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString();
                 this.arguments = "";
                 return true;
             } else {
@@ -67,7 +68,7 @@ public class CommandPreparation {
             if (order.startsWith("login")) return 1;
             if (order.startsWith("register")) return 2;
             if (order.startsWith("exit")) return 999;
-            if (order.equals("/123")) return 123;
+            if (order.equals("/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString())) return 123;
         }
         return 0;
     }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Order {
     private final String charNewOrder = ">";
     private final int minimumLengthDownloadLine = 1;
-    private final int maximumLengthDownloadLine = 30;
+    private final int maximumLengthDownloadLine = 50;
 
     private String downloadLine;
 
@@ -105,6 +105,7 @@ public class Order {
 
         if (order.startsWith("/")) {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku komendy.\n");
+            return returnNumberForCommand();
         } else if (order.startsWith("$/")) {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku super komendy.\n");
         } else {
@@ -132,11 +133,8 @@ public class Order {
 
              //polecenia 'view'
             } else if (order.startsWith("view")) {
-                addNumberSwitch(3);
-                if (order.startsWith("view estate")) {
-                    if (order.startsWith("view estate buildings")) return 120000;
-                } else if (order.startsWith("view parameter")) {
-                    addNumberSwitch(10);
+
+                if (order.startsWith("view parameter")) {
                     if (order.startsWith("view parameter building")) {
                         if (order.startsWith("view parameter building level architect")) return 110101;
                         else if (order.startsWith("view parameter building level warehouse")) return 210101;
@@ -145,6 +143,9 @@ public class Order {
                         else if (order.startsWith("view parameter building level flowerbed")) return 510101;
                         else if (order.startsWith("view parameter building level house")) return 610101;
                     }
+
+                } else if (order.startsWith("view status")) {
+                    if (order.startsWith("view status buildings")) return 1000001;
                 }
             }
             //polecenie 'help'
@@ -228,7 +229,7 @@ public class Order {
         if (order.startsWith("/100") && order.length() == 4) return 990;
         if (order.startsWith("/999") && order.length() == 4) return 999;
 
-        //ustawiam numberSwitch dla numberSwitch poleceń 'buy'
+        // polecenia 'buy'
         if (order.startsWith("/10101") && order.length() == 6) return 10101;
         if (order.startsWith("/20101") && order.length() == 6) return 20101;
         if (order.startsWith("/30101") && order.length() == 6) return 30101;
@@ -236,13 +237,23 @@ public class Order {
         if (order.startsWith("/50101") && order.length() == 6) return 50101;
         if (order.startsWith("/60101") && order.length() == 6) return 60101;
 
-        //ustawiam numberSwitch dla numberSwitch poleceń 'upgrade'
+        // polecenia 'upgrade'
         if (order.startsWith("/10102") && order.length() == 6) return 10102;
         if (order.startsWith("/20102") && order.length() == 6) return 20102;
         if (order.startsWith("/30102") && order.length() == 6) return 30102;
         if (order.startsWith("/40102") && order.length() == 6) return 40102;
         if (order.startsWith("/50102") && order.length() == 6) return 50102;
         if (order.startsWith("/60102") && order.length() == 6) return 60102;
+
+        // polecenia 'view'
+        if (order.startsWith("/110101") && order.length() == 7) return 110101;
+        if (order.startsWith("/210101") && order.length() == 7) return 210101;
+        if (order.startsWith("/310101") && order.length() == 7) return 310101;
+        if (order.startsWith("/410101") && order.length() == 7) return 410101;
+        if (order.startsWith("/510101") && order.length() == 7) return 510101;
+        if (order.startsWith("/610101") && order.length() == 7) return 610101;
+
+        if (order.startsWith("/1000001") && order.length() == 8) return 1000001;
         
         return 0;
     }
@@ -272,10 +283,6 @@ public class Order {
     }
 
     private void createNumberForSuperCommand() {}
-
-    /*public boolean checkSyntaxOfDownloadLine(String downloadLine) {
-        return downloadLine.startsWith("buy") ? true : false;
-    }*/
 
     private boolean checkDownloadLine(String downloadLine) {
         return (downloadLine.length() >= minimumLengthDownloadLine && downloadLine.length() <= maximumLengthDownloadLine) ? true : false;

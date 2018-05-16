@@ -1,0 +1,7 @@
+@ECHO Uruchamianie skryptu ladujacego aplikacje.
+@ECHO Ladowany plik 'thekingland_v50-10-607_DEV-alpha.jar'
+@ECHO Przetwarzanie polecenia 'java'...
+@ECHO _
+@ECHO _
+java -Xms512M -Xmx512M -jar thekingland_v50-10-607_DEV-alpha.jar -o true
+PAUSE

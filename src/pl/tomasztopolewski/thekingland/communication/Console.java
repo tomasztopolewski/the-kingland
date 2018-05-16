@@ -87,6 +87,41 @@ public class Console {
                 managerObjects.levelUpHouse();
                 break;
 
+            case 110101:
+                // view parameter building level architect
+                managerObjects.viewLevelArchitect();
+            break;
+
+            case 210101:
+                // view parameter building level warehous
+                managerObjects.viewLevelWarehouse();
+            break;
+
+            case 310101:
+                // view parameter building level quarry
+                managerObjects.viewLevelQuarry();
+            break;
+
+            case 410101:
+                // view parameter building level lumberjack
+                managerObjects.viewLevelLumberjack();
+            break;
+
+            case 510101:
+                // view parameter building level flowerbed
+                managerObjects.viewLevelFlowerbed();
+            break;
+
+            case 610101:
+                // view parameter building level house
+                managerObjects.viewLevelHouse();
+            break;
+
+            case 1000001:
+                // view status buildings
+                viewStatusOfBuildings();
+                break;
+
             case 0:
                 System.out.println("INFO: Wpisane polecenie nie jest obsługiwane.\n");
                 break;
@@ -98,17 +133,24 @@ public class Console {
     }
 
     private void viewHelp() {
-        System.out.println("- - - - - - -   HELP   - - - - - - -");
+        System.out.println("HELP start");
         System.out.println("buy building: architect / warehouse / quarry / lumberjack / flowerbed / house");
         System.out.println("");
         System.out.println("upgrade building: architect / warehouse / quarry / lumberjack / flowerbed / house");
         System.out.println("");
         System.out.println("(WKRÓTCE DOSTĘPNE) view parameter building level: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        System.out.println("- - - - - - -   HELP   - - - - - - -\n");
+        System.out.println("HELP end\n");
     }
 
-    private void viewEstateOfBuildings() {
-
+    private void viewStatusOfBuildings() {
+        System.out.println("Status of buildings:");
+        managerObjects.viewDetailsArchitect();
+        managerObjects.viewDetailsWarehouse();
+        managerObjects.viewDetailsQuarry();
+        managerObjects.viewDetailsLumberjack();
+        managerObjects.viewDetailsFlowerbed();
+        managerObjects.viewDetailsHouse();
+        System.out.println("");
     }
 }
 
