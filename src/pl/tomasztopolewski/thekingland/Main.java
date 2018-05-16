@@ -8,8 +8,7 @@ import java.io.FileNotFoundException;
 
 public abstract class Main {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException, NumberFormatException {
-        Authentication authentication = new Authentication();
-        if (authentication.start() == 1) {
+        if (new Authentication().start() == 1) {
             Communique.viewWelcome();
 
             Communique.animationStartLoadingSettings();
