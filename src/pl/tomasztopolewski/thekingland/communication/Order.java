@@ -16,6 +16,11 @@ public class Order {
     public final int minimumNumberSwitch = 0;
     public final int maximumNumberSwitch = 100000;
 
+
+    public Order() {
+        downloadLine(charNewOrder);
+        setOrder(downloadLine);
+    }
     public Order(int numberOfConstructor) {
         if (numberOfConstructor == 1) {
             downloadLine(charNewOrder);
@@ -26,12 +31,6 @@ public class Order {
             createNumber();
         }
     }
-    // dla void createNumber()
-    /*public Order() {
-        downloadLine(charNewOrder);
-        setOrder(downloadLine);
-        createNumber();
-    }*/
     public Order(String downloadLine) {
         setDownloadLine(downloadLine);
         setOrder(this.downloadLine);
@@ -49,7 +48,7 @@ public class Order {
     }
 
     private void setOrder(String downloadLine) {
-                //System.out.print("  SYSTEM_INFO: Ustawianie 'order' z pobranej linii przez 'Order'.\n");
+        //System.out.print("  SYSTEM_INFO: Ustawianie 'order' z pobranej linii przez 'Order'.\n");
         if (checkDownloadLine(downloadLine)) this.order = downloadLine;
         else {
             this.order = "0";

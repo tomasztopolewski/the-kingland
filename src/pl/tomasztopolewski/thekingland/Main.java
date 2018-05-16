@@ -15,12 +15,6 @@ public abstract class Main {
             Communique.animationStartLoadingSettings();
             Console console = new Console();
             Communique.animationEndLoadingSettings();
-
-           /*while (true) {
-                console.removeOrder();
-                console.createOrder();
-                console.doOrder();
-            }*/
            while (true) console.processOrder();
 
         } else {

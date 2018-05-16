@@ -43,7 +43,7 @@ public abstract class Communique {
     public static final String nameGame = "The KingLand";
     public static final String author = "Tomasz Topolewski";
 
-    public static final String numberOfVersion = "v50.10.600";
+    public static final String numberOfVersion = "v50.10.605";
     public static final String typeOfVersion = "DEV_alpha";
     public static final String version = numberOfVersion + "-branch(Jun 2017) " + typeOfVersion;
     public static final String newVersion = numberOfVersion + " " + typeOfVersion;
@@ -55,12 +55,6 @@ public abstract class Communique {
     public static final String medianDate = "May 2018";
     public static final String shortDate = "May 2018";
 
-    /*public static final String welcome =  "\t" + nameGame + version + "\n";
-    public static final String startWelcome = "\t" + nameGame + version + "\n\t" + shortStartDateWork + " - " + shortDate + "\n\n";
-    public static final String shortWelcome = "\n---------------------------------------------------\n\t" + nameGame + version + " - Oct2015\n\n";*/
-
-
-    public Communique() {}
 
     public String getNameGame() {
         return nameGame;
@@ -81,15 +75,7 @@ public abstract class Communique {
         return shortDate;
     }
 
-    /*public void viewWelcome() {
-        System.out.print(welcome);
-    }
-    public void viewShortWelcome() {
-        System.out.print(shortWelcome);
-    }
-    public void viewStartWelcome() {
-        System.out.print(startWelcome);
-    }*/
+
     public static void viewWelcome() {
         System.out.print("\t" + nameGame + " " + version + "\n");
         System.out.print("\t\t\t" + medianStartDateWork + " - " + medianDate + "\n\n");
@@ -123,16 +109,7 @@ public abstract class Communique {
         }
         System.out.print("\n");
     }
-    public void animationSimpleWaitLoadSettings(int sec) throws InterruptedException {
-        Thread.sleep(2000);
-        System.out.print("\n\tLoading settings");
-        Thread.sleep(1000);
-        for (int i = 1; i <= sec; i++) {
-            System.out.print(".");
-            Thread.sleep(2000);
-        }
-        System.out.print("\n");
-    }
+
     public static void animationStartLoadingSettings() throws InterruptedException {
         Thread.sleep(500);
         System.out.print("Loading settings ");
@@ -149,21 +126,6 @@ public abstract class Communique {
         System.out.print("Loading settings 100%\n\n");
         //Thread.sleep(500);
     }
-    /*public static void animationStartLoadingSettings() throws InterruptedException {
-        Thread.sleep(500);
-        System.out.print("Loading settings ");
-        Thread.sleep(200);
-        System.out.print("0% ");
-        for (int k = 0; k < 3; k++) {
-            Thread.sleep(500);
-            System.out.print(".");
-        }
-    }
-    public static void animationEndLoadingSettings() throws InterruptedException {
-        Thread.sleep(1000);
-        System.out.print(" 100%\n\n");
-        Thread.sleep(1000);
-    }*/
 
     public static void viewGoodbay() throws InterruptedException {
         System.out.println("Good bay!\n");
