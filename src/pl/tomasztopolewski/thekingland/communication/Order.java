@@ -16,11 +16,22 @@ public class Order {
     public final int minimumNumberSwitch = 0;
     public final int maximumNumberSwitch = 100000;
 
-    public Order() {
+    public Order(int numberOfConstructor) {
+        if (numberOfConstructor == 1) {
+            downloadLine(charNewOrder);
+            setOrder(downloadLine);
+        } else if (numberOfConstructor == 2) {
+            downloadLine(charNewOrder);
+            setOrder(downloadLine);
+            createNumber();
+        }
+    }
+    // dla void createNumber()
+    /*public Order() {
         downloadLine(charNewOrder);
         setOrder(downloadLine);
         createNumber();
-    }
+    }*/
     public Order(String downloadLine) {
         setDownloadLine(downloadLine);
         setOrder(this.downloadLine);
@@ -90,6 +101,60 @@ public class Order {
         else return false;
     }*/
 
+    public int returnNumber() {
+        //System.out.print("\torder in createNumber: " + order + "\n");
+
+        if (order.startsWith("/")) {
+            //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku komendy.\n");
+        } else if (order.startsWith("$/")) {
+            //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku super komendy.\n");
+        } else {
+            //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku polecenia.\n");
+            //polecenia 'buy'
+            if (order.startsWith("buy")) {
+                if (order.startsWith("buy building")) {
+                    if (order.startsWith("buy building architect")) return 10101;
+                    else if (order.startsWith("buy building warehouse")) return 20101;
+                    else if (order.startsWith("buy building quarry")) return 30101;
+                    else if (order.startsWith("buy building lumberjack")) return 40101;
+                    else if (order.startsWith("buy building flowerbed")) return 50101;
+                    else if (order.startsWith("buy building house")) return 60101;
+                }
+            //polecenia 'upgrade'
+            } else if (order.startsWith("upgrade")) {
+                if (order.startsWith("upgrade building")) {
+                    if (order.startsWith("upgrade building architect")) return 10102;
+                    else if (order.startsWith("upgrade building warehouse")) return 20102;
+                    else if (order.startsWith("upgrade building quarry")) return 30102;
+                    else if (order.startsWith("upgrade building lumberjack")) return 40102;
+                    else if (order.startsWith("upgrade building flowerbed")) return 50102;
+                    else if (order.startsWith("upgrade building house")) return 60102;
+                }
+
+             //polecenia 'view'
+            } else if (order.startsWith("view")) {
+                addNumberSwitch(3);
+                if (order.startsWith("view estate")) {
+                    if (order.startsWith("view estate buildings")) return 120000;
+                } else if (order.startsWith("view parameter")) {
+                    addNumberSwitch(10);
+                    if (order.startsWith("view parameter building")) {
+                        if (order.startsWith("view parameter building level architect")) return 110101;
+                        else if (order.startsWith("view parameter building level warehouse")) return 210101;
+                        else if (order.startsWith("view parameter building level quarry")) return 310101;
+                        else if (order.startsWith("view parameter building level lumberjack")) return 410101;
+                        else if (order.startsWith("view parameter building level flowerbed")) return 510101;
+                        else if (order.startsWith("view parameter building level house")) return 610101;
+                    }
+                }
+            }
+            //polecenie 'help'
+            else if (order.startsWith("help") && order.length() == 4) return 990;
+            //polecenie 'exit'
+            else if (order.startsWith("exit") && order.length() == 4) return 999;
+        }
+        return 0;
+    }
     public void createNumber() {
         //System.out.print("\torder in createNumber: " + order + "\n");
 
@@ -98,7 +163,7 @@ public class Order {
             createNumberForCommand();
         } else if (order.startsWith("$/")) {
                 //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku super komendy.\n");
-                createNumberForSuperCommand();
+            createNumberForSuperCommand();
         } else {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku polecenia.\n");
             //polecenia 'buy'
@@ -160,6 +225,28 @@ public class Order {
         */
     }
 
+    public int returnNumberForCommand() {
+        if (order.startsWith("/100") && order.length() == 4) return 990;
+        if (order.startsWith("/999") && order.length() == 4) return 999;
+
+        //ustawiam numberSwitch dla numberSwitch poleceń 'buy'
+        if (order.startsWith("/10101") && order.length() == 6) return 10101;
+        if (order.startsWith("/20101") && order.length() == 6) return 20101;
+        if (order.startsWith("/30101") && order.length() == 6) return 30101;
+        if (order.startsWith("/40101") && order.length() == 6) return 40101;
+        if (order.startsWith("/50101") && order.length() == 6) return 50101;
+        if (order.startsWith("/60101") && order.length() == 6) return 60101;
+
+        //ustawiam numberSwitch dla numberSwitch poleceń 'upgrade'
+        if (order.startsWith("/10102") && order.length() == 6) return 10102;
+        if (order.startsWith("/20102") && order.length() == 6) return 20102;
+        if (order.startsWith("/30102") && order.length() == 6) return 30102;
+        if (order.startsWith("/40102") && order.length() == 6) return 40102;
+        if (order.startsWith("/50102") && order.length() == 6) return 50102;
+        if (order.startsWith("/60102") && order.length() == 6) return 60102;
+        
+        return 0;
+    }
     public void createNumberForCommand() {
         if (order.startsWith("/100") && order.length() == 4) setNumberSwitch(100);
         if (order.startsWith("/999") && order.length() == 4) setNumberSwitch(999);

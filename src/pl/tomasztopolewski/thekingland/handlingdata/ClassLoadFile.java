@@ -18,6 +18,8 @@ public class ClassLoadFile {
     private final String enlargement = ".kingfile";
     private String url;
 
+    private File fileDownload;
+
     private String[] loadedLines;
     private final int maxNumberOfLines = 100;
 
@@ -64,6 +66,10 @@ public class ClassLoadFile {
         return url;
     }
 
+    public File getFileDownload() {
+        return fileDownload;
+    }
+
     public String[] getLoadedLines() {
         return loadedLines;
     }
@@ -87,7 +93,7 @@ public class ClassLoadFile {
         try {
            // System.out.print("URL: " + url + "\\" + name + enlargement + "\n");
 
-            File fileDownload = new File(url + "\\" + name + enlargement);
+            fileDownload = new File(url + "\\" + name + enlargement);
             Scanner reader = new Scanner(fileDownload);
 
             int i = -1;

@@ -186,7 +186,7 @@ public class OldConsole {
                 againDownloadOrder();
             }
         } else if (downloadedOrder.length() <= 50) {
-            System.out.print("Error: Command is too long./n");
+            System.out.print("Error: CommandPreparation is too long./n");
             scanner = null;
             successDownload = false;
 

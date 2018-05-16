@@ -37,6 +37,9 @@ public class ClassLoadDatabase {
 
 //////////////////////////////////////////////////////////////////////////
 
+    public String getEnlargement() {
+        return enlargement;
+    }
 
     public void load() throws FileNotFoundException, NoSuchElementException {
         try {

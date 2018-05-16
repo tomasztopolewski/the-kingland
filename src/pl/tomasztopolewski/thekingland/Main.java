@@ -8,9 +8,6 @@ import java.io.FileNotFoundException;
 
 public abstract class Main {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException, NumberFormatException {
-        //Communique communique = new Communique();
-        //Communique.viewWelcome();
-
         Authentication authentication = new Authentication();
         if (authentication.start() == 1) {
             Communique.viewWelcome();
@@ -19,14 +16,15 @@ public abstract class Main {
             Console console = new Console();
             Communique.animationEndLoadingSettings();
 
-            while (true) {
+           /*while (true) {
                 console.removeOrder();
                 console.createOrder();
                 console.doOrder();
-            }
+            }*/
+           while (true) console.processOrder();
 
         } else {
-            // nieprawidłówa instalacja --> dalsze działania
+            // nieprawidłowa instalacja --> dalsze działania
         }
     }
 }

@@ -6,14 +6,14 @@ import pl.tomasztopolewski.thekingland.authentication.Player;
 
 import java.util.Scanner;
 
-public class Command {
+public class CommandPreparation {
     private String preliminaryOutline;
     private String order;
     private String arguments;
 
     private boolean successDownload;
 
-    public Command() {}
+    public CommandPreparation() {}
 
     public String getArguments() {
         return arguments;
@@ -80,9 +80,7 @@ public class Command {
         char[] charsOfArguments = arguments.toCharArray();
 
         for (int i = 0; i < charsOfArguments.length; i++) if (charsOfArguments[i]==' ') return false;
-
-        if (new Authentication().checkIsItInBasadatePlayers(arguments)) return true;
-        return false;
+        return true;
     }
 
 
