@@ -27,120 +27,100 @@ public class Console {
 
     public void processOrder() throws InterruptedException {
         switch (new Order().returnNumber()) {
-            case 990:
-                viewHelp();
-                break;
+            // help
+            case 990: viewHelp(); break;
 
-            case 999:
-                try {
-                    Communique.viewGoodbay();
-                } catch (InterruptedException e) { /*e.printStackTrace();*/ }
-                break;
+            // version
+            case 991: Communique.viewVersion(); break;
 
-            case 10101:
-                // buy building Architect
-                managerObjects.buyArchitect();
-                break;
-            case 20101:
-                // buy building Warehouse
-                managerObjects.buyWarehouse();
-                break;
-            case 30101:
-                // buy building Quarry
-                managerObjects.buyQuarry();
-                break;
-            case 40101:
-                // buy building Lumberjack
-                managerObjects.buyLumberjack();
-                break;
-            case 50101:
-                // buy building Flowerbed
-                managerObjects.buyFlowerbed();
-                break;
-            case 60101:
-                // buy building House;
-                managerObjects.buyHouse();
-                break;
+            // author
+            case 992: Communique.viewAuthor(); break;
 
-            case 10102:
-                // upgrade building Architect
-                managerObjects.levelUpArchitect();
-                break;
-            case 20102:
-                // upgrade building Warehouse
-                managerObjects.levelUpWarehouse();
-                break;
-            case 30102:
+            // exit
+            case 999:try { Communique.viewGoodbay();} catch (InterruptedException e) { /*e.printStackTrace();*/ } break;
+
+
+            // buy building Architect
+            case 10101: managerObjects.buyArchitect(); break;
+
+            // buy building Warehouse
+            case 20101: managerObjects.buyWarehouse(); break;
+
+            // buy building Quarry
+            case 30101: managerObjects.buyQuarry(); break;
+
+            // buy building Lumberjack
+            case 40101: managerObjects.buyLumberjack(); break;
+
+            // buy building Flowerbed
+            case 50101: managerObjects.buyFlowerbed(); break;
+
+            // buy building House;
+            case 60101: managerObjects.buyHouse(); break;
+
+
+            // upgrade building Architect
+            case 10102: managerObjects.levelUpArchitect(); break;
+
+            // upgrade building Warehouse
+            case 20102: managerObjects.levelUpWarehouse();
+
                 // upgrade building Quarry
-                managerObjects.levelUpQuarry();
-                break;
-            case 40102:
-                // upgrade building Lumberjack
-                managerObjects.levelUpLumberjack();
-                break;
-            case 50102:
-                // upgrade building Flowerbed
-                managerObjects.levelUpFlowerbed();
-                break;
-            case 60102:
-                // upgrade building House
-                managerObjects.levelUpHouse();
-                break;
+            case 30102: managerObjects.levelUpQuarry(); break;
 
-            case 110101:
-                // view parameter building level architect
-                managerObjects.viewLevelArchitect();
-            break;
+            // upgrade building Lumberjack
+            case 40102: managerObjects.levelUpLumberjack(); break;
 
-            case 210101:
-                // view parameter building level warehous
-                managerObjects.viewLevelWarehouse();
-            break;
+            // upgrade building Flowerbed
+            case 50102: managerObjects.levelUpFlowerbed(); break;
 
-            case 310101:
-                // view parameter building level quarry
-                managerObjects.viewLevelQuarry();
-            break;
+            // upgrade building House
+            case 60102: managerObjects.levelUpHouse(); break;
 
-            case 410101:
-                // view parameter building level lumberjack
-                managerObjects.viewLevelLumberjack();
-            break;
 
-            case 510101:
-                // view parameter building level flowerbed
-                managerObjects.viewLevelFlowerbed();
-            break;
+            // view parameter building level architect
+            case 110101: managerObjects.viewLevelArchitect(); break;
 
-            case 610101:
-                // view parameter building level house
-                managerObjects.viewLevelHouse();
-            break;
+            // view parameter building level warehous
+            case 210101: managerObjects.viewLevelWarehouse(); break;
 
-            case 1000001:
-                // view status buildings
-                viewStatusOfBuildings();
-                break;
+            // view parameter building level quarry
+            case 310101: managerObjects.viewLevelQuarry(); break;
 
-            case 0:
-                System.out.println("INFO: Wpisane polecenie nie jest obsługiwane.\n");
-                break;
+            // view parameter building level lumberjack
+            case 410101: managerObjects.viewLevelLumberjack(); break;
 
-            default:
-                System.out.println("WARN: System nie rozpoznaje polecenia.\n");
-                break;
+            // view parameter building level flowerbed
+            case 510101: managerObjects.viewLevelFlowerbed(); break;
+
+            // view parameter building level house
+            case 610101: managerObjects.viewLevelHouse(); break;
+
+
+            // view status buildings
+            case 1000001: viewStatusOfBuildings(); break;
+
+
+            case 0: System.out.println("INFO: Wpisane polecenie nie jest obsługiwane.\n"); break;
+
+            default: System.out.println("WARN: System nie rozpoznaje polecenia.\n"); break;
         }
     }
 
     private void viewHelp() {
-        System.out.println("HELP start");
+        System.out.println(" - HELP start -");
+        System.out.println("author, version, exit");
+        //System.out.println("");
         System.out.println("buy building: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        System.out.println("");
+        //System.out.println("");
         System.out.println("upgrade building: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        System.out.println("");
-        System.out.println("(WKRÓTCE DOSTĘPNE) view parameter building level: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        System.out.println("HELP end\n");
+        //System.out.println("");
+        System.out.println("view parameter building level: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        //System.out.println("");
+        System.out.println("view status buildings");
+        System.out.println(" - HELP end - \n");
     }
+
 
     private void viewStatusOfBuildings() {
         System.out.println("Status of buildings:");

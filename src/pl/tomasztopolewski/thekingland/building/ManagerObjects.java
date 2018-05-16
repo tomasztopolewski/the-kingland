@@ -27,7 +27,7 @@ public class ManagerObjects {
     private final int indexOfHouse = 5;
 
 
-    public SettingsObject[] settingsBuildings;
+    private SettingsObject[] settingsBuildings;
 
     private Architect architect = new Architect();
     private Warehouse warehouse = new Warehouse();
@@ -35,6 +35,8 @@ public class ManagerObjects {
     private Lumberjack lumberjack = new Lumberjack();
     private Flowerbed flowerbed = new Flowerbed();
     private House house = new House();
+
+    private SettingsObject[] saveSettingsBuildings;
 
     //konstruktor warunkowany dla zmiennej "nameOfConstructor"
     public ManagerObjects(String nameOfConstructor) throws FileNotFoundException {

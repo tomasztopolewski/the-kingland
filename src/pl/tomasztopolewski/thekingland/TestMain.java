@@ -1,17 +1,28 @@
 package pl.tomasztopolewski.thekingland;
 
 import pl.tomasztopolewski.thekingland.communication.Communique;
+import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
 import pl.tomasztopolewski.thekingland.security.Decryption;
 import pl.tomasztopolewski.thekingland.security.Encryption;
 
 public abstract class TestMain {
 
     public static void main(String[] args) {
-        System.out.println(new Encryption("123").encodeString());
-        System.out.println(new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString());
+        //SettingsObject(String codeGroupObject, String codeObject, int numberOfArguments, int numberOfValuesInArgument, String[] values)
+        SettingsObject[] settingsBuildings = new SettingsObject[6];
+
+        settingsBuildings[0] = new SettingsObject("management", "architect",  1, 1, new String[]{});
+        settingsBuildings[1] = new SettingsObject("management", "warehouse",  1, 1, new String[]{});
+        settingsBuildings[2] = new SettingsObject("factories",  "quarry",     1, 1, new String[]{});
+        settingsBuildings[3] = new SettingsObject("factories",  "lumberjack", 1, 1, new String[]{});
+        settingsBuildings[4] = new SettingsObject("mood",       "flowerbed",  2, 1, new String[]{});
+        settingsBuildings[5] = new SettingsObject("sociaty",    "house",      1, 1, new String[]{});
     }
 
     /*public static void main(String[] args) {
+        System.out.println(new Encryption("123").encodeString());
+        System.out.println(new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString());
+
         String str = "too maszz ";
         char[] charsOfStr = str.trim().toCharArray();
 

@@ -150,6 +150,8 @@ public class Order {
             }
             //polecenie 'help'
             else if (order.startsWith("help") && order.length() == 4) return 990;
+            if (order.startsWith("version") && order.length() == 7) return 991;
+            if (order.startsWith("author") && order.length() == 6) return 992;
             //polecenie 'exit'
             else if (order.startsWith("exit") && order.length() == 4) return 999;
         }
@@ -227,6 +229,8 @@ public class Order {
 
     public int returnNumberForCommand() {
         if (order.startsWith("/100") && order.length() == 4) return 990;
+        if (order.startsWith("/991") && order.length() == 4) return 991;
+        if (order.startsWith("/992") && order.length() == 4) return 992;
         if (order.startsWith("/999") && order.length() == 4) return 999;
 
         // polecenia 'buy'
