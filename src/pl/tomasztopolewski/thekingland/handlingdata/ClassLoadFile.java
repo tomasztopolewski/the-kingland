@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class ClassLoadFile {
     private String name;
     private final String enlargement = ".kingfile";
-    private String url;
+    private String path;
 
     private File fileDownload;
 
@@ -30,9 +30,9 @@ public class ClassLoadFile {
 
 
     //konstruktor tworzący klasę
-    public ClassLoadFile(String name, String url) throws FileNotFoundException {
+    public ClassLoadFile(String name, String path) throws FileNotFoundException {
         this.name = name;
-        this.url = url;
+        this.path = path;
         this.loadedLines = new String[100];
         this.numberOfLines = 0;
         this.loaded = false;
@@ -40,12 +40,14 @@ public class ClassLoadFile {
         loadFile();
         downloadedLines = new String[numberOfLines];
         downloadedLines = cutEmptyLines();
+
+
     }
 
     //konstktor resetujący klasę
     public ClassLoadFile() {
         this.name = null;
-        this.url = null;
+        this.path = null;
         this.loadedLines = null;
         this.numberOfLines = -1;
         this.loaded = false;
@@ -54,7 +56,7 @@ public class ClassLoadFile {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public String getPathUrl() {
-        return url + "\\" + name + enlargement;
+        return path + "\\" + name + enlargement;
     }
     public String getName() {
         return name;
@@ -62,13 +64,14 @@ public class ClassLoadFile {
     public String getEnlargement() {
         return enlargement;
     }
-    public String getUrl() {
-        return url;
+    public String getPath() {
+        return path;
     }
 
     public File getFileDownload() {
         return fileDownload;
     }
+    public void closeFile() {}
 
     public String[] getLoadedLines() {
         return loadedLines;
@@ -90,11 +93,12 @@ public class ClassLoadFile {
     }
 
     public void loadFile() throws FileNotFoundException, NoSuchElementException {
+        Scanner reader = new Scanner(System.in);
         try {
-           // System.out.print("URL: " + url + "\\" + name + enlargement + "\n");
+           // System.out.print("URL: " + path + "\\" + name + enlargement + "\n");
 
-            fileDownload = new File(url + "\\" + name + enlargement);
-            Scanner reader = new Scanner(fileDownload);
+            fileDownload = new File(path + "\\" + name + enlargement);
+            reader = new Scanner(fileDownload);
 
             int i = -1;
             try {
@@ -110,9 +114,9 @@ public class ClassLoadFile {
 
         } catch (FileNotFoundException fnfe) {
             loaded = false;
-            System.out.print("Error-ClassLoadFile::loadFile: Plik \"" + name + "\" nie istnieje w następującej ścieżce dostępu: \"" + url + "\\" + name + enlargement + "\"\n");
-            for (int i = 0; i <= 99; i++) loadedLines = null;
-        }
+            System.out.print("Error-ClassLoadFile::loadFile: Plik \"" + name + "\" nie istnieje w następującej ścieżce dostępu: \"" + path + "\\" + name + enlargement + "\"\n");
+            for (int i = 0; i <= 99; i++) loadedLines = null; }
+        reader.close();
     }
 
     private String[] cutEmptyLines() {

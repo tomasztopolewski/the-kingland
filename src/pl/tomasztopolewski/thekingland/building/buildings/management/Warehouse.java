@@ -39,6 +39,13 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
 
     private int[] occupiedSpaceByMaterials; //zajęta przestrzeń przez materiały
 
+
+    public Warehouse(int levelUpgrade, int[] occupiedSpaceByMaterials) throws FileNotFoundException {
+        setLevelUpgrade(levelUpgrade);
+        this.occupiedSpaceByMaterials = new int[numberOfMaterials];
+
+        loadOccupiedSpaceByMaterial(occupiedSpaceByMaterials);
+    }
     public Warehouse(int levelUpgrade) throws FileNotFoundException {
         setLevelUpgrade(levelUpgrade);
         occupiedSpaceByMaterials = new int[numberOfMaterials];
@@ -113,6 +120,33 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
         return space[levelUpgrade] - getAllOccupiedSpaceByMaterials();
     }
 
+    public int getNumberOfMaterials() {
+        return numberOfMaterials;
+    }
+
+    public int getIndexOfMaterialWood() {
+        return indexOfMaterialWood;
+    }
+
+    public int getIndexOfMaterialStone() {
+        return indexOfMaterialStone;
+    }
+
+    public void loadOccupiedSpaceByMaterial(int[] occupiedSpaceByMaterials) {
+        this.occupiedSpaceByMaterials[indexOfMaterialWood] = occupiedSpaceByMaterials[indexOfMaterialWood];
+        this.occupiedSpaceByMaterials[indexOfMaterialStone] = occupiedSpaceByMaterials[indexOfMaterialStone];
+    }
+    /*public void loadOccupiedSpaceByMaterial(int numberOfMaterial, int quantity) {
+        switch (numberOfMaterial) {
+            case 0:
+                this.occupiedSpaceByMaterials[indexOfMaterialWood] = quantity;// >= 0 ? quantity : 0;
+                break;
+            case 1:
+                this.occupiedSpaceByMaterials[indexOfMaterialStone] = quantity;// >= 0 ? quantity : 0;
+                break;
+            default: break;
+        }
+    }*/
     public void setOccupiedSpaceByMaterial(int numberOfMaterial, int quantity) {
         switch (numberOfMaterial) {
             case 0:

@@ -16,6 +16,10 @@ public class ManagerObjects {
     private final ClassLoadFile classLoadFileSettingsOfBuildings = new ClassLoadFile(Installation.nameOfFile_ManagerBuilding, Installation.pathToFolder);
     private String[] linesOfFileSettingsOfBuildings;
 
+    private final ClassLoadFile classLoadFileMaterialOfSpace = new ClassLoadFile(Installation.nameOfFile_SpaceOfWarehouse, Installation.pathToFolder);
+    private String[] linesOfFileMaterialOfSpace;
+    private boolean loadedSpaceOfWarehouse;
+
 
     private final int numberOfBuilding = 6;
 
@@ -28,6 +32,7 @@ public class ManagerObjects {
 
 
     private SettingsObject[] settingsBuildings;
+    private SettingsObject[] saveSettingsBuildings;
 
     private Architect architect = new Architect();
     private Warehouse warehouse = new Warehouse();
@@ -36,10 +41,38 @@ public class ManagerObjects {
     private Flowerbed flowerbed = new Flowerbed();
     private House house = new House();
 
-    private SettingsObject[] saveSettingsBuildings;
 
-    //konstruktor warunkowany dla zmiennej "nameOfConstructor"
+    private final int numberOfMaterials = new Warehouse().getNumberOfMaterials();
+    private final int indexOfMaterialWood = new Warehouse().getIndexOfMaterialWood();
+    private final int indexOfMaterialStone = new Warehouse().getIndexOfMaterialStone();
+
+    private SettingsObject[] settingsMaterials;
+    private SettingsObject[] saveSettingsMaterials;
+
+
     public ManagerObjects(String nameOfConstructor) throws FileNotFoundException {
+        if (nameOfConstructor.equals("load values from file")) {
+            createEmptyBuildings();
+
+            settingsMaterials = new SettingsObject[numberOfMaterials];
+            loadFileWithSpaceOfWarehouse();
+            createSettingsMaterials();
+            processOfSettingsMaterials();
+
+            settingsBuildings = new SettingsObject[numberOfBuilding];
+            saveSettingsBuildings = new SettingsObject[numberOfBuilding];
+            loadFileWithObjects();
+            createSettingObjects();
+            processOfSettingObjects();
+
+            resetBuildings();
+            createBuildings();
+        } else {
+            createEmptyBuildings();
+        }
+    }
+    //konstruktor warunkowany dla zmiennej "nameOfConstructor"
+    /*public ManagerObjects(String nameOfConstructor) throws FileNotFoundException {
         if (nameOfConstructor.equals("load values from file")) {
             createEmptyBuildings();
 
@@ -53,7 +86,7 @@ public class ManagerObjects {
         } else {
             createEmptyBuildings();
         }
-    }
+    }*/
     public ManagerObjects() throws FileNotFoundException {
         createEmptyBuildings();
     }
@@ -67,7 +100,17 @@ public class ManagerObjects {
         //classLoadFileSettingsOfBuildings.viewDownloadedLoadedLines();
         linesOfFileSettingsOfBuildings = classLoadFileSettingsOfBuildings.getDownloadedLines();
         //viewLinesOfFileSettingsOfBuildings();
+
     }
+
+    public void loadFileWithSpaceOfWarehouse() throws FileNotFoundException {
+        classLoadFileMaterialOfSpace.loadFile();
+
+        linesOfFileMaterialOfSpace = classLoadFileMaterialOfSpace.getDownloadedLines();
+        if (linesOfFileMaterialOfSpace[0].length() > 1 && (linesOfFileMaterialOfSpace[1].length() > 1)) loadedSpaceOfWarehouse = true;
+        else loadedSpaceOfWarehouse = false;
+    };
+
 
     private void createSettingObjects() {
         settingsBuildings[0] = new SettingsObject(linesOfFileSettingsOfBuildings[0], "management", "architect",  1, 1);
@@ -93,6 +136,12 @@ public class ManagerObjects {
                 settingsBuildings[5] = new SettingsObject(linesOfFileSettingsOfBuildings[5], "sociaty",    "house",      1, 1); break;
         }
     }
+
+    private void createSettingsMaterials() {
+        settingsMaterials[0] = new SettingsObject(linesOfFileMaterialOfSpace[0], "material", "wood",  1 ,1);
+        settingsMaterials[1] = new SettingsObject(linesOfFileMaterialOfSpace[1], "material", "stone", 1 ,1);
+    }
+
 
     private void processOfSettingObjects() {
         settingsBuildings[0].prepareTabOfValues();
@@ -125,6 +174,11 @@ public class ManagerObjects {
         }
     }
 
+    private void processOfSettingsMaterials() {
+        settingsMaterials[0].prepareTabOfValues();
+        settingsMaterials[1].prepareTabOfValues();
+    }
+
 /////////////////////////////////////////////////////////////////////////////
 // METODY ZARZĄDZAJĄCE BUDYNKAMI
 
@@ -154,7 +208,10 @@ public class ManagerObjects {
         architect = new Architect();
     }
     public void createWarehouse() throws FileNotFoundException {
-        warehouse = new Warehouse(settingsBuildings[1].convertValue(settingsBuildings[1].getFirstValue()));
+        //warehouse = new Warehouse(settingsBuildings[1].convertValue(settingsBuildings[1].getFirstValue()));
+        warehouse = new Warehouse(settingsBuildings[1].convertValue(settingsBuildings[1].getFirstValue()),
+                new int[]{Integer.valueOf(settingsMaterials[indexOfMaterialWood].getValue(0)),
+                        Integer.valueOf(settingsMaterials[indexOfMaterialStone].getValue(0))});
     }
     public void createEmptyWarehouse() throws FileNotFoundException {
         warehouse = new Warehouse();
@@ -420,7 +477,6 @@ public class ManagerObjects {
 
 
 
-
     /**
      private void destroyedBuilding(String building) {
      // TODO: funkcja ma oddawać 30-40% z materiałów jakie trzeba dać na konkretny budnek o konretnym level
@@ -435,6 +491,38 @@ public class ManagerObjects {
      } finally {}
      }
      */
+
+/////////////////////////////////////////////////////////////////////////////
+// METODY TWORZĄCE OBIEKTY USTAWIEŃ DO ZAPISU I ŁADUJĄCE USTAWIENIA Z GRY
+
+    public void prepareSave() {
+        createSaveSettingObjects();
+        generateLineForSaveSettingObjects();
+    }
+
+    private void createSaveSettingObjects() {
+        saveSettingsBuildings[0] = new SettingsObject("management", "architect",  1, 1, new String[]{String.valueOf(architect.getLevelUpgrade())});
+        saveSettingsBuildings[1] = new SettingsObject("management", "warehouse",  1, 1, new String[]{String.valueOf(warehouse.getLevelUpgrade())});
+        saveSettingsBuildings[2] = new SettingsObject("factories",  "quarry",     1, 1, new String[]{String.valueOf(quarry.getLevelUpgrade())});
+        saveSettingsBuildings[3] = new SettingsObject("factories",  "lumberjack", 1, 1, new String[]{String.valueOf(lumberjack.getLevelUpgrade())});
+        saveSettingsBuildings[4] = new SettingsObject("mood",       "flowerbed",  2, 1, new String[]{String.valueOf(flowerbed.getSquare()), String.valueOf(flowerbed.getLevelUpgrade())});
+        saveSettingsBuildings[5] = new SettingsObject("sociaty",    "house",      1, 1, new String[]{String.valueOf(house.getLevelUpgrade())});
+    }
+
+    private void generateLineForSaveSettingObjects() {
+        saveSettingsBuildings[0].generateLine();
+        saveSettingsBuildings[1].generateLine();
+        saveSettingsBuildings[2].generateLine();
+        saveSettingsBuildings[3].generateLine();
+        saveSettingsBuildings[4].generateLine();
+        saveSettingsBuildings[5].generateLine();
+    }
+
+
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 // METODY WYŚWIETLAJĄCE WYNIKI
@@ -482,6 +570,9 @@ public class ManagerObjects {
     public void viewDetailsHouse() {
         System.out.println("House: lvl. " + house.getLevelUpgrade() + "  number of people: " + house.getNumberOfPeople());
     }
+
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////

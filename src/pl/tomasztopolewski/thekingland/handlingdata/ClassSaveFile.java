@@ -8,7 +8,7 @@ import java.io.Writer;
 public class ClassSaveFile {
     private String name;
     private final String enlargement = ".kingfile";
-    private String url;
+    private String path;
 
     private File fileDownload;
     private Writer writer;
@@ -22,7 +22,9 @@ public class ClassSaveFile {
 
     private boolean loaded;
 
-    public ClassSaveFile() throws IOException {
-        fileWriter = new FileWriter(url, true);
+    public ClassSaveFile(String name, String path) throws IOException {
+        this.name = name;
+        this.path = path;
+        fileWriter = new FileWriter(path, true);
     }
 }

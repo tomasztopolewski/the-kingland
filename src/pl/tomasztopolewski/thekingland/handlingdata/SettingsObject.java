@@ -78,6 +78,21 @@ public class  SettingsObject {
     public String getLine() {
         return line;
     }
+    public void generateLine() {
+        String line = codeGroupObject + "." + codeObject + "[";
+        int i, j;
+        for (i = 0; i < numberOfArguments; i++) {
+            for (j = 0; j < numberOfValuesInArgument; j++) {
+                line += values[i+j];
+                if (++j == numberOfValuesInArgument) break;
+                else line += ":";
+            }
+            if (++i == numberOfArguments) break;
+            else line += ";";
+        }
+        System.out.println(line + "]");
+        setLine(line + "]");
+    }
     private void setNumberOfDownloadedLine(int numberOfDownloadedLine) {
         this.numberOfDownloadedLine = numberOfDownloadedLine > 0 ? numberOfDownloadedLine : 0;
     }

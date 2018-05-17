@@ -228,7 +228,9 @@ public class Order {
     }
 
     public int returnNumberForCommand() {
-        if (order.startsWith("/100") && order.length() == 4) return 990;
+        if (order.startsWith("/100") && order.length() == 4) return 100;
+        if (order.startsWith("/800") && order.length() == 4) return 800;
+        if (order.startsWith("/990") && order.length() == 4) return 990;
         if (order.startsWith("/991") && order.length() == 4) return 991;
         if (order.startsWith("/992") && order.length() == 4) return 992;
         if (order.startsWith("/999") && order.length() == 4) return 999;

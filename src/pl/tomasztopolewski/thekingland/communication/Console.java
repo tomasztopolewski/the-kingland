@@ -27,6 +27,9 @@ public class Console {
 
     public void processOrder() throws InterruptedException {
         switch (new Order().returnNumber()) {
+            // save
+            case 800: managerObjects.prepareSave(); break;
+
             // help
             case 990: viewHelp(); break;
 
