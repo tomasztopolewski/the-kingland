@@ -1,13 +1,60 @@
 package pl.tomasztopolewski.thekingland;
 
 import pl.tomasztopolewski.thekingland.communication.Communique;
+import pl.tomasztopolewski.thekingland.handlingdata.ClassSaveFile;
 import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
 import pl.tomasztopolewski.thekingland.security.Decryption;
 import pl.tomasztopolewski.thekingland.security.Encryption;
 
-public abstract class TestMain {
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-    public static void main(String[] args) {
+import static pl.tomasztopolewski.thekingland.communication.Communique.nameGame;
+import static pl.tomasztopolewski.thekingland.communication.Communique.version;
+
+public abstract class TestMain {
+    public static void main(String[] args) throws IOException {
+        System.out.println("\n" + Communique.nameGame + " " + Communique.newVersion + " [" + Communique.version + "]\nTesting 'function()' in pl.tomasztopolewski.thekingland.TestMain");
+        function();
+    }
+
+
+
+    public static void function() throws IOException {
+        ClassSaveFile classSaveFile = new ClassSaveFile("text", "C:\\Users\\Tomasz\\Downloads\\");
+        classSaveFile.setLinesToSave(new String[]{"to", "tak", "tomasz"});
+        //classSaveFile.setLinesToSave(new String[]{""});
+        classSaveFile.save();
+    }
+
+    /*public static void function() throws IOException {
+        String[] tab = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        String path = "C:\\Users\\Tomasz\\Downloads\\text.txt";
+
+        PrintWriter writer = new PrintWriter(path);
+        for (int i = 0; i < tab.length; i++) writer.println(tab[i]);
+
+        writer.close();
+    }*/
+
+    /*public static void function() throws IOException {
+        String[] tab = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        String path = "C:\\Users\\Tomasz\\Downloads\\text.txt";
+
+        FileWriter fileWriter = new FileWriter(path);
+        for (int i = 9; i >= 0; i--) fileWriter.write(tab[i]);
+
+        fileWriter.close();
+
+    }*/
+
+
+
+/**
+ * STARE PLIKI KLASY
+ */
+    /*public static void main(String[] args) {
         //SettingsObject(String codeGroupObject, String codeObject, int numberOfArguments, int numberOfValuesInArgument, String[] values)
         SettingsObject[] settingsBuildings = new SettingsObject[6];
 
@@ -17,7 +64,7 @@ public abstract class TestMain {
         settingsBuildings[3] = new SettingsObject("factories",  "lumberjack", 1, 1, new String[]{});
         settingsBuildings[4] = new SettingsObject("mood",       "flowerbed",  2, 1, new String[]{});
         settingsBuildings[5] = new SettingsObject("sociaty",    "house",      1, 1, new String[]{});
-    }
+    }*/
 
     /*public static void main(String[] args) {
         System.out.println(new Encryption("123").encodeString());

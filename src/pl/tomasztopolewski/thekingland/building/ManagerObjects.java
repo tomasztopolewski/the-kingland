@@ -1,5 +1,6 @@
 package pl.tomasztopolewski.thekingland.building;
 
+import jdk.internal.cmm.SystemResourcePressureImpl;
 import pl.tomasztopolewski.thekingland.authentication.preparation.Installation;
 import pl.tomasztopolewski.thekingland.building.buildings.factories.Lumberjack;
 import pl.tomasztopolewski.thekingland.building.buildings.factories.Quarry;
@@ -8,17 +9,25 @@ import pl.tomasztopolewski.thekingland.building.buildings.management.Warehouse;
 import pl.tomasztopolewski.thekingland.building.buildings.mood.Flowerbed;
 import pl.tomasztopolewski.thekingland.building.buildings.sociaty.House;
 import pl.tomasztopolewski.thekingland.handlingdata.ClassLoadFile;
+import pl.tomasztopolewski.thekingland.handlingdata.ClassSaveFile;
 import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class ManagerObjects {
     private final ClassLoadFile classLoadFileSettingsOfBuildings = new ClassLoadFile(Installation.nameOfFile_ManagerBuilding, Installation.pathToFolder);
     private String[] linesOfFileSettingsOfBuildings;
 
+    private ClassSaveFile classSaveFileSettingsOfBuildings;
+    private String[] saveLinesToFileSettingsOfBuildings;
+
     private final ClassLoadFile classLoadFileMaterialOfSpace = new ClassLoadFile(Installation.nameOfFile_SpaceOfWarehouse, Installation.pathToFolder);
     private String[] linesOfFileMaterialOfSpace;
     private boolean loadedSpaceOfWarehouse;
+
+    public ClassSaveFile classSaveFileMaterialOfSpace;
+    private String[] saveLinesToFileMaterialOfSpace;
 
 
     private final int numberOfBuilding = 6;
@@ -50,11 +59,15 @@ public class ManagerObjects {
     private SettingsObject[] saveSettingsMaterials;
 
 
+    //konstruktor warunkowany dla zmiennej "nameOfConstructor"
     public ManagerObjects(String nameOfConstructor) throws FileNotFoundException {
+
+
         if (nameOfConstructor.equals("load values from file")) {
             createEmptyBuildings();
 
             settingsMaterials = new SettingsObject[numberOfMaterials];
+            saveSettingsMaterials = new SettingsObject[numberOfMaterials];
             loadFileWithSpaceOfWarehouse();
             createSettingsMaterials();
             processOfSettingsMaterials();
@@ -71,7 +84,7 @@ public class ManagerObjects {
             createEmptyBuildings();
         }
     }
-    //konstruktor warunkowany dla zmiennej "nameOfConstructor"
+    /**konstruktor warunkowany dla zmiennej "nameOfConstructor"
     /*public ManagerObjects(String nameOfConstructor) throws FileNotFoundException {
         if (nameOfConstructor.equals("load values from file")) {
             createEmptyBuildings();
@@ -492,37 +505,6 @@ public class ManagerObjects {
      }
      */
 
-/////////////////////////////////////////////////////////////////////////////
-// METODY TWORZĄCE OBIEKTY USTAWIEŃ DO ZAPISU I ŁADUJĄCE USTAWIENIA Z GRY
-
-    public void prepareSave() {
-        createSaveSettingObjects();
-        generateLineForSaveSettingObjects();
-    }
-
-    private void createSaveSettingObjects() {
-        saveSettingsBuildings[0] = new SettingsObject("management", "architect",  1, 1, new String[]{String.valueOf(architect.getLevelUpgrade())});
-        saveSettingsBuildings[1] = new SettingsObject("management", "warehouse",  1, 1, new String[]{String.valueOf(warehouse.getLevelUpgrade())});
-        saveSettingsBuildings[2] = new SettingsObject("factories",  "quarry",     1, 1, new String[]{String.valueOf(quarry.getLevelUpgrade())});
-        saveSettingsBuildings[3] = new SettingsObject("factories",  "lumberjack", 1, 1, new String[]{String.valueOf(lumberjack.getLevelUpgrade())});
-        saveSettingsBuildings[4] = new SettingsObject("mood",       "flowerbed",  2, 1, new String[]{String.valueOf(flowerbed.getSquare()), String.valueOf(flowerbed.getLevelUpgrade())});
-        saveSettingsBuildings[5] = new SettingsObject("sociaty",    "house",      1, 1, new String[]{String.valueOf(house.getLevelUpgrade())});
-    }
-
-    private void generateLineForSaveSettingObjects() {
-        saveSettingsBuildings[0].generateLine();
-        saveSettingsBuildings[1].generateLine();
-        saveSettingsBuildings[2].generateLine();
-        saveSettingsBuildings[3].generateLine();
-        saveSettingsBuildings[4].generateLine();
-        saveSettingsBuildings[5].generateLine();
-    }
-
-
-
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // METODY WYŚWIETLAJĄCE WYNIKI
@@ -573,6 +555,139 @@ public class ManagerObjects {
 
 
 
+
+
+/////////////////////////////////////////////////////////////////////////////
+// METODY TWORZĄCE OBIEKTY USTAWIEŃ DO ZAPISU I ŁADUJĄCE USTAWIENIA Z GRY
+
+    public void save() {
+        prepareSaves();
+        loadSaves();
+        saveFiles();
+        System.out.println("SYSTEM-INFO: Changes are saved.\n");
+    }
+
+    private void saveFiles() {
+        saveFileManagerBuilding();
+        saveFileSpaceOfWarehouse();
+    }
+
+    public void loadSaves() {
+        createClassSaveFile();
+        loadSaveObjects();
+        loadSaveMaterials();
+        System.out.println("SYSTEM-INFO: Class are loaded.");
+    }
+
+    public void prepareSaves() {
+        //saveSettingsBuildings[6] = new SettingsObject("test", "topolewski", 5, 2, new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
+        //saveSettingsBuildings[6] = new SettingsObject("tomasz",    "topolewski",      4, 3, new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"});
+        //saveSettingsBuildings[6].generateLine();
+        prepareSaveObjects();
+        prepareSaveMaterials();
+
+        generateFileSaveLinesToFileSettingsOfBuildings();
+        generateFileSaveLinesToFileMaterialOfSpace();
+        System.out.println("SYSTEM-INFO: Saves are created.");
+    }
+
+
+    private void createClassSaveFile() {
+        classSaveFileSettingsOfBuildings = new ClassSaveFile(Installation.nameOfFile_ManagerBuilding, Installation.pathToFolder);
+        classSaveFileMaterialOfSpace = new ClassSaveFile(Installation.nameOfFile_SpaceOfWarehouse, Installation.pathToFolder);
+    }
+
+
+    private void createSaveSettingObjects() {
+        saveSettingsBuildings[indexOfArchitect] = new SettingsObject("management", "architect",  1, 1, new String[]{String.valueOf(architect.getLevelUpgrade())});
+        saveSettingsBuildings[indexOfWarehouse] = new SettingsObject("management", "warehouse",  1, 1, new String[]{String.valueOf(warehouse.getLevelUpgrade())});
+        saveSettingsBuildings[indexOfQuarry] = new SettingsObject("factories",  "quarry",     1, 1, new String[]{String.valueOf(quarry.getLevelUpgrade())});
+        saveSettingsBuildings[indexOfLumberjack] = new SettingsObject("factories",  "lumberjack", 1, 1, new String[]{String.valueOf(lumberjack.getLevelUpgrade())});
+        saveSettingsBuildings[indexOfFlowerbed] = new SettingsObject("mood",       "flowerbed",  2, 1, new String[]{String.valueOf(flowerbed.getSquare()), String.valueOf(flowerbed.getLevelUpgrade())});
+        saveSettingsBuildings[indexOfHouse] = new SettingsObject("sociaty",    "house",      1, 1, new String[]{String.valueOf(house.getLevelUpgrade())});
+    }
+
+    private void createSaveSettingsMaterials() {
+        saveSettingsMaterials[indexOfMaterialWood] = new SettingsObject("material", "wood",  1 ,1, new String[]{String.valueOf(warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood))});
+        saveSettingsMaterials[indexOfMaterialStone] = new SettingsObject("material", "stone", 1 ,1, new String[]{String.valueOf(warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone))});
+    }
+
+
+    private void generateLineForSaveSettingObjects() {
+        saveSettingsBuildings[indexOfArchitect].generateLine();
+        saveSettingsBuildings[indexOfWarehouse].generateLine();
+        saveSettingsBuildings[indexOfQuarry].generateLine();
+        saveSettingsBuildings[indexOfLumberjack].generateLine();
+        saveSettingsBuildings[indexOfFlowerbed].generateLine();
+        saveSettingsBuildings[indexOfHouse].generateLine();
+    }
+
+    private void generateLineForSaveSettingsMaterials() {
+        saveSettingsMaterials[indexOfMaterialWood].generateLine();
+        saveSettingsMaterials[indexOfMaterialStone].generateLine();
+    }
+
+
+    private void prepareSaveObjects() {
+        createSaveSettingObjects();
+        generateLineForSaveSettingObjects();
+    }
+
+    private void prepareSaveMaterials() {
+        createSaveSettingsMaterials();;
+        generateLineForSaveSettingsMaterials();
+    }
+
+
+    private void generateFileSaveLinesToFileSettingsOfBuildings() {
+        saveLinesToFileSettingsOfBuildings = new String[]{
+                saveSettingsBuildings[indexOfArchitect].getLine(),
+                saveSettingsBuildings[indexOfWarehouse].getLine(),
+                saveSettingsBuildings[indexOfQuarry].getLine(),
+                saveSettingsBuildings[indexOfLumberjack].getLine(),
+                saveSettingsBuildings[indexOfFlowerbed].getLine(),
+                saveSettingsBuildings[indexOfHouse].getLine()
+        };
+    }
+
+    private void generateFileSaveLinesToFileMaterialOfSpace() {
+        saveLinesToFileMaterialOfSpace = new String[]{
+                saveSettingsMaterials[indexOfMaterialWood].getLine(),
+                saveSettingsMaterials[indexOfMaterialStone].getLine()
+        };
+    }
+
+
+    private void loadSaveObjects() {
+        classSaveFileSettingsOfBuildings.setLinesToSave(saveLinesToFileSettingsOfBuildings);
+    }
+
+    private void loadSaveMaterials() {
+        classSaveFileMaterialOfSpace.setLinesToSave(saveLinesToFileMaterialOfSpace);
+    }
+
+
+    private void saveFileManagerBuilding() {
+        try {
+            classSaveFileSettingsOfBuildings.save();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("SYSTEM-ERROR: Nie można było zapisać pliku 'ManagerBuilding'.");
+        } catch (NullPointerException nlpe) {
+            System.out.println("SYSTEM-ERROR: Nieznany błąd 'saveFileManagerBuilding()'.\n.");
+        }
+    }
+
+    private void saveFileSpaceOfWarehouse() {
+        try {
+            classSaveFileMaterialOfSpace.save();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("SYSTEM-ERROR: Nie można było zapisać pliku 'SpaceOfWarehouse'.");
+        } catch (NullPointerException nlpe) {
+            System.out.println("SYSTEM-ERROR: Nieznany błąd 'saveFileSpaceOfWarehouse()'.");
+        }
+    }
 
 
 /////////////////////////////////////////////////////////////////////////////

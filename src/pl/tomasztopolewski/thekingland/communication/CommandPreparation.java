@@ -68,7 +68,7 @@ public class CommandPreparation {
             if (order.startsWith("login")) return 1;
             if (order.startsWith("register")) return 2;
             if (order.startsWith("exit")) return 999;
-            if (order.equals("/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString())) return 123;
+            if (order.equals("/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString())) return 1000;
         }
         return 0;
     }

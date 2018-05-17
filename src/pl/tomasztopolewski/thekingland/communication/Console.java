@@ -14,6 +14,7 @@ package pl.tomasztopolewski.thekingland.communication;
 import pl.tomasztopolewski.thekingland.building.ManagerObjects;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Console {
     private ManagerObjects managerObjects;
@@ -25,10 +26,10 @@ public class Console {
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-    public void processOrder() throws InterruptedException {
+    public void processOrder()  {
         switch (new Order().returnNumber()) {
             // save
-            case 800: managerObjects.prepareSave(); break;
+            case 800: managerObjects.save(); break;
 
             // help
             case 990: viewHelp(); break;
@@ -66,7 +67,7 @@ public class Console {
             case 10102: managerObjects.levelUpArchitect(); break;
 
             // upgrade building Warehouse
-            case 20102: managerObjects.levelUpWarehouse();
+            case 20102: managerObjects.levelUpWarehouse(); break;
 
                 // upgrade building Quarry
             case 30102: managerObjects.levelUpQuarry(); break;

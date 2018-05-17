@@ -82,17 +82,62 @@ public class  SettingsObject {
         String line = codeGroupObject + "." + codeObject + "[";
         int i, j;
         for (i = 0; i < numberOfArguments; i++) {
-            for (j = 0; j < numberOfValuesInArgument; j++) {
-                line += values[i+j];
-                if (++j == numberOfValuesInArgument) break;
+            for (j = i * numberOfValuesInArgument; j < numberOfAnythingValues; j++) {
+                line += values[j];
+
+                if (((i * numberOfValuesInArgument) + (numberOfValuesInArgument - 1)) != j) line += ":";
+                else break;;
+            }
+            if (i+1 == numberOfArguments) break;
+            else line += ";";
+        }
+        setLine(line + "]");
+    }
+    // stare wersje klasy generateLine()
+    /**
+     *  public void generateLine() {
+        if (numberOfArguments > 1) System.out.println("\n" + codeGroupObject + "." + codeObject + "   arg. " + numberOfArguments + " val. " + numberOfValuesInArgument);
+        String line = codeGroupObject + "." + codeObject + "[";
+        int i, j;
+        for (i = 0; i < numberOfArguments; i++) {
+            System.out.println("i: " + i);
+            for (j = i * numberOfValuesInArgument; j < numberOfAnythingValues; j++) {
+                System.out.println("j: " + j);
+                System.out.println("line: '" + line + "' | " + "values[j = " + (j) + "]: " + values[j]);
+
+                line += values[j];
+                System.out.println("j+1: " + (j+1));
+                if (!(((i * numberOfValuesInArgument) + (numberOfValuesInArgument - 1)) == (j+1))) break;
                 else line += ":";
             }
-            if (++i == numberOfArguments) break;
+            if (i+1 == numberOfArguments) break;
             else line += ";";
         }
         System.out.println(line + "]");
         setLine(line + "]");
     }
+    /*public void generateLine() {
+            if (numberOfArguments > 1) System.out.println("\n" + codeGroupObject + "." + codeObject + "   arg. " + numberOfArguments + " val. " + numberOfValuesInArgument);
+        String line = codeGroupObject + "." + codeObject + "[";
+        int i, j;
+        for (i = 0; i < numberOfArguments; i++) {
+            if (numberOfArguments > 1) System.out.println("i: " + i);
+            for (j = 0; j < numberOfValuesInArgument; j++) {
+                    if (numberOfArguments > 1) System.out.println("j: " + j);
+                    if (numberOfArguments > 1) System.out.println("line: '" + line + "' | " + "values[i+j = " + (i+j) + "]: " + values[i+j]);
+
+                line += values[i+j];
+                    if (numberOfArguments > 1) System.out.println("j+1: " + (j+1));
+                if (j+1 == numberOfValuesInArgument) break;
+                else line += ":";
+            }
+            if (i+1 == numberOfArguments) break;
+            else line += ";";
+        }
+        System.out.println(line + "]");
+        setLine(line + "]");
+    }*/
+
     private void setNumberOfDownloadedLine(int numberOfDownloadedLine) {
         this.numberOfDownloadedLine = numberOfDownloadedLine > 0 ? numberOfDownloadedLine : 0;
     }

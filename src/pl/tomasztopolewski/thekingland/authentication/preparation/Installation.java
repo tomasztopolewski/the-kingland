@@ -20,7 +20,7 @@ import pl.tomasztopolewski.thekingland.handlingdata.ClassLoadFile;
 import java.io.File;
 
 public abstract class Installation {
-    public final static String pathToFolder = "C:\\Program Files\\TheKingLand\\bin\\";
+    public final static String pathToFolder = "C:\\TheKingLand\\bin\\";
     public final static String nameOfFile_ManagerBuilding = "manager-building";
     public final static String nameOfFile_SpaceOfWarehouse = "materials-space";
     public final static String nameOfDatabase_Players = "players";

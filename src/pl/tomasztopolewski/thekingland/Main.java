@@ -8,16 +8,29 @@ import java.io.FileNotFoundException;
 
 public abstract class Main {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException, NumberFormatException {
-        if (new Authentication().start() == 1) {
-            Communique.viewWelcome();
+        Console console;
+        switch(new Authentication().start()) {
+            case 0:
+                //nieprawidłowe polecenie
+                break;
 
-            Communique.animationStartLoadingSettings();
-            Console console = new Console();
-            Communique.animationEndLoadingSettings();
-           while (true) console.processOrder();
+            case 1:
+                Communique.viewWelcome();
 
-        } else {
-            // nieprawidłowa instalacja --> dalsze działania
+                Communique.animationStartLoadingSettings();
+                console = new Console();
+                Communique.animationEndLoadingSettings();
+                while (true) console.processOrder();
+
+            case 1000:
+                Communique.viewWelcome();
+                console = new Console();
+                System.out.println("SYSTEM-INFO: Settings and saves are loaded. Administators tools are activated.\n");
+                while (true) console.processOrder();
+
+            default:
+                // nieprawidłowa instalacja --> dalsze działania
+                break;
         }
     }
 }

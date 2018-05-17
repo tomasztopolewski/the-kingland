@@ -14,7 +14,7 @@ public class Authentication {
         System.out.println("\nthekingland_" + Communique.newVersion + ": Uruchamianie aplikacji...");
 
         if (Installation.installation()) {
-            System.out.println("thekingland_" + Communique.newVersion + ": Stan instalacji aplikacji jest poprawny..\n");
+            System.out.println("thekingland_" + Communique.newVersion + ": Stan instalacji aplikacji jest poprawny.\n");
             // instalacja gry jest poprawna
 
             Communique.viewHeaderWelcome();
@@ -48,7 +48,13 @@ public class Authentication {
                     System.exit(0);
                     break;
 
-                case 123:
+                case 999:
+                    //gdy użytkownik wprowadzi polecenie wyjścia z gry
+                    Communique.viewGoodbay();
+                    System.exit(1);
+                    break;
+
+                case 1000:
                     // gdy użytkownik wprowadzi polecenie logowania administratora
                     System.out.println("SYSTEM-INFO: Logowanie administratora...");
                     System.out.println("INFO: Zalogowano konto administratora.");
@@ -56,19 +62,13 @@ public class Authentication {
                     System.out.println("WARN: Potwierdzić swoje uprawnienia, stosując komendę specjalną.");
                     if (passAdmin()) {
                         System.out.println("SYSTEM-INFO: Uprawienia administratora zostały pomyślenie autoryzowane.\n");
-                        return 1;
+                        return 1000;
                     } else {
                         System.out.println("SYSTEM-ERROR: Niepoprawne dane dostępowe. Aplikacja zostaje zatrzymana.\n");
                         Thread.sleep(2000);
                         Communique.viewGoodbay();
                         return 0;
                     }
-
-                case 999:
-                    //gdy użytkownik wprowadzi polecenie wyjścia z gry
-                    Communique.viewGoodbay();
-                    System.exit(1);
-                    break;
 
                 default:
                     //gdy użytkownik wprowadzi nie poprawne polecenie
@@ -93,6 +93,10 @@ public class Authentication {
     private boolean passAdmin() {
         System.out.print("SYSTEM-INFO: Wprowadź hasło administatora: ");
         return new Scanner(System.in).nextLine().trim().equals("$/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString());
+        //System.out.println("SYSTEM-ERROR: WYŁĄCZONO OPCJĘ AUTORYZOWANIA ADMINISTATORA.");
+        //System.out.println("SYSTEM-ERROR: LOGOWANIE ADMINISTATORA BEZ AUTORYZACJI.");
+        //System.out.println("SYSTEM-ERROR: TRYB ADMINISTATORA AKTYWOWANY W MODULE NIEAUTORYZOWANYM.");
+        //return true;
     }
 
 
