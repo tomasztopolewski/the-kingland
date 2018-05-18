@@ -15,6 +15,7 @@ import pl.tomasztopolewski.thekingland.building.ManagerObjects;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Console {
     private ManagerObjects managerObjects;
@@ -28,6 +29,10 @@ public class Console {
 
     public void processOrder()  {
         switch (new Order().returnNumber()) {
+            // set minimum upgrade level for buildings
+            case 799:
+                managerObjects.setMinimumUpgradeLevelForBuildings(); break;
+
             // save
             case 800: managerObjects.save(); break;
 
@@ -41,7 +46,7 @@ public class Console {
             case 992: Communique.viewAuthor(); break;
 
             // exit
-            case 999:try { Communique.viewGoodbay();} catch (InterruptedException e) { /*e.printStackTrace();*/ } break;
+            case 999: goodBay(); break;
 
 
             // buy building Architect
@@ -105,9 +110,9 @@ public class Console {
             case 1000001: viewStatusOfBuildings(); break;
 
 
-            case 0: System.out.println("INFO: Wpisane polecenie nie jest obsługiwane.\n"); break;
+            case 0: System.out.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
 
-            default: System.out.println("WARN: System nie rozpoznaje polecenia.\n"); break;
+            default: System.out.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
         }
     }
 
@@ -123,6 +128,22 @@ public class Console {
         //System.out.println("");
         System.out.println("view status buildings");
         System.out.println(" - HELP end - \n");
+    }
+
+    private void goodBay() {
+        System.out.println("\nSYSTEM-INFO: Do you exit game? YES or NO?");
+        if (new Scanner(System.in).nextLine().trim().toLowerCase().equals("yes")) {
+            System.out.println("\nSYSTEM-INFO: Do you save game? YES or NO?");
+            if (new Scanner(System.in).nextLine().trim().toLowerCase().equals("yes")) managerObjects.save();
+            else System.out.println("SYSTEM-INFO: Game isn't saved.");
+
+            try {
+                System.out.println("");
+                Communique.viewGoodbay();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else System.out.println("SYSTEM-INFO: Procedure of exit isn't finished.\n");
     }
 
 

@@ -488,6 +488,36 @@ public class ManagerObjects {
     }
 
 
+    //////////////////////////////////////////////
+    // Ustawianie minimalnego poziomu (1) budynków
+    public void setMinimumUpgradeLevelForBuildings() {
+        setMinimumUpgradeLevelForArchitect();
+        setMinimumUpgradeLevelForWarehouse();
+        setMinimumUpgradeLevelForQuarry();
+        setMinimumUpgradeLevelForLumberjack();
+        setMinimumUpgradeLevelForFlowerbed();
+        setMinimumUpgradeLevelForHouse();
+    }
+
+    public void setMinimumUpgradeLevelForArchitect() {
+        architect.setLevelUpgrade(architect.getMinimumUpgradeLevel());
+    }
+    public void setMinimumUpgradeLevelForWarehouse() {
+        warehouse.setLevelUpgrade(warehouse.getMinimumUpgradeLevel());
+    }
+    public void setMinimumUpgradeLevelForQuarry() {
+        quarry.setLevelUpgrade(quarry.getMinimumUpgradeLevel());
+    }
+    public void setMinimumUpgradeLevelForLumberjack() {
+        lumberjack.setLevelUpgrade(lumberjack.getMinimumUpgradeLevel());
+    }
+    public void setMinimumUpgradeLevelForFlowerbed() {
+        flowerbed.setLevelUpgrade(flowerbed.getMinimumUpgradeLevel());
+    }
+    public void setMinimumUpgradeLevelForHouse() {
+        house.setLevelUpgrade(house.getMinimumUpgradeLevel());
+    }
+
 
 
     /**
@@ -514,22 +544,22 @@ public class ManagerObjects {
 
     // LEVEL BUILDING
     public void viewLevelArchitect() {
-        System.out.println("Architect level: " + architect.getLevelUpgrade());
+        System.out.println("Architect level: " + architect.getLevelUpgrade() + "\n");
     }
     public void viewLevelWarehouse() {
-        System.out.println("Warehouse level: " + warehouse.getLevelUpgrade());
+        System.out.println("Warehouse level: " + warehouse.getLevelUpgrade() + "\n");
     }
     public void viewLevelQuarry() {
-        System.out.println("Quarry level: " + quarry.getLevelUpgrade());
+        System.out.println("Quarry level: " + quarry.getLevelUpgrade() + "\n");
     }
     public void viewLevelLumberjack() {
-        System.out.println("Lumberjack level: " + lumberjack.getLevelUpgrade());
+        System.out.println("Lumberjack level: " + lumberjack.getLevelUpgrade() + "\n");
     }
     public void viewLevelFlowerbed() {
-        System.out.println("Flowerbed level: " + flowerbed.getLevelUpgrade());
+        System.out.println("Flowerbed level: " + flowerbed.getLevelUpgrade() + "\n");
     }
     public void viewLevelHouse() {
-        System.out.println("House level: " + house.getLevelUpgrade());
+        System.out.println("House level: " + house.getLevelUpgrade() + "\n");
     }
 
 

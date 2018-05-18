@@ -148,10 +148,11 @@ public class Order {
                     if (order.startsWith("view status buildings")) return 1000001;
                 }
             }
+            else if (order.startsWith("save") && order.length() == 4) return 800;
             //polecenie 'help'
             else if (order.startsWith("help") && order.length() == 4) return 990;
-            if (order.startsWith("version") && order.length() == 7) return 991;
-            if (order.startsWith("author") && order.length() == 6) return 992;
+            else if (order.startsWith("version") && order.length() == 7) return 991;
+            else if (order.startsWith("author") && order.length() == 6) return 992;
             //polecenie 'exit'
             else if (order.startsWith("exit") && order.length() == 4) return 999;
         }
@@ -229,6 +230,7 @@ public class Order {
 
     public int returnNumberForCommand() {
         if (order.startsWith("/100") && order.length() == 4) return 100;
+        if (order.startsWith("/799") && order.length() == 4) return 799;
         if (order.startsWith("/800") && order.length() == 4) return 800;
         if (order.startsWith("/990") && order.length() == 4) return 990;
         if (order.startsWith("/991") && order.length() == 4) return 991;

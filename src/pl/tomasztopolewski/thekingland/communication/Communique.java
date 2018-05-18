@@ -43,15 +43,15 @@ public abstract class Communique {
     public static final String nameGame = "The KingLand";
     public static final String author = "Tomasz Topolewski";
 
-    public static final String numberOfVersion = "v60.00.000";
+    public static final String numberOfVersion = "v60.00.100";
     public static final String typeOfVersion = "DEV_alpha";
-    public static final String version = numberOfVersion + "-branch(Jun 2017) " + typeOfVersion;
+    public static final String version = numberOfVersion + "-branch(May 2018) " + typeOfVersion;
     public static final String newVersion = numberOfVersion + " " + typeOfVersion;
 
     public static final String longStartDateWork = "October 11th 2015";
     public static final String medianStartDateWork = "October 2015";
     public static final String shortStartDateWork = "Oct 2015";
-    public static final String longDate = "May 13th 2018";
+    public static final String longDate = "May 18th 2018";
     public static final String medianDate = "May 2018";
     public static final String shortDate = "May 2018";
 
@@ -129,8 +129,7 @@ public abstract class Communique {
 
     public static void viewGoodbay() throws InterruptedException {
         System.out.println("Good bay!\n");
-        Thread.sleep(2000);
-        System.out.println("\nCreated by " + author + "\n\n\n\n\n");
+        System.out.println("\nCreated by " + author + "\n\n");
         Thread.sleep(2000);
         System.out.print(newVersion + " / " + version);
         System.exit(1);
