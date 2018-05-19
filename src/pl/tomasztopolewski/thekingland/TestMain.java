@@ -15,7 +15,7 @@ import static pl.tomasztopolewski.thekingland.communication.Communique.version;
 
 public abstract class TestMain {
     public static void main(String[] args) throws IOException {
-        System.out.println("\n" + Communique.nameGame + " " + Communique.newVersion + " [" + Communique.version + "]\nTesting 'function()' in pl.tomasztopolewski.thekingland.TestMain");
+        System.out.println("\n" + Communique.nameGame + " " + Communique.versionOfTested + " [" + Communique.newVersion + "]\nTesting 'function()' in pl.tomasztopolewski.thekingland.TestMain");
         function();
     }
 

@@ -3,10 +3,12 @@
  *
  * Wersje klasy:
  *    stary model (v1.0):
- *
+ *       Wersja klasy v1.0 [pobieranie polecenie, interpretacja go na liczbę przełączeniową,
+ *       uruchomienie liczby i wykonanie polecenia tej liczby]
  *
  *    nowy model (v2.0):
- *
+ *       Wersja klasy v2.0 [pobieranie i interpretowanie liczby odpowiedzialna jest
+ *       klasa 'Order', wykonanie polecenie należy do klasy 'Console'.
  *
  */
 package pl.tomasztopolewski.thekingland.communication;
@@ -19,9 +21,11 @@ import java.util.Scanner;
 
 public class Console {
     private ManagerObjects managerObjects;
+    private Time time;
 
     public Console() throws FileNotFoundException {
         managerObjects = new ManagerObjects("load values from file");
+        time = new Time();
     }
 
 //////////////////////////////////////////////////////////////////////
@@ -29,9 +33,11 @@ public class Console {
 
     public void processOrder()  {
         switch (new Order().returnNumber()) {
+            // view time of game
+            case 701: viewTimeOfGame(); break;
+
             // set minimum upgrade level for buildings
-            case 799:
-                managerObjects.setMinimumUpgradeLevelForBuildings(); break;
+            case 799: managerObjects.setMinimumUpgradeLevelForBuildings(); break;
 
             // save
             case 800: managerObjects.save(); break;
@@ -109,9 +115,8 @@ public class Console {
             // view status buildings
             case 1000001: viewStatusOfBuildings(); break;
 
-
+            // wrong order
             case 0: System.out.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
-
             default: System.out.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
         }
     }
@@ -138,7 +143,7 @@ public class Console {
             else System.out.println("SYSTEM-INFO: Game isn't saved.");
 
             try {
-                System.out.println("");
+                viewTimeOfGame();
                 Communique.viewGoodbay();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -156,6 +161,10 @@ public class Console {
         managerObjects.viewDetailsFlowerbed();
         managerObjects.viewDetailsHouse();
         System.out.println("");
+    }
+
+    private void viewTimeOfGame() {
+        System.out.println("SYSTEM-INFO: Time of game: " + time.getActualTimeOfGame() + "\n");
     }
 }
 

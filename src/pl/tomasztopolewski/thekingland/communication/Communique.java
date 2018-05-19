@@ -43,9 +43,10 @@ public abstract class Communique {
     public static final String nameGame = "The KingLand";
     public static final String author = "Tomasz Topolewski";
 
-    public static final String numberOfVersion = "v60.00.100";
+    public static final String numberOfVersion = "v60.01.000";
     public static final String typeOfVersion = "DEV_alpha";
     public static final String version = numberOfVersion + "-branch(May 2018) " + typeOfVersion;
+    public static final String versionOfTested = numberOfVersion + "-tested(May 2018) " + typeOfVersion;
     public static final String newVersion = numberOfVersion + " " + typeOfVersion;
 
     public static final String longStartDateWork = "October 11th 2015";

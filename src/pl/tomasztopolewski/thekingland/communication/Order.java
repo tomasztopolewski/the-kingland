@@ -230,6 +230,7 @@ public class Order {
 
     public int returnNumberForCommand() {
         if (order.startsWith("/100") && order.length() == 4) return 100;
+        if (order.startsWith("/701") && order.length() == 4) return 701;
         if (order.startsWith("/799") && order.length() == 4) return 799;
         if (order.startsWith("/800") && order.length() == 4) return 800;
         if (order.startsWith("/990") && order.length() == 4) return 990;
