@@ -5,32 +5,35 @@ import pl.tomasztopolewski.thekingland.communication.Time;
 public class TimeForProduction extends Time {
     private int timeOfProduction;
     private int[] timeOfProductionInTab;
-
+    private int producedTime;
 
     public TimeForProduction() {
         super();
+        timeOfProduction = 0;
+        timeOfProductionInTab = new int[2];
+        producedTime = 0;
     }
 
 
-
-    /*public void setTimeInTab(int[] timeInTab) {
-        this.timeInTab = timeInTab;
+    public int getTimeOfProduction() {
+        return timeOfProduction;
     }
-    public void setTimeInTab() {
-        downloadCurrentTimeMil();
-        calcTimeSec();
-
-        int min = 0, time = getTime();
-        while (time >= 60) {
-            min++;
-            time -= 60;
-        }
-
-        timeInTab = new int[]{min, time};
+    public void setTimeOfProduction(int timeOfProduction) {
+        this.timeOfProduction = timeOfProduction >= 0 ? timeOfProduction : 0;
     }
-    public int[] getTimeInTab() {
-        return timeInTab;
+    public void addTimeOfProduction(int timeOfProduction) {
+        this.timeOfProduction += timeOfProduction >= 0 ? timeOfProduction : 0;
+    }
+    /*public void calcTimeOfProduction() {
+                int time = getTime();
+                calcTimeSec();
+
     }*/
+    public int reutrnTimeOfProduction() {
+        calcTimeSec();
+        return getTime() - this.timeOfProduction;
+    }
+
 
 }
 

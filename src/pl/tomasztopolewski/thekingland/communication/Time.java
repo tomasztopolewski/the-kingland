@@ -4,7 +4,7 @@ public class Time {
     private int startTimeMil; //początkowy czas w milisekundach
     private int currentTimeMil; //aktualny czas  w milisekundach
     private int time; //zliczony czas w grze
-    private int[] timeInTab = new int[2];
+    private int[] timeInTab;
     private int absolutiveTimeOfGames; //caly zliczony czas w grze
 
 
@@ -13,6 +13,7 @@ public class Time {
         this.currentTimeMil = 0;
         this.time = 0;
         this.absolutiveTimeOfGames = 0;
+        timeInTab = new int[2];
     }
     /*public Time() {
         this.startTimeMil = 0;
@@ -25,6 +26,7 @@ public class Time {
         this.currentTimeMil = 0;
         this.time = time;
         this.absolutiveTimeOfGames = absolutiveTimeOfGames;
+        timeInTab = new int[2];
     }
 
 //////////////////////////////////////////////////////////////////////
@@ -55,6 +57,22 @@ public class Time {
 
     public int getTime() {
         return time;
+    }
+
+    public void setTimeInTab() {
+        downloadCurrentTimeMil();
+        calcTimeSec();
+
+        int min = 0, time = getTime();
+        while (time >= 60) {
+            min++;
+            time -= 60;
+        }
+
+        timeInTab = new int[]{min, time};
+    }
+    public int[] getTimeInTab() {
+        return timeInTab;
     }
 
     public void calcTimeSec() {

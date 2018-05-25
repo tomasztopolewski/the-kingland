@@ -92,12 +92,12 @@ public class Authentication {
     }
 
     private boolean passAdmin() {
-        System.out.print("SYSTEM-INFO: Wprowadź hasło administatora: ");
-        return new Scanner(System.in).nextLine().trim().equals("$/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString());
-        //System.out.println("SYSTEM-ERROR: WYŁĄCZONO OPCJĘ AUTORYZOWANIA ADMINISTATORA.");
-        //System.out.println("SYSTEM-ERROR: LOGOWANIE ADMINISTATORA BEZ AUTORYZACJI.");
-        //System.out.println("SYSTEM-ERROR: TRYB ADMINISTATORA AKTYWOWANY W MODULE NIEAUTORYZOWANYM.");
-        //return true;
+        //System.out.print("SYSTEM-INFO: Wprowadź hasło administatora: ");
+        //return new Scanner(System.in).nextLine().trim().equals("$/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString());
+        System.out.println("SYSTEM-ERROR: WYŁĄCZONO OPCJĘ AUTORYZOWANIA ADMINISTATORA.");
+        System.out.println("SYSTEM-ERROR: LOGOWANIE ADMINISTATORA BEZ AUTORYZACJI.");
+        System.out.println("SYSTEM-ERROR: TRYB ADMINISTATORA AKTYWOWANY W MODULE NIEAUTORYZOWANYM.");
+        return true;
     }
 
 

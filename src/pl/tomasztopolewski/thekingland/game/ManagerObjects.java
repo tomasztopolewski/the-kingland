@@ -7,6 +7,7 @@ import pl.tomasztopolewski.thekingland.game.buildings.management.Architect;
 import pl.tomasztopolewski.thekingland.game.buildings.management.Warehouse;
 import pl.tomasztopolewski.thekingland.game.buildings.mood.Flowerbed;
 import pl.tomasztopolewski.thekingland.game.buildings.sociaty.House;
+import pl.tomasztopolewski.thekingland.game.production.Production;
 import pl.tomasztopolewski.thekingland.handlingdata.ClassLoadFile;
 import pl.tomasztopolewski.thekingland.handlingdata.ClassSaveFile;
 import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
@@ -50,18 +51,21 @@ public class ManagerObjects {
     private House house = new House();
 
 
-    private final int numberOfMaterials = new Warehouse().getNumberOfMaterials();
-    private final int indexOfMaterialWood = new Warehouse().getIndexOfMaterialWood();
-    private final int indexOfMaterialStone = new Warehouse().getIndexOfMaterialStone();
+    private Production productionOfWood;
+    private Production productionOfStone;
+
 
     private SettingsObject[] settingsMaterials;
     private SettingsObject[] saveSettingsMaterials;
 
+    private final int numberOfMaterials = new Warehouse().getNumberOfMaterials();
+    private final int indexOfMaterialWood = new Warehouse().getIndexOfMaterialWood();
+    private final int indexOfMaterialStone = new Warehouse().getIndexOfMaterialStone();
+
+
 
     //konstruktor warunkowany dla zmiennej "nameOfConstructor"
     public ManagerObjects(String nameOfConstructor) throws FileNotFoundException {
-
-
         if (nameOfConstructor.equals("load values from file")) {
             createEmptyBuildings();
 
@@ -79,6 +83,9 @@ public class ManagerObjects {
 
             resetBuildings();
             createBuildings();
+
+            createProductionOfWood();
+            createProductionOfStone();
         } else {
             createEmptyBuildings();
         }
@@ -723,13 +730,63 @@ public class ManagerObjects {
     //////////////////////////////////////////////
     // WOOD
 
-    // XXX
+    // Tworzenie obiektu produkcji
+    private void createProductionOfWood() {
+        productionOfWood = new Production();
+        updateIndicatorsProductionOfWood();
+    }
+
+    // Aktualizowanie wskaźników produkcji
+    public void updateIndicatorsProductionOfWood() {
+        updateIndicatorProductionOfWood();
+        updatePowerOfFactoryWood();
+    }
+
+    private void updateIndicatorProductionOfWood() {
+        productionOfWood.setIndicatorOfProduction(((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 100);
+    }
+
+    private void updatePowerOfFactoryWood() {
+        productionOfWood.setPowerOfFactory(lumberjack.getPowerOfFactory());
+    }
+
+    // Produkowanie
+    public void produceWood() {
+        //updateIndicatorsProductionOfWood();
+        productionOfWood.produce();
+
+    }
 
 
     //////////////////////////////////////////////
     // STONE
 
-    // XXX
+    // Tworzenie obiektu produkcji
+    private void createProductionOfStone() {
+        productionOfStone = new Production();
+        updateIndicatorsProductionOfStone();
+    }
+
+    // Aktualizowanie wskaźników produkcji
+    public void updateIndicatorsProductionOfStone() {
+        updateIndicatorProductionOfStone();
+        updatePowerOfFactorStone();
+    }
+
+    private void updateIndicatorProductionOfStone() {
+        productionOfStone.setIndicatorOfProduction(((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 100);
+    }
+
+    private void updatePowerOfFactorStone() {
+        productionOfStone.setPowerOfFactory(quarry.getPowerOfFactory());
+    }
+
+    // Produkowanie
+    public void produceStone() {
+        //updateIndicatorsProductionOfStone();
+        productionOfStone.produce();
+    }
+
 
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
