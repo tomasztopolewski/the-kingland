@@ -13,10 +13,9 @@
  */
 package pl.tomasztopolewski.thekingland.communication;
 
-import pl.tomasztopolewski.thekingland.building.ManagerObjects;
+import pl.tomasztopolewski.thekingland.game.ManagerObjects;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Console {
@@ -55,60 +54,60 @@ public class Console {
             case 999: goodBay(); break;
 
 
-            // buy building Architect
+            // buy game Architect
             case 10101: managerObjects.buyArchitect(); break;
 
-            // buy building Warehouse
+            // buy game Warehouse
             case 20101: managerObjects.buyWarehouse(); break;
 
-            // buy building Quarry
+            // buy game Quarry
             case 30101: managerObjects.buyQuarry(); break;
 
-            // buy building Lumberjack
+            // buy game Lumberjack
             case 40101: managerObjects.buyLumberjack(); break;
 
-            // buy building Flowerbed
+            // buy game Flowerbed
             case 50101: managerObjects.buyFlowerbed(); break;
 
-            // buy building House;
+            // buy game House;
             case 60101: managerObjects.buyHouse(); break;
 
 
-            // upgrade building Architect
+            // upgrade game Architect
             case 10102: managerObjects.levelUpArchitect(); break;
 
-            // upgrade building Warehouse
+            // upgrade game Warehouse
             case 20102: managerObjects.levelUpWarehouse(); break;
 
-                // upgrade building Quarry
+                // upgrade game Quarry
             case 30102: managerObjects.levelUpQuarry(); break;
 
-            // upgrade building Lumberjack
+            // upgrade game Lumberjack
             case 40102: managerObjects.levelUpLumberjack(); break;
 
-            // upgrade building Flowerbed
+            // upgrade game Flowerbed
             case 50102: managerObjects.levelUpFlowerbed(); break;
 
-            // upgrade building House
+            // upgrade game House
             case 60102: managerObjects.levelUpHouse(); break;
 
 
-            // view parameter building level architect
+            // view parameter game level architect
             case 110101: managerObjects.viewLevelArchitect(); break;
 
-            // view parameter building level warehous
+            // view parameter game level warehous
             case 210101: managerObjects.viewLevelWarehouse(); break;
 
-            // view parameter building level quarry
+            // view parameter game level quarry
             case 310101: managerObjects.viewLevelQuarry(); break;
 
-            // view parameter building level lumberjack
+            // view parameter game level lumberjack
             case 410101: managerObjects.viewLevelLumberjack(); break;
 
-            // view parameter building level flowerbed
+            // view parameter game level flowerbed
             case 510101: managerObjects.viewLevelFlowerbed(); break;
 
-            // view parameter building level house
+            // view parameter game level house
             case 610101: managerObjects.viewLevelHouse(); break;
 
 
@@ -125,11 +124,11 @@ public class Console {
         System.out.println(" - HELP start -");
         System.out.println("author, version, exit");
         //System.out.println("");
-        System.out.println("buy building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        System.out.println("buy game: architect / warehouse / quarry / lumberjack / flowerbed / house");
         //System.out.println("");
-        System.out.println("upgrade building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        System.out.println("upgrade game: architect / warehouse / quarry / lumberjack / flowerbed / house");
         //System.out.println("");
-        System.out.println("view parameter building level: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        System.out.println("view parameter game level: architect / warehouse / quarry / lumberjack / flowerbed / house");
         //System.out.println("");
         System.out.println("view status buildings");
         System.out.println(" - HELP end - \n");
@@ -164,7 +163,7 @@ public class Console {
     }
 
     private void viewTimeOfGame() {
-        System.out.println("SYSTEM-INFO: Time of game: " + time.getActualTimeOfGame() + "\n");
+        System.out.println("SYSTEM-INFO: Time of game: " + time.getActualTime() + "\n");
     }
 }
 

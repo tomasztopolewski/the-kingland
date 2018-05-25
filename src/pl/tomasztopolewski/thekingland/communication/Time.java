@@ -3,26 +3,27 @@ package pl.tomasztopolewski.thekingland.communication;
 public class Time {
     private int startTimeMil; //początkowy czas w milisekundach
     private int currentTimeMil; //aktualny czas  w milisekundach
-    private int timeOfGame; //zliczony czas w grze
+    private int time; //zliczony czas w grze
+    private int[] timeInTab = new int[2];
     private int absolutiveTimeOfGames; //caly zliczony czas w grze
 
 
     public Time() {
         downloadStartTimeMil();
         this.currentTimeMil = 0;
-        this.timeOfGame = 0;
+        this.time = 0;
         this.absolutiveTimeOfGames = 0;
     }
     /*public Time() {
         this.startTimeMil = 0;
         this.currentTimeMil = 0;
-        this.timeOfGame = 0;
+        this.time = 0;
         this.absolutiveTimeOfGames = 0;
     }*/
-    public Time(int timeOfGame, int absolutiveTimeOfGames) {
+    public Time(int time, int absolutiveTimeOfGames) {
         this.startTimeMil = 0;
         this.currentTimeMil = 0;
-        this.timeOfGame = timeOfGame;
+        this.time = time;
         this.absolutiveTimeOfGames = absolutiveTimeOfGames;
     }
 
@@ -52,18 +53,21 @@ public class Time {
         this.currentTimeMil = (int) System.currentTimeMillis();
     }
 
+    public int getTime() {
+        return time;
+    }
 
     public void calcTimeSec() {
         int differenceTimeMil = this.currentTimeMil - this.startTimeMil;
         int time = differenceTimeMil / 1000;
-        time -= this.timeOfGame;
-        this.timeOfGame += time;
+        time -= this.time;
+        this.time += time;
     }
 
-    public String getActualTimeOfGame() {
+    public String getActualTime() {
         downloadCurrentTimeMil();
         calcTimeSec();
-        int min = 0, time = this.timeOfGame;
+        int min = 0, time = this.time;
 
         while (time >= 60) {
             min++;

@@ -3,11 +3,12 @@ Nazwa: Kamieniołom
 Produkacja kamienia.
 Przechowuje poziom rozwinięcia kamieniołomu.
  */
-package pl.tomasztopolewski.thekingland.building.buildings.factories;
+package pl.tomasztopolewski.thekingland.game.buildings.factories;
 
-import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
-import pl.tomasztopolewski.thekingland.building.Building;
-import pl.tomasztopolewski.thekingland.building.BuildingWithStaticSquare;
+import pl.tomasztopolewski.thekingland.game.EssentialsBuilding;
+import pl.tomasztopolewski.thekingland.game.Building;
+import pl.tomasztopolewski.thekingland.game.BuildingWithStaticSquare;
+import pl.tomasztopolewski.thekingland.game.production.Production;
 
 public class Quarry extends Building implements EssentialsBuilding, BuildingWithStaticSquare {
     private final int square = 4; // pole powierzchni [m2]
@@ -26,6 +27,8 @@ public class Quarry extends Building implements EssentialsBuilding, BuildingWith
     //private final float[] costOfBuyingMoreBuildings = {0, 1, (float) 1.2, (float) 1.9, (float) 2.8, 4};
 
     private final float[] powerOfFactory = {0, 1, (float)1.2, (float)1.8, 2, (float) 2.1, (float)2.5, (float)2.85, (float)3.2};
+
+    private Production productionOfStone;
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -82,6 +85,9 @@ public class Quarry extends Building implements EssentialsBuilding, BuildingWith
     public float getPowerOfFactoryForLevel(int numberLevel) {
         return powerOfFactory[numberLevel];
     }
+
+
+    //public double return__
 }
 
 // Tomasz Topolewski

@@ -1,32 +1,28 @@
 package pl.tomasztopolewski.thekingland;
 
+import pl.tomasztopolewski.thekingland.game.production.TimeForProduction;
 import pl.tomasztopolewski.thekingland.communication.Communique;
-import pl.tomasztopolewski.thekingland.handlingdata.ClassSaveFile;
-import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
-import pl.tomasztopolewski.thekingland.security.Decryption;
-import pl.tomasztopolewski.thekingland.security.Encryption;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import static pl.tomasztopolewski.thekingland.communication.Communique.nameGame;
-import static pl.tomasztopolewski.thekingland.communication.Communique.version;
 
 public abstract class TestMain {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         System.out.println("\n" + Communique.nameGame + " " + Communique.versionOfTested + " [" + Communique.newVersion + "]\nTesting 'function()' in pl.tomasztopolewski.thekingland.TestMain");
         function();
     }
 
 
 
-    public static void function() throws IOException {
+    public static void function() {
+        TimeForProduction time = new TimeForProduction();
+        try { Thread.sleep(3000); } catch (InterruptedException e) {}
+        System.out.println(time.getActualTime());
+    }
+
+    /*public static void function() throws IOException {
         ClassSaveFile classSaveFile = new ClassSaveFile("text", "C:\\Users\\Tomasz\\Downloads\\");
         classSaveFile.setLinesToSave(new String[]{"to", "tak", "tomasz"});
         //classSaveFile.setLinesToSave(new String[]{""});
         classSaveFile.save();
-    }
+    }*/
 
     /*public static void function() throws IOException {
         String[] tab = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};

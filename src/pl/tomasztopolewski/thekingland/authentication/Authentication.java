@@ -8,9 +8,10 @@ import pl.tomasztopolewski.thekingland.security.Decryption;
 import java.util.Scanner;
 
 public class Authentication {
-    private CommandPreparation commandPreparation = new CommandPreparation();
+    private CommandPreparation commandPreparation;
 
     public int start() throws InterruptedException {
+        commandPreparation = new CommandPreparation();
         System.out.println("\nthekingland_" + Communique.newVersion + ": Uruchamianie aplikacji...");
 
         if (Installation.installation()) {

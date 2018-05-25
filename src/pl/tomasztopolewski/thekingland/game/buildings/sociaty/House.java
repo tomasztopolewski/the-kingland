@@ -3,11 +3,11 @@ Nazwa: Dom
 Dodaje ludzi.
 Przechowuje poziom rozwinięcia domu.
  */
-package pl.tomasztopolewski.thekingland.building.buildings.sociaty;
+package pl.tomasztopolewski.thekingland.game.buildings.sociaty;
 
-import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
-import pl.tomasztopolewski.thekingland.building.Building;
-import pl.tomasztopolewski.thekingland.building.BuildingWithStaticSquare;
+import pl.tomasztopolewski.thekingland.game.EssentialsBuilding;
+import pl.tomasztopolewski.thekingland.game.Building;
+import pl.tomasztopolewski.thekingland.game.BuildingWithStaticSquare;
 
 public class House extends Building implements EssentialsBuilding, BuildingWithStaticSquare {
     private final int square = 4;

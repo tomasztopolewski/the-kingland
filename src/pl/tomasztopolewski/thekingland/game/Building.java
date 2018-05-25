@@ -1,4 +1,4 @@
-package pl.tomasztopolewski.thekingland.building;
+package pl.tomasztopolewski.thekingland.game;
 
 public class Building implements EssentialsBuilding {
     private int square;

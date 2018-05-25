@@ -8,11 +8,11 @@
  *                  aplikacji.
  *                  Główna to 'branch' (dla GIT jest to master). W użyciu nie
  *                  funkcjonuje inna poza główną. W domyśle projektowania powstała
- *                  gałąź główna 'branch' - w celu rozwoju głównego aplikacji - oraz
- *                  testowa gałąź 'tested' służąca rozwoju testowych rozwiązań w
- *                  aplkiacji oraz możliwych kolokacji łączeniowych (np. z interfejsem).
- *                  Ostatnią gąłęzią jest 'undermain' służąca rozwoju odmiennej wizji
- *                  aplikacji.
+ *                  gałąź główna 'main' [dawniej: branch] - w celu rozwoju głównego
+ *                  aplikacji - oraz testowa gałąź 'tested' służąca rozwoju testowych
+ *                  rozwiązań w aplkiacji oraz możliwych kolokacji łączeniowych
+ *                  (np. z interfejsem). Ostatnią gąłęzią jest 'undermain' służąca
+ *                  rozwoju odmiennej wizji aplikacji.
  *                  Po nazwie gałęzi rozwoju aplikacji, w nawiasach, dodawana jest
  *                  skrócona data (miesiąc i rok) rozpoczęcia prac nad główną wersją
  *                  aplikacji. Po osiągnięciu wersji następujące zmiana celu i zmiana
@@ -43,9 +43,10 @@ public abstract class Communique {
     public static final String nameGame = "The KingLand";
     public static final String author = "Tomasz Topolewski";
 
-    public static final String numberOfVersion = "v60.01.000";
+    public static final String numberOfVersion = "v60.01.100";
+
     public static final String typeOfVersion = "DEV_alpha";
-    public static final String version = numberOfVersion + "-branch(May 2018) " + typeOfVersion;
+    public static final String version = numberOfVersion + "-main(May 2018) " + typeOfVersion;
     public static final String versionOfTested = numberOfVersion + "-tested(May 2018) " + typeOfVersion;
     public static final String newVersion = numberOfVersion + " " + typeOfVersion;
 

@@ -1,4 +1,4 @@
-package pl.tomasztopolewski.thekingland.building;
+package pl.tomasztopolewski.thekingland.game;
 
 public interface BuildingWithChangingSquare {
     void setSquare(int square);

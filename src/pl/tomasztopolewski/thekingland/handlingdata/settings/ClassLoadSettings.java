@@ -6,7 +6,7 @@ public class ClassLoadSettings {
     String[] lineFromFile;
 
     public ClassLoadSettings() throws FileNotFoundException {
-        //classLoadFileManagerBuildings = new ClassLoadFile("manager-building", "D:\\OneDrive\\The KingLand\\The KingLand\\File\\games\\", 50, 50);
+        //classLoadFileManagerBuildings = new ClassLoadFile("manager-game", "D:\\OneDrive\\The KingLand\\The KingLand\\File\\games\\", 50, 50);
         //classLoadFileManagerBuildings.loadFile();
 
         //jesli plik zostal zaladowany to wyslij linie z pliku do zmiennej

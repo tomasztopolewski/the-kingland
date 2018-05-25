@@ -3,11 +3,11 @@ Nazwa: Chata Drwala
 Produkacja drewna.
 Przechowuje poziom rozwinięcia chaty drwala.
  */
-package pl.tomasztopolewski.thekingland.building.buildings.factories;
+package pl.tomasztopolewski.thekingland.game.buildings.factories;
 
-import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
-import pl.tomasztopolewski.thekingland.building.Building;
-import pl.tomasztopolewski.thekingland.building.BuildingWithStaticSquare;
+import pl.tomasztopolewski.thekingland.game.EssentialsBuilding;
+import pl.tomasztopolewski.thekingland.game.Building;
+import pl.tomasztopolewski.thekingland.game.BuildingWithStaticSquare;
 
 public class Lumberjack extends Building implements EssentialsBuilding, BuildingWithStaticSquare {
     private final int square = 4;

@@ -3,12 +3,12 @@ Nazwa: Architekt
 Dodaje doświadczenie architekta.
 Przechowuje poziom rozwinięcia architekta..
 */
-package pl.tomasztopolewski.thekingland.building.buildings.management;
+package pl.tomasztopolewski.thekingland.game.buildings.management;
 
 
-import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
-import pl.tomasztopolewski.thekingland.building.Building;
-import pl.tomasztopolewski.thekingland.building.BuildingWithStaticSquare;
+import pl.tomasztopolewski.thekingland.game.EssentialsBuilding;
+import pl.tomasztopolewski.thekingland.game.Building;
+import pl.tomasztopolewski.thekingland.game.BuildingWithStaticSquare;
 
 public class Architect extends Building implements EssentialsBuilding, BuildingWithStaticSquare {
     private final int square = 1;

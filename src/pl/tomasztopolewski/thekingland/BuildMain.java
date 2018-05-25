@@ -32,7 +32,7 @@ public abstract class BuildMain {
     public static void main(String[] args) throws FileNotFoundException {
 
         //public ClassLoadFile(String name, String url)
-        ClassLoadFile classLoadFile = new ClassLoadFile("manager-building", "D:\\OneDrive\\The KingLand\\The KingLand\\File\\games\\Player");
+        ClassLoadFile classLoadFile = new ClassLoadFile("manager-game", "D:\\OneDrive\\The KingLand\\The KingLand\\File\\games\\Player");
 
         //public SettingsObject2(String line, int numberOfDownloadedLine, String codeGroupBuilding, String codeBuilding, int numberOfArguments, int numberOfValuesInArgument)
         //SettingsObject2 s1 = new SettingsObject2(classLoadFile.returnLine(1), 1, "material", "wood", 1, 2);

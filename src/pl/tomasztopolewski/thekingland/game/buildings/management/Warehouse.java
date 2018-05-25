@@ -1,11 +1,11 @@
-package pl.tomasztopolewski.thekingland.building.buildings.management;
+package pl.tomasztopolewski.thekingland.game.buildings.management;
 
 import pl.tomasztopolewski.thekingland.authentication.preparation.Installation;
-import pl.tomasztopolewski.thekingland.building.EssentialsBuilding;
+import pl.tomasztopolewski.thekingland.game.EssentialsBuilding;
 import pl.tomasztopolewski.thekingland.handlingdata.ClassLoadFile;
 import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
-import pl.tomasztopolewski.thekingland.building.Building;
-import pl.tomasztopolewski.thekingland.building.BuildingWithStaticSquare;
+import pl.tomasztopolewski.thekingland.game.Building;
+import pl.tomasztopolewski.thekingland.game.BuildingWithStaticSquare;
 
 import java.io.FileNotFoundException;
 

@@ -96,7 +96,7 @@ public class Order {
     }
 
     /*public boolean processDownloadLine() {
-        if (order.equals("buy building architect") || order.equals("buy building warehouse") || order.equals("buy building quarry") || order.equals("buy building lumberjack") ||order.equals("buy building flowerbed") || order.equals("buy building house")) return true;
+        if (order.equals("buy game architect") || order.equals("buy game warehouse") || order.equals("buy game quarry") || order.equals("buy game lumberjack") ||order.equals("buy game flowerbed") || order.equals("buy game house")) return true;
         else return false;
     }*/
 
@@ -112,36 +112,36 @@ public class Order {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku polecenia.\n");
             //polecenia 'buy'
             if (order.startsWith("buy")) {
-                if (order.startsWith("buy building")) {
-                    if (order.startsWith("buy building architect")) return 10101;
-                    else if (order.startsWith("buy building warehouse")) return 20101;
-                    else if (order.startsWith("buy building quarry")) return 30101;
-                    else if (order.startsWith("buy building lumberjack")) return 40101;
-                    else if (order.startsWith("buy building flowerbed")) return 50101;
-                    else if (order.startsWith("buy building house")) return 60101;
+                if (order.startsWith("buy game")) {
+                    if (order.startsWith("buy game architect")) return 10101;
+                    else if (order.startsWith("buy game warehouse")) return 20101;
+                    else if (order.startsWith("buy game quarry")) return 30101;
+                    else if (order.startsWith("buy game lumberjack")) return 40101;
+                    else if (order.startsWith("buy game flowerbed")) return 50101;
+                    else if (order.startsWith("buy game house")) return 60101;
                 }
             //polecenia 'upgrade'
             } else if (order.startsWith("upgrade")) {
-                if (order.startsWith("upgrade building")) {
-                    if (order.startsWith("upgrade building architect")) return 10102;
-                    else if (order.startsWith("upgrade building warehouse")) return 20102;
-                    else if (order.startsWith("upgrade building quarry")) return 30102;
-                    else if (order.startsWith("upgrade building lumberjack")) return 40102;
-                    else if (order.startsWith("upgrade building flowerbed")) return 50102;
-                    else if (order.startsWith("upgrade building house")) return 60102;
+                if (order.startsWith("upgrade game")) {
+                    if (order.startsWith("upgrade game architect")) return 10102;
+                    else if (order.startsWith("upgrade game warehouse")) return 20102;
+                    else if (order.startsWith("upgrade game quarry")) return 30102;
+                    else if (order.startsWith("upgrade game lumberjack")) return 40102;
+                    else if (order.startsWith("upgrade game flowerbed")) return 50102;
+                    else if (order.startsWith("upgrade game house")) return 60102;
                 }
 
              //polecenia 'view'
             } else if (order.startsWith("view")) {
 
                 if (order.startsWith("view parameter")) {
-                    if (order.startsWith("view parameter building")) {
-                        if (order.startsWith("view parameter building level architect")) return 110101;
-                        else if (order.startsWith("view parameter building level warehouse")) return 210101;
-                        else if (order.startsWith("view parameter building level quarry")) return 310101;
-                        else if (order.startsWith("view parameter building level lumberjack")) return 410101;
-                        else if (order.startsWith("view parameter building level flowerbed")) return 510101;
-                        else if (order.startsWith("view parameter building level house")) return 610101;
+                    if (order.startsWith("view parameter game")) {
+                        if (order.startsWith("view parameter game level architect")) return 110101;
+                        else if (order.startsWith("view parameter game level warehouse")) return 210101;
+                        else if (order.startsWith("view parameter game level quarry")) return 310101;
+                        else if (order.startsWith("view parameter game level lumberjack")) return 410101;
+                        else if (order.startsWith("view parameter game level flowerbed")) return 510101;
+                        else if (order.startsWith("view parameter game level house")) return 610101;
                     }
 
                 } else if (order.startsWith("view status")) {
@@ -172,28 +172,28 @@ public class Order {
             //polecenia 'buy'
             if (order.startsWith("buy")) {
                 addNumberSwitch(1);
-                if (order.startsWith("buy building")) {
+                if (order.startsWith("buy game")) {
                     addNumberSwitch(100);
-                    if (order.startsWith("buy building architect")) addNumberSwitch(10000);
-                    else if (order.startsWith("buy building warehouse")) addNumberSwitch(20000);
-                    else if (order.startsWith("buy building quarry")) addNumberSwitch(30000);
-                    else if (order.startsWith("buy building lumberjack")) addNumberSwitch(40000);
-                    else if (order.startsWith("buy building flowerbed")) addNumberSwitch(50000);
-                    else if (order.startsWith("buy building house")) addNumberSwitch(60000);
+                    if (order.startsWith("buy game architect")) addNumberSwitch(10000);
+                    else if (order.startsWith("buy game warehouse")) addNumberSwitch(20000);
+                    else if (order.startsWith("buy game quarry")) addNumberSwitch(30000);
+                    else if (order.startsWith("buy game lumberjack")) addNumberSwitch(40000);
+                    else if (order.startsWith("buy game flowerbed")) addNumberSwitch(50000);
+                    else if (order.startsWith("buy game house")) addNumberSwitch(60000);
                     else setNumberSwitch(0);
                 } else setNumberSwitch(0);
 
              //polecenia 'upgrade'
             } else if (order.startsWith("upgrade")) {
                 addNumberSwitch(2);
-                if (order.startsWith("upgrade building")) {
+                if (order.startsWith("upgrade game")) {
                     addNumberSwitch(100);
-                    if (order.startsWith("upgrade building architect")) addNumberSwitch(10000);
-                    else if (order.startsWith("upgrade building warehouse")) addNumberSwitch(20000);
-                    else if (order.startsWith("upgrade building quarry")) addNumberSwitch(30000);
-                    else if (order.startsWith("upgrade building lumberjack")) addNumberSwitch(40000);
-                    else if (order.startsWith("upgrade building flowerbed")) addNumberSwitch(50000);
-                    else if (order.startsWith("upgrade building house")) addNumberSwitch(60000);
+                    if (order.startsWith("upgrade game architect")) addNumberSwitch(10000);
+                    else if (order.startsWith("upgrade game warehouse")) addNumberSwitch(20000);
+                    else if (order.startsWith("upgrade game quarry")) addNumberSwitch(30000);
+                    else if (order.startsWith("upgrade game lumberjack")) addNumberSwitch(40000);
+                    else if (order.startsWith("upgrade game flowerbed")) addNumberSwitch(50000);
+                    else if (order.startsWith("upgrade game house")) addNumberSwitch(60000);
                     else setNumberSwitch(0);
                 } else setNumberSwitch(0);
 
@@ -202,12 +202,12 @@ public class Order {
                 addNumberSwitch(3);
                 if (order.startsWith("view parameter")) {
                     addNumberSwitch(10);
-                    if (order.startsWith("view parameter building level architect")) addNumberSwitch(100000);
-                    else if (order.startsWith("view parameter building level warehouse")) addNumberSwitch(200000);
-                    else if (order.startsWith("view parameter building level quarry")) addNumberSwitch(300000);
-                    else if (order.startsWith("view parameter building level lumberjack")) addNumberSwitch(400000);
-                    else if (order.startsWith("view parameter building level flowerbed")) addNumberSwitch(500000);
-                    else if (order.startsWith("view parameter building level house")) addNumberSwitch(600000);
+                    if (order.startsWith("view parameter game level architect")) addNumberSwitch(100000);
+                    else if (order.startsWith("view parameter game level warehouse")) addNumberSwitch(200000);
+                    else if (order.startsWith("view parameter game level quarry")) addNumberSwitch(300000);
+                    else if (order.startsWith("view parameter game level lumberjack")) addNumberSwitch(400000);
+                    else if (order.startsWith("view parameter game level flowerbed")) addNumberSwitch(500000);
+                    else if (order.startsWith("view parameter game level house")) addNumberSwitch(600000);
                     else setNumberSwitch(0);
                 }
             } else setNumberSwitch(0);
