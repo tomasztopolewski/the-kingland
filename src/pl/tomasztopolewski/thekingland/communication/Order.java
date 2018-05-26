@@ -147,6 +147,10 @@ public class Order {
                 } else if (order.startsWith("view status")) {
                     if (order.startsWith("view status buildings")) return 1000001;
                 }
+            } else if (order.startsWith("produce")) {
+                if (order.startsWith("produce materials")) return 810;
+                if (order.startsWith("produce wood")) return 811;
+                if (order.startsWith("produce stone")) return 812;
             }
             else if (order.startsWith("save") && order.length() == 4) return 800;
             //polecenie 'help'
@@ -233,6 +237,9 @@ public class Order {
         if (order.startsWith("/701") && order.length() == 4) return 701;
         if (order.startsWith("/799") && order.length() == 4) return 799;
         if (order.startsWith("/800") && order.length() == 4) return 800;
+        if (order.startsWith("/810") && order.length() == 4) return 810;
+        if (order.startsWith("/811") && order.length() == 4) return 811;
+        if (order.startsWith("/812") && order.length() == 4) return 812;
         if (order.startsWith("/990") && order.length() == 4) return 990;
         if (order.startsWith("/991") && order.length() == 4) return 991;
         if (order.startsWith("/992") && order.length() == 4) return 992;

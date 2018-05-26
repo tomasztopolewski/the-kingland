@@ -52,7 +52,10 @@ public class Production {
 
     public void produce() {
         int timeOfProduction = this.timeOfProduction.reutrnTimeOfProduction();
-        addProducedMaterial((int) (powerOfFactory * (timeOfProduction * indicatorOfProduction)));
+        if (timeOfProduction >= 10) {
+            this.timeOfProduction.addTimeOfProduction(timeOfProduction);
+            addProducedMaterial((int) (powerOfFactory * (timeOfProduction * indicatorOfProduction)));
+        } else System.out.println("INFO: Produkcja jest w trakcie. Spróbuj za " + (10 - timeOfProduction) + " sec.\n");
     }
 
 }

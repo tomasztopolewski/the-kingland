@@ -32,21 +32,21 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
     private final int indexOfMaterialWood = 0;
     private final int indexOfMaterialStone = 1;
 
-    private ClassLoadFile classLoadFileMaterialOfSpace;
-    private String[] linesOfFileMaterialOfSpace;
+    //private ClassLoadFile classLoadFileMaterialOfSpace;
+    //private String[] linesOfFileMaterialOfSpace;
 
-    private SettingsObject[] settingsMaterials;
+    //private SettingsObject[] settingsMaterials;
 
     private int[] occupiedSpaceByMaterials; //zajęta przestrzeń przez materiały
 
 
-    public Warehouse(int levelUpgrade, int[] occupiedSpaceByMaterials) throws FileNotFoundException {
+    public Warehouse(int levelUpgrade, int[] occupiedSpaceByMaterials) {
         setLevelUpgrade(levelUpgrade);
         this.occupiedSpaceByMaterials = new int[numberOfMaterials];
 
         loadOccupiedSpaceByMaterial(occupiedSpaceByMaterials);
     }
-    public Warehouse(int levelUpgrade) throws FileNotFoundException {
+    /*public Warehouse(int levelUpgrade) throws FileNotFoundException {
         setLevelUpgrade(levelUpgrade);
         occupiedSpaceByMaterials = new int[numberOfMaterials];
 
@@ -59,8 +59,8 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
 
         setOccupiedSpaceByMaterial(indexOfMaterialWood, convertValueFromSettingObject(settingsMaterials[indexOfMaterialWood].getValue(0)));
         setOccupiedSpaceByMaterial(indexOfMaterialStone, convertValueFromSettingObject(settingsMaterials[indexOfMaterialStone].getValue(0)));
-    }
-    public Warehouse() throws FileNotFoundException {
+    }*/
+    public Warehouse() {
         this.levelUpgrade = 0;
         occupiedSpaceByMaterials = new int[numberOfMaterials];
         setOccupiedSpaceByMaterialsOnNothing();
@@ -168,7 +168,29 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
             default: return -1;
         }
     }
-    public void addMaterial(int numberOfMaterial, int quantity) {
+    public void addWood(int quantity) {
+        if (quantity <= returnFreeSpace()) {
+            this.occupiedSpaceByMaterials[indexOfMaterialWood] += quantity;
+            System.out.println("INFO: Dodano do magazynu " + quantity + " jedn. drewna.\n");
+        } else if (quantity > returnFreeSpace()) {
+            int freeSpace = returnFreeSpace();
+            this.occupiedSpaceByMaterials[indexOfMaterialWood] += freeSpace;
+            System.out.println("INFO: Dodano do magazynu " + freeSpace + " jedn. drewna. Magazyn został zapełniony.\n");
+        } else if (returnFreeSpace() == 0) System.out.println("INFO: Magazyn jest pełny. Nie dodano materiałów.\n");
+        else System.out.println("INFO: Materiały nie zostały dodane do magazynu.\n");
+    }
+    public void addStone(int quantity) {
+        if (quantity <= returnFreeSpace()) {
+            this.occupiedSpaceByMaterials[indexOfMaterialStone] += quantity;
+            System.out.println("INFO: Dodano do magazynu " + quantity + " jedn. kamienia.\n");
+        } else if (quantity > returnFreeSpace()) {
+            int freeSpace = returnFreeSpace();
+            this.occupiedSpaceByMaterials[indexOfMaterialStone] += freeSpace;
+            System.out.println("INFO: Dodano do magazynu " + freeSpace + " jedn. kamienia. Magazyn został zapełniony.\n");
+        } else if (returnFreeSpace() == 0) System.out.println("INFO: Magazyn jest pełny. Nie dodano materiałów.\n");
+        else System.out.println("INFO: Materiały nie zostały dodane do magazynu.\n");
+    }
+    /*public void addMaterial(int numberOfMaterial, int quantity) {
         switch (numberOfMaterial) {
             case 0:
                 this.occupiedSpaceByMaterials[indexOfMaterialWood] += quantity <= returnFreeSpace() ? quantity : 0;
@@ -178,7 +200,7 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
                 break;
             default:
         }
-    }
+    }*/
     public void removeMaterial(int numberOfMaterial, int quantity) {
         switch (numberOfMaterial) {
             case 0:
@@ -196,7 +218,7 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
     }
 
 
-    private void createSettingsMaterials(){
+    /*private void createSettingsMaterials(){
         //System.out.print("linesOfFileMaterialOfSpace 0: \"" + linesOfFileMaterialOfSpace[0] + "\"; linesOfFileMaterialOfSpace 1: \"" +  linesOfFileMaterialOfSpace[1] +"\";\n");
         settingsMaterials[0] = new SettingsObject(linesOfFileMaterialOfSpace[0], "material", "wood",  1 ,1);
         settingsMaterials[1] = new SettingsObject(linesOfFileMaterialOfSpace[1], "material", "stone", 1 ,1);
@@ -205,7 +227,7 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
     private void processOfSettingsMaterials() {
         settingsMaterials[0].prepareTabOfValues();
         settingsMaterials[1].prepareTabOfValues();
-    }
+    }*/
     //private void processOfSettingsMaterials() {} //przetwarzanie obiektu dla indeksu
 
     private int convertValueFromSettingObject(String value) {
@@ -217,9 +239,9 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
-    public void viewValuesFromSettingMaterial(int index) {
+    /*public void viewValuesFromSettingMaterial(int index) {
         settingsMaterials[index].viewValues();
-    }
+    }*/
 }
 
 // Tomasz Topolewski

@@ -41,6 +41,15 @@ public class Console {
             // save
             case 800: managerObjects.save(); break;
 
+            // produce materials
+            case 810: managerObjects.produceMaterials(); break;
+
+            // produce wood
+            case 811: managerObjects.produceWood(); break;
+
+            // produce stone
+            case 812: managerObjects.produceStone(); break;
+
             // help
             case 990: viewHelp(); break;
 

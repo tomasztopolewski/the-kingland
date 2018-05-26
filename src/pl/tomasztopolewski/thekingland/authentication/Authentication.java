@@ -62,7 +62,6 @@ public class Authentication {
                     System.out.println("INFO: Twoje uprawnienie nie zostały sprawdzone oraz aktywowane.");
                     System.out.println("WARN: Potwierdzić swoje uprawnienia, stosując komendę specjalną.");
                     if (passAdmin()) {
-                        System.out.println("SYSTEM-INFO: Uprawienia administratora zostały pomyślenie autoryzowane.\n");
                         return 1000;
                     } else {
                         System.out.println("SYSTEM-ERROR: Niepoprawne dane dostępowe. Aplikacja zostaje zatrzymana.\n");
@@ -92,11 +91,16 @@ public class Authentication {
     }
 
     private boolean passAdmin() {
-        //System.out.print("SYSTEM-INFO: Wprowadź hasło administatora: ");
-        //return new Scanner(System.in).nextLine().trim().equals("$/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString());
-        System.out.println("SYSTEM-ERROR: WYŁĄCZONO OPCJĘ AUTORYZOWANIA ADMINISTATORA.");
+        /*System.out.print("SYSTEM-INFO: Wprowadź hasło administatora: ");
+        if (new Scanner(System.in).nextLine().trim().equals("$/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString())) {
+            System.out.println("SYSTEM-INFO: Uprawienia administratora zostały pomyślenie autoryzowane.\n");
+            return true;
+        } else return false;*/
+        System.out.println("\nSYSTEM-ERROR: WYŁĄCZONO OPCJĘ AUTORYZOWANIA ADMINISTATORA.");
         System.out.println("SYSTEM-ERROR: LOGOWANIE ADMINISTATORA BEZ AUTORYZACJI.");
         System.out.println("SYSTEM-ERROR: TRYB ADMINISTATORA AKTYWOWANY W MODULE NIEAUTORYZOWANYM.");
+        System.out.println("SYSTEM-ERROR: UPRAWIENIA ADMINISTRATORA NIE ZOSTAŁY POMYŚLENIE AUTORYZOWANE.\n");
+        System.out.println("SYSTEM-WARN: Narzędzia administatora wymagają autoryzacji. Tryb awaryjny został włączony.\n");
         return true;
     }
 
