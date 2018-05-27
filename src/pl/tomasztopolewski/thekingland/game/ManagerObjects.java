@@ -724,7 +724,7 @@ public class ManagerObjects {
         System.out.println("Architect: lvl. " + architect.getLevelUpgrade() + "  architect experience: " + architect.getArchitectExperience());
     }
     public void viewDetailsWarehouse() {
-        System.out.println("Warehouse: lvl. " + warehouse.getLevelUpgrade() + "  space: " + warehouse.getAllOccupiedSpaceByMaterials() + "/" + warehouse.getSpace());
+        System.out.println("Warehouse: lvl. " + warehouse.getLevelUpgrade() + "  space: " + " (wood: " + warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood) + ", stone: " + warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone) + ")  " + warehouse.getAllOccupiedSpaceByMaterials() + "/" + warehouse.getSpace());
     }
     public void viewDetailsQuarry() {
         System.out.println("Quarry: lvl. " + quarry.getLevelUpgrade() + "  power of factory: " + quarry.getPowerOfFactory());
@@ -765,6 +765,7 @@ public class ManagerObjects {
     }
 
     private void updateIndicatorProductionOfWood() {
+        //System.out.println("Indicator Production Of Wood: " + ((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 1000);
         productionOfWood.setIndicatorOfProduction(((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 100);
     }
 
@@ -775,8 +776,7 @@ public class ManagerObjects {
     // Produkowanie
     public void produceWood() {
         updateIndicatorsProductionOfWood();
-        productionOfWood.produce();
-        deliverWoodToWarehouse();
+        if (productionOfWood.produce()) deliverWoodToWarehouse();
     }
 
     private void deliverWoodToWarehouse() {
@@ -804,6 +804,7 @@ public class ManagerObjects {
     }
 
     private void updateIndicatorProductionOfStone() {
+        //System.out.println("Indicator Production Of Stone: " + ((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 1000);
         productionOfStone.setIndicatorOfProduction(((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 100);
     }
 
@@ -814,8 +815,7 @@ public class ManagerObjects {
     // Produkowanie
     public void produceStone() {
         updateIndicatorsProductionOfStone();
-        productionOfStone.produce();
-        deliverStoneToWarehouse();
+        if (productionOfStone.produce()) deliverStoneToWarehouse();
     }
 
     private void deliverStoneToWarehouse() {

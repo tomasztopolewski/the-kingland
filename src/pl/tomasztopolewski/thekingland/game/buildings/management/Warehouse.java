@@ -133,8 +133,8 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
     }
 
     public void loadOccupiedSpaceByMaterial(int[] occupiedSpaceByMaterials) {
-        this.occupiedSpaceByMaterials[indexOfMaterialWood] = occupiedSpaceByMaterials[indexOfMaterialWood];
-        this.occupiedSpaceByMaterials[indexOfMaterialStone] = occupiedSpaceByMaterials[indexOfMaterialStone];
+        if (occupiedSpaceByMaterials[indexOfMaterialWood] <= returnFreeSpace()) this.occupiedSpaceByMaterials[indexOfMaterialWood] = occupiedSpaceByMaterials[indexOfMaterialWood];
+        if (occupiedSpaceByMaterials[indexOfMaterialStone] <= returnFreeSpace()) this.occupiedSpaceByMaterials[indexOfMaterialStone] = occupiedSpaceByMaterials[indexOfMaterialStone];
     }
     /*public void loadOccupiedSpaceByMaterial(int numberOfMaterial, int quantity) {
         switch (numberOfMaterial) {
@@ -169,26 +169,30 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
         }
     }
     public void addWood(int quantity) {
-        if (quantity <= returnFreeSpace()) {
-            this.occupiedSpaceByMaterials[indexOfMaterialWood] += quantity;
-            System.out.println("INFO: Dodano do magazynu " + quantity + " jedn. drewna.\n");
-        } else if (quantity > returnFreeSpace()) {
-            int freeSpace = returnFreeSpace();
-            this.occupiedSpaceByMaterials[indexOfMaterialWood] += freeSpace;
-            System.out.println("INFO: Dodano do magazynu " + freeSpace + " jedn. drewna. Magazyn został zapełniony.\n");
-        } else if (returnFreeSpace() == 0) System.out.println("INFO: Magazyn jest pełny. Nie dodano materiałów.\n");
-        else System.out.println("INFO: Materiały nie zostały dodane do magazynu.\n");
+        if (returnFreeSpace() == 0) System.out.println("INFO: Magazyn jest pełny. Nie dodano materiałów.\n");
+        else {
+            if (quantity <= returnFreeSpace()) {
+                this.occupiedSpaceByMaterials[indexOfMaterialWood] += quantity;
+                System.out.println("INFO: Dodano do magazynu " + quantity + " jedn. drewna.\n");
+            } else if (quantity > returnFreeSpace()) {
+                int freeSpace = returnFreeSpace();
+                this.occupiedSpaceByMaterials[indexOfMaterialWood] += freeSpace;
+                System.out.println("INFO: Dodano do magazynu " + freeSpace + " jedn. drewna. Magazyn został zapełniony.\n");
+            } else System.out.println("INFO: Materiały nie zostały dodane do magazynu.\n");
+        }
     }
     public void addStone(int quantity) {
-        if (quantity <= returnFreeSpace()) {
-            this.occupiedSpaceByMaterials[indexOfMaterialStone] += quantity;
-            System.out.println("INFO: Dodano do magazynu " + quantity + " jedn. kamienia.\n");
-        } else if (quantity > returnFreeSpace()) {
-            int freeSpace = returnFreeSpace();
-            this.occupiedSpaceByMaterials[indexOfMaterialStone] += freeSpace;
-            System.out.println("INFO: Dodano do magazynu " + freeSpace + " jedn. kamienia. Magazyn został zapełniony.\n");
-        } else if (returnFreeSpace() == 0) System.out.println("INFO: Magazyn jest pełny. Nie dodano materiałów.\n");
-        else System.out.println("INFO: Materiały nie zostały dodane do magazynu.\n");
+        if (returnFreeSpace() == 0) System.out.println("INFO: Magazyn jest pełny. Nie dodano materiałów.\n");
+        else {
+            if (quantity <= returnFreeSpace()) {
+                this.occupiedSpaceByMaterials[indexOfMaterialStone] += quantity;
+                System.out.println("INFO: Dodano do magazynu " + quantity + " jedn. kamienia.\n");
+            } else if (quantity > returnFreeSpace()) {
+                int freeSpace = returnFreeSpace();
+                this.occupiedSpaceByMaterials[indexOfMaterialStone] += freeSpace;
+                System.out.println("INFO: Dodano do magazynu " + freeSpace + " jedn. kamienia. Magazyn został zapełniony.\n");
+            } else System.out.println("INFO: Materiały nie zostały dodane do magazynu.\n");
+        }
     }
     /*public void addMaterial(int numberOfMaterial, int quantity) {
         switch (numberOfMaterial) {

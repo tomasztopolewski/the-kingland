@@ -32,6 +32,9 @@ public class Console {
 
     public void processOrder()  {
         switch (new Order().returnNumber()) {
+            // view status buildings
+            case 101: viewStatusOfBuildings(); break;
+
             // view time of game
             case 701: viewTimeOfGame(); break;
 

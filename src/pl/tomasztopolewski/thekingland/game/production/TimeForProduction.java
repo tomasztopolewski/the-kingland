@@ -30,6 +30,7 @@ public class TimeForProduction extends Time {
 
     }*/
     public int reutrnTimeOfProduction() {
+        downloadCurrentTimeMil();
         calcTimeSec();
         return getTime() - this.timeOfProduction;
     }

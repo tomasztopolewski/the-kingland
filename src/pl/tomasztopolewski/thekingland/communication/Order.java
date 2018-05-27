@@ -233,7 +233,7 @@ public class Order {
     }
 
     public int returnNumberForCommand() {
-        if (order.startsWith("/100") && order.length() == 4) return 100;
+        if (order.startsWith("/101") && order.length() == 4) return 101;
         if (order.startsWith("/701") && order.length() == 4) return 701;
         if (order.startsWith("/799") && order.length() == 4) return 799;
         if (order.startsWith("/800") && order.length() == 4) return 800;
@@ -269,7 +269,7 @@ public class Order {
         if (order.startsWith("/510101") && order.length() == 7) return 510101;
         if (order.startsWith("/610101") && order.length() == 7) return 610101;
 
-        if (order.startsWith("/1000001") && order.length() == 8) return 1000001;
+        if (order.startsWith("/1000001") && order.length() == 8) return 101;
         
         return 0;
     }
