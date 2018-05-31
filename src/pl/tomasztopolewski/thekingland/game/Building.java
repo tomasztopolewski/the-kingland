@@ -15,6 +15,18 @@ public class Building implements EssentialsBuilding {
     private int[] costUpgradeStone;
     private int[] levelOfAdvancementBuilding;
 
+    public Building() {
+        this.square = 0;
+        this.codeGroupBuilding = "";
+        this.codeBuilding = "";
+        this.levelUpgrade = 0;
+        this.minimumUpgradeLevel = 0;
+        this.maximumUpgradeLevel = 0;
+        this.costUpgradeGold = new int[]{};
+        this.costUpgradeWood = new int[]{};
+        this.costUpgradeStone = new int[]{};
+        this.levelOfAdvancementBuilding = new int[]{};
+    }
 
     public int getSquare() {
         return this.square;

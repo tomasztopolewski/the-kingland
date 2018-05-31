@@ -43,7 +43,7 @@ public abstract class Communique {
     public static final String nameGame = "The KingLand";
     public static final String author = "Tomasz Topolewski";
 
-    public static final String numberOfVersion = "v81.03.018";
+    public static final String numberOfVersion = "v85.04.770";
     public static final String typeOfVersion = "DEV_alpha";
     public static final String version = numberOfVersion + "-main(May 2018) " + typeOfVersion;
     public static final String versionOfTested = numberOfVersion + "-tested(May 2018) " + typeOfVersion;
@@ -132,7 +132,7 @@ public abstract class Communique {
         System.out.println("Good bay!\n");
         System.out.println("\nCreated by " + author + "\n\n");
         Thread.sleep(2000);
-        System.out.print(newVersion + " / " + version);
+        System.out.println(newVersion + " / " + version);
         System.exit(1);
     }
 }

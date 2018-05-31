@@ -15,6 +15,13 @@ public class Time {
         this.absolutiveTimeOfGames = 0;
         timeInTab = new int[2];
     }
+    public Time(int absolutiveTimeOfGames) {
+        downloadStartTimeMil();
+        this.currentTimeMil = 0;
+        this.time = 0;
+        this.absolutiveTimeOfGames = absolutiveTimeOfGames;
+        timeInTab = new int[2];
+    }
     /*public Time() {
         this.startTimeMil = 0;
         this.currentTimeMil = 0;
@@ -93,6 +100,13 @@ public class Time {
         }
 
         return min + " min " + time + " sec";
+    }
+
+    public int getAbsolutiveTimeOfGames() {
+        downloadCurrentTimeMil();
+        calcTimeSec();
+
+        return absolutiveTimeOfGames + time;
     }
 }
 

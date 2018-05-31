@@ -727,10 +727,10 @@ public class ManagerObjects {
         System.out.println("Warehouse: lvl. " + warehouse.getLevelUpgrade() + "  space: " + " (wood: " + warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood) + ", stone: " + warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone) + ")  " + warehouse.getAllOccupiedSpaceByMaterials() + "/" + warehouse.getSpace());
     }
     public void viewDetailsQuarry() {
-        System.out.println("Quarry: lvl. " + quarry.getLevelUpgrade() + "  power of factory: " + quarry.getPowerOfFactory());
+        System.out.println("Quarry: lvl. " + quarry.getLevelUpgrade() + "  power of factory: " + quarry.getPowerOfFactory() + "  indicator of production: " + productionOfStone.getIndicatorOfProduction());
     }
     public void viewDetailsLumberjack() {
-        System.out.println("Lumberjack: lvl. " + lumberjack.getLevelUpgrade() + "  power of factory: " + lumberjack.getPowerOfFactory());
+        System.out.println("Lumberjack: lvl. " + lumberjack.getLevelUpgrade() + "  power of factory: " + lumberjack.getPowerOfFactory() + "  indicator of production: " + productionOfWood.getIndicatorOfProduction());
     }
     public void viewDetailsFlowerbed() {
         System.out.println("Flowerbed: lvl. " + flowerbed.getLevelUpgrade() + "  square: " + flowerbed.getSquare() + " m2  embellishments points: " + flowerbed.getEmbellishmentsPoints() + " points");
@@ -738,6 +738,61 @@ public class ManagerObjects {
     public void viewDetailsHouse() {
         System.out.println("House: lvl. " + house.getLevelUpgrade() + "  number of people: " + house.getNumberOfPeople());
     }
+
+
+    // DETAILS BUILDING WITH SEPARATOR
+    public void viewDetailsArchitectWithSeparator() {
+        System.out.format("  Architect: %1$3s lvl. | architect experience: %2$s %n", String.valueOf(architect.getLevelUpgrade()), String.valueOf(architect.getArchitectExperience()));
+    }
+    public void viewDetailsWarehouseWithSeparator() {
+        /*System.out.println("Warehouse: lvl. " + warehouse.getLevelUpgrade()
+                + "  space: " + " (wood: " + warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)
+                + ", stone: " + warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone) + ")  "
+                + warehouse.getAllOccupiedSpaceByMaterials() + "/" + warehouse.getSpace());*/
+
+        System.out.format("  Warehouse: %1$3s lvl. | space: %4$s/%5$s  (wood: %2$s, stone: %3$s) %n",
+                String.valueOf(warehouse.getLevelUpgrade()), String.valueOf(warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)),
+                String.valueOf(warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)), String.valueOf(warehouse.getAllOccupiedSpaceByMaterials()),
+                String.valueOf(warehouse.getSpace()));
+    }
+    public void viewDetailsQuarryWithSeparator() {
+        System.out.format("  Quarry: %1$6s lvl. | power of factory: %2$s %n", String.valueOf(quarry.getLevelUpgrade()), String.valueOf(quarry.getPowerOfFactory()));
+    }
+    public void viewDetailsLumberjackWithSeparator() {
+        System.out.format("  Lumberjack: %1$2s lvl. | power of factory: %2$s %n", String.valueOf(lumberjack.getLevelUpgrade()), String.valueOf(lumberjack.getPowerOfFactory()));
+    }
+    public void viewDetailsFlowerbedWithSeparator() {
+        System.out.format("  Flowerbed: %1$3s lvl. | square: %2$s m2  embellishments points: %3$s points %n", String.valueOf(flowerbed.getLevelUpgrade()), String.valueOf(flowerbed.getSquare()), String.valueOf(flowerbed.getEmbellishmentsPoints()));
+    }
+    public void viewDetailsHouseWithSeparator() {
+        System.out.format("  House: %1$7s lvl. | number of people: %2$s %n", String.valueOf(house.getLevelUpgrade()), String.valueOf(house.getNumberOfPeople()));
+    }
+    public void viewDetailsProductionStoneWithSeparator() {
+        System.out.format("  Stone indicator: %1$4s%% %n", String.valueOf(productionOfStone.getIndicatorOfProduction() * 10));
+    }
+
+    public void viewDetailsProductionWoodWithSeparator() {
+        System.out.format("  Wood indicator: %1$5s%% %n", String.valueOf(productionOfWood.getIndicatorOfProduction() * 10));
+    }
+
+
+/////////////////////////////////////////////////////////////////////////////
+// METODY DOTYCZĄCE MATERIAŁÓw
+
+    public void setInitialQuantityMaterials() {
+        setQuantityStone(100);
+        setQuantityWood(100);
+    }
+
+    private void setQuantityStone(int quantity) {
+        warehouse.setOccupiedSpaceByMaterial(indexOfMaterialStone, quantity);
+    }
+
+    private void setQuantityWood(int quantity) {
+        warehouse.setOccupiedSpaceByMaterial(indexOfMaterialWood, quantity);
+    }
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////

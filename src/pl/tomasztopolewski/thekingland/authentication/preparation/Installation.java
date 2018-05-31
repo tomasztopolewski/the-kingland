@@ -23,6 +23,7 @@ public abstract class Installation {
     public final static String pathToFolder = "C:\\TheKingLand\\bin\\";
     public final static String nameOfFile_ManagerBuilding = "manager-building";
     public final static String nameOfFile_SpaceOfWarehouse = "materials-space";
+    public final static String nameOfFile_Settings = "settings";
     public final static String nameOfDatabase_Players = "players";
 
     public final static String enlargementOfFile = new ClassLoadFile().getEnlargement();
@@ -33,6 +34,10 @@ public abstract class Installation {
                 && new File(pathToFolder + nameOfFile_ManagerBuilding + enlargementOfFile).canWrite()
 
                 && new File(pathToFolder + nameOfFile_SpaceOfWarehouse + enlargementOfFile).canRead()
-                && new File(pathToFolder + nameOfFile_SpaceOfWarehouse + enlargementOfFile).canWrite();
+                && new File(pathToFolder + nameOfFile_SpaceOfWarehouse + enlargementOfFile).canWrite()
+
+                && new File(pathToFolder + nameOfFile_Settings + enlargementOfFile).canRead()
+                && new File(pathToFolder + nameOfFile_Settings + enlargementOfFile).canWrite();
+
     }
 }

@@ -92,6 +92,10 @@ public class ClassLoadFile {
         return downloadedLines;
     }
 
+    public String getFirstDownloadedLine() {
+        return downloadedLines[0];
+    }
+
     public void loadFile() throws FileNotFoundException, NoSuchElementException {
         Scanner reader = new Scanner(System.in);
         try {

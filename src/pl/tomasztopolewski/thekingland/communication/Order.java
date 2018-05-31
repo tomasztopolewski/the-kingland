@@ -234,7 +234,10 @@ public class Order {
 
     public int returnNumberForCommand() {
         if (order.startsWith("/101") && order.length() == 4) return 101;
+        if (order.startsWith("/102") && order.length() == 4) return 102;
         if (order.startsWith("/701") && order.length() == 4) return 701;
+        if (order.startsWith("/702") && order.length() == 4) return 702;
+        if (order.startsWith("/798") && order.length() == 4) return 798;
         if (order.startsWith("/799") && order.length() == 4) return 799;
         if (order.startsWith("/800") && order.length() == 4) return 800;
         if (order.startsWith("/810") && order.length() == 4) return 810;
@@ -243,6 +246,7 @@ public class Order {
         if (order.startsWith("/990") && order.length() == 4) return 990;
         if (order.startsWith("/991") && order.length() == 4) return 991;
         if (order.startsWith("/992") && order.length() == 4) return 992;
+        if (order.startsWith("/998") && order.length() == 4) return 998;
         if (order.startsWith("/999") && order.length() == 4) return 999;
 
         // polecenia 'buy'

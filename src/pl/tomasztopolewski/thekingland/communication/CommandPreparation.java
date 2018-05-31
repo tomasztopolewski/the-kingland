@@ -1,6 +1,5 @@
 package pl.tomasztopolewski.thekingland.communication;
 
-import javafx.scene.layout.Pane;
 import pl.tomasztopolewski.thekingland.authentication.Authentication;
 import pl.tomasztopolewski.thekingland.authentication.Player;
 import pl.tomasztopolewski.thekingland.security.Decryption;
