@@ -205,7 +205,32 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
             default:
         }
     }*/
-    public void removeMaterial(int numberOfMaterial, int quantity) {
+
+
+    public void removeWood(int quantity) {
+        if (this.occupiedSpaceByMaterials[indexOfMaterialWood] == 0) System.out.println("INFO: Brak drewna w magazynie.\n");
+        else {
+            if (quantity <= this.occupiedSpaceByMaterials[indexOfMaterialWood]) {
+                this.occupiedSpaceByMaterials[indexOfMaterialWood] -= quantity;
+                System.out.println("INFO: Pobrano z magazynu " + quantity + " jedn. drewna.\n");
+            } else if (quantity > this.occupiedSpaceByMaterials[indexOfMaterialWood]) {
+                System.out.println("INFO: Nie pobrano " + quantity + " jedn. drewna. W magazynie brakuje " + (quantity - this.occupiedSpaceByMaterials[indexOfMaterialWood]) + " jedn. drewna.\n");
+            } else System.out.println("INFO: Materiały nie zostały pobrane z magazynu.\n");
+        }
+    }
+    public void removeStone(int quantity) {
+        if (this.occupiedSpaceByMaterials[indexOfMaterialStone] == 0) System.out.println("INFO: Brak kamienia w magazynie.\n");
+        else {
+            if (quantity <= this.occupiedSpaceByMaterials[indexOfMaterialStone]) {
+                this.occupiedSpaceByMaterials[indexOfMaterialStone] -= quantity;
+                System.out.println("INFO: Pobrano z magazynu " + quantity + " jedn. kamienia.\n");
+            } else if (quantity > this.occupiedSpaceByMaterials[indexOfMaterialStone]) {
+                System.out.println("INFO: Nie pobrano " + quantity + " jedn. kamienia. W magazynie brakuje " + (quantity - this.occupiedSpaceByMaterials[indexOfMaterialStone]) + " jedn. kamienia.\n");
+            } else System.out.println("INFO: Materiały nie zostały pobrane z magazynu.\n");
+        }
+    }
+
+    /*public void removeMaterial(int numberOfMaterial, int quantity) {
         switch (numberOfMaterial) {
             case 0:
                 this.occupiedSpaceByMaterials[indexOfMaterialWood] -= quantity <= getOccupiedSpaceByMaterial(indexOfMaterialWood) ? quantity : 0;
@@ -215,7 +240,7 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
                 break;
             default:
         }
-    }
+    }*/
 
     public int getAllOccupiedSpaceByMaterials() {
         return occupiedSpaceByMaterials[indexOfMaterialWood] + occupiedSpaceByMaterials[indexOfMaterialStone];
@@ -238,6 +263,15 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
         return Integer.valueOf(value);
     }
 
+    public boolean enoughWood(int quantity) {
+        if (quantity <= getOccupiedSpaceByMaterial(indexOfMaterialWood)) return true;
+        else return false;
+    }
+
+    public boolean enoughStone(int quantity) {
+        if (quantity <= getOccupiedSpaceByMaterial(indexOfMaterialStone)) return true;
+        else return false;
+    }
 
 
 /////////////////////////////////////////////////////////////////////////////

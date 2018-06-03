@@ -399,8 +399,14 @@ public class ManagerObjects {
     //Kupowanie budynków
     public void buyArchitect() {
         if (architect.getLevelUpgrade() == 0) {
-            architect.setLevelUpgrade(1);
-            System.out.println("INFO: Building Architect is bought.\n");
+            if (enoughMaterials(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1), architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1))) {
+                architect.setLevelUpgrade(1);
+                warehouse.removeWood(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade()));
+                warehouse.removeStone(architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade()));
+                System.out.println("INFO: Building Architect is bought.\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
         } else {
             System.out.println("INFO: Building Architect was bought. Transaction isn't realized.\n");
         }
@@ -692,6 +698,15 @@ public class ManagerObjects {
      */
 
 
+    //////////////////////////////////////////////
+    // Sprawdzanie dostępności materiałów
+
+    private boolean enoughMaterials(int quantityWood, int quantityStone) {
+        if (warehouse.enoughWood(quantityWood) && warehouse.enoughStone(quantityStone)) return true;
+        else return false;
+    }
+
+
 /////////////////////////////////////////////////////////////////////////////
 // METODY WYŚWIETLAJĄCE WYNIKI
 
@@ -784,11 +799,11 @@ public class ManagerObjects {
         setQuantityWood(100);
     }
 
-    private void setQuantityStone(int quantity) {
+    public void setQuantityStone(int quantity) {
         warehouse.setOccupiedSpaceByMaterial(indexOfMaterialStone, quantity);
     }
 
-    private void setQuantityWood(int quantity) {
+    public void setQuantityWood(int quantity) {
         warehouse.setOccupiedSpaceByMaterial(indexOfMaterialWood, quantity);
     }
 

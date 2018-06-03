@@ -25,6 +25,7 @@ public abstract class Main {
             case 1000:
                 Communique.viewWelcome();
                 console = new Console();
+                //console = new ConsoleAdmin();
                 System.out.println("SYSTEM-INFO: Settings and saves are loaded. Administators tools are activated.\n");
                 while (true) console.processOrder();
 

@@ -10,11 +10,16 @@
  *       Wersja klasy v2.0 [pobieranie i interpretowanie liczby odpowiedzialna jest
  *       klasa 'Order', wykonanie polecenie należy do klasy 'Console'.
  *
+ *    przyszły model (v3.0):
+ *       Wersja klasy v3.0 [pobieranie polecenia, interpretowanie obiektu 'NumerSwitch'
+ *       oraz wykonanie polecenia z obiektu 'NumerSwitch'
+ *
  */
 package pl.tomasztopolewski.thekingland.communication;
 
 import pl.tomasztopolewski.thekingland.authentication.preparation.Installation;
 import pl.tomasztopolewski.thekingland.game.ManagerObjects;
+import pl.tomasztopolewski.thekingland.game.ManagerObjectsAdmin;
 import pl.tomasztopolewski.thekingland.handlingdata.ClassLoadFile;
 import pl.tomasztopolewski.thekingland.handlingdata.ClassSaveFile;
 import pl.tomasztopolewski.thekingland.handlingdata.SettingsObject;
@@ -30,6 +35,7 @@ public class Console {
     private SettingsObject saveSettingsObjectSettings;
 
     private ManagerObjects managerObjects;
+    //private Object managerObjects;
     private Time time;
 
     public Console() throws FileNotFoundException {
@@ -38,13 +44,48 @@ public class Console {
 
         managerObjects = new ManagerObjects("load values from file");
     }
+    /*public Console(boolean loginAdmin) {
+        if (loginAdmin) {
+            try { loadSettings(); }
+            catch (FileNotFoundException e) {
+                System.out.println("SYSTEM-ERROR: Plik ustawień nie został odnaleziony. Ładowanie ustawień nie powiodło się.\n");
+                e.printStackTrace();
+            }
+            //managerObjects = new ManagerObjectsAdmin();
+            time = new Time(returnDownloadedAbsolutiveTimeOfGames());
+        } else {
+            System.out.println("SYSTEM-ERROR: Uprawienia administatora nie zostały poprawnie autoryzowane. Spróbuj uruchomnić grę ponownie. Jeśli błąd będzie się powstarzał, skontaktuj się z obsługą techniczna.\n");
+            fastGoodBye();
+        }
+    }*/
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 
     public void processOrder()  {
-        switch (new Order().returnNumber()) {
+        Order order = new Order();
+        switch (order.returnNumber()) {
+            ////////////////////////////////////////////
+            /*
+             * FUNKCJE SZYBKIEGO DOSTĘPU
+             */
+
+            case 3: managerObjects.setQuantityWood(1); managerObjects.setQuantityStone(1); break;
+            case 4: {
+                managerObjects.setQuantityWood(order.getArgumentsInt());
+                break;
+            }
+            case 5: break;
+            case 6: break;
+            case 7: break;
+            case 8: break;
+            case 9: break;
+
+
+            ////////////////////////////////////////////
+
+
             // view status buildings
             case 101: viewStatusOfBuildings(); break;
 
@@ -155,6 +196,7 @@ public class Console {
             case 0: System.out.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
             default: System.out.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
         }
+        order = null;
     }
 
 

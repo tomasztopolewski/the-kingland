@@ -16,6 +16,9 @@ public class Order {
     public final int minimumNumberSwitch = 0;
     public final int maximumNumberSwitch = 100000;
 
+    private String argumentsString;
+    private int argumentsInt;
+    private double argumentsDouble;
 
     public Order() {
         downloadLine(charNewOrder);
@@ -75,6 +78,27 @@ public class Order {
     }
     public int getNumberSwitch() {
         return numberSwitch;
+    }
+
+    public String getArgumentsString() {
+        return argumentsString;
+    }
+    public void setArgumentsString(String argumentsString) {
+        this.argumentsString = argumentsString;
+    }
+
+    public int getArgumentsInt() {
+        return argumentsInt;
+    }
+    public void setArgumentsInt(int argumentsInt) {
+        this.argumentsInt = argumentsInt;
+    }
+
+    public double getArgumentsDouble() {
+        return argumentsDouble;
+    }
+    public void setArgumentsDouble(double argumentsDouble) {
+        this.argumentsDouble = argumentsDouble;
     }
 
 //////////////////////////////////////////////////////////////////////////
@@ -147,6 +171,22 @@ public class Order {
                 } else if (order.startsWith("view status")) {
                     if (order.startsWith("view status buildings")) return 1000001;
                 }
+            } else if (order.startsWith("set")) {
+                if (order.startsWith("set quantity of material")) {
+                    if (order.startsWith("set quantity of material wood")) {
+                        String arguments = (order.substring(29, order.length())).trim();
+
+                        int number = 0;
+                        try {
+                            number = Integer.parseInt(arguments);
+                        } catch (NumberFormatException nfe) {
+                            return 0;
+                        }
+                        this.argumentsInt = number;
+                        return 4;
+                    }
+                }
+
             } else if (order.startsWith("produce")) {
                 if (order.startsWith("produce materials")) return 810;
                 if (order.startsWith("produce wood")) return 811;
@@ -233,6 +273,14 @@ public class Order {
     }
 
     public int returnNumberForCommand() {
+        if (order.startsWith("/3") && order.length() == 2) return 3;
+        if (order.startsWith("/4") && order.length() == 2) return 4;
+        if (order.startsWith("/5") && order.length() == 2) return 5;
+        if (order.startsWith("/6") && order.length() == 2) return 6;
+        if (order.startsWith("/7") && order.length() == 2) return 7;
+        if (order.startsWith("/8") && order.length() == 2) return 8;
+        if (order.startsWith("/9") && order.length() == 2) return 9;
+
         if (order.startsWith("/101") && order.length() == 4) return 101;
         if (order.startsWith("/102") && order.length() == 4) return 102;
         if (order.startsWith("/701") && order.length() == 4) return 701;
