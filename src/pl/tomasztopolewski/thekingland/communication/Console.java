@@ -72,11 +72,12 @@ public class Console {
              */
 
             case 3: managerObjects.setQuantityWood(1); managerObjects.setQuantityStone(1); break;
-            case 4: {
-                managerObjects.setQuantityWood(order.getArgumentsInt());
+            case 4:
+                managerObjects.addWood(order.getArgumentsInt());
                 break;
-            }
-            case 5: break;
+            case 5:
+                managerObjects.addStone(order.getArgumentsInt());
+                break;
             case 6: break;
             case 7: break;
             case 8: break;
@@ -115,6 +116,9 @@ public class Console {
 
             // produce stone
             case 812: managerObjects.produceStone(); break;
+
+            // help with numbers switch
+            case 989: viewHelpWithNumbersSwitch(); break;
 
             // help
             case 990: viewHelp(); break;
@@ -194,7 +198,7 @@ public class Console {
 
             // wrong order
             case 0: System.out.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
-            default: System.out.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
+            default: System.out.println("SYSTEM-ERROR: System doesn't recognizes the order.\n"); break;
         }
         order = null;
     }
@@ -236,17 +240,29 @@ public class Console {
 //////////////////////////////////////////////////////////////////////
 
     private void viewHelp() {
-        System.out.println(" - HELP start -");
-        System.out.println("author, version, exit");
-        //System.out.println("");
-        System.out.println("buy game: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        //System.out.println("");
-        System.out.println("upgrade game: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        //System.out.println("");
-        System.out.println("view parameter game level: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        //System.out.println("");
-        System.out.println("view status buildings");
-        System.out.println(" - HELP end - \n");
+        System.out.println(" - - - - HELP start - - - - ");
+        System.out.println("1) author, version, exit");
+        System.out.println("2) buy building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        System.out.println("3) upgrade building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        System.out.println("4) view parameter game level: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        System.out.println("5) view status buildings");
+        System.out.println("6) save");
+        System.out.println("7) produce: materials / wood / stone");
+        System.out.println("8) view (absolutive) time of game");
+        System.out.println(" - - - - HELP end - - - - \n");
+    }
+
+    private void viewHelpWithNumbersSwitch() {
+        System.out.println(" - - - - HELP start - - - - ");
+        System.out.println("1) author(992), version(991), exit(999, fast-998)");
+        System.out.println("2) buy building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
+        System.out.println("3) upgrade building: architect(10102) / warehouse(20102) / quarry(30102) / lumberjack(40102) / flowerbed(50102) / house(60102)");
+        System.out.println("4) view parameter game level: architect(110101) / warehouse(210101) / quarry(310101) / lumberjack(410101) / flowerbed(510101) / house(60101)");
+        System.out.println("5) view status buildings [without separators(101), with separators(102)]");
+        System.out.println("6) save (800)");
+        System.out.println("7) produce: materials(810) / wood(811) / stone(812)");
+        System.out.println("8) view [absolutive] time of game(701) [702]");
+        System.out.println(" - - - - HELP end - - - - \n");
     }
 
     private void goodBye() {

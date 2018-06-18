@@ -397,16 +397,11 @@ public class ManagerObjects {
 
     //////////////////////////////////////////////
     //Kupowanie budynków
-    public void buyArchitect() {
+
+    /**public void buyArchitect() {
         if (architect.getLevelUpgrade() == 0) {
-            if (enoughMaterials(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1), architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1))) {
-                architect.setLevelUpgrade(1);
-                warehouse.removeWood(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade()));
-                warehouse.removeStone(architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade()));
-                System.out.println("INFO: Building Architect is bought.\n");
-            } else {
-                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
-            }
+            architect.setLevelUpgrade(1);
+            System.out.println("INFO: Building Architect is bought.\n");
         } else {
             System.out.println("INFO: Building Architect was bought. Transaction isn't realized.\n");
         }
@@ -451,6 +446,92 @@ public class ManagerObjects {
             System.out.println("INFO: Building House was bought. Transaction isn't realized.\n");
         }
     }
+    */
+
+    public void buyArchitect() {
+        if (architect.getLevelUpgrade() == 0) {
+            if (enoughMaterials(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1), architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1))) {
+                setLevelArchitect(1);
+                removeWood(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade()));
+                removeStone(architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade()));
+                System.out.println("INFO: Building Architect is bought.\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else {
+            System.out.println("INFO: Building Architect was bought. Transaction isn't realized.\n");
+        }
+    }
+    public void buyWarehouse() {
+        if (warehouse.getLevelUpgrade() == 0) {
+            if (enoughMaterials(warehouse.getCostUpgradeWoodOneLevel(warehouse.getLevelUpgrade() + 1), warehouse.getCostUpgradeStoneOneLevel(warehouse.getLevelUpgrade() + 1))) {
+                setLevelWarehouse(1);
+                removeWood(warehouse.getCostUpgradeWoodOneLevel(warehouse.getLevelUpgrade()));
+                removeStone(warehouse.getCostUpgradeStoneOneLevel(warehouse.getLevelUpgrade()));
+                System.out.println("INFO: Building Warehouse is bought.\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (warehouse.getCostUpgradeWoodOneLevel(warehouse.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (warehouse.getCostUpgradeStoneOneLevel(warehouse.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else {
+            System.out.println("INFO: Building Warehouse was bought. Transaction isn't realized.\n");
+        }
+    }
+    public void buyQuarry() {
+        if (quarry.getLevelUpgrade() == 0) {
+            if (enoughMaterials(quarry.getCostUpgradeWoodOneLevel(quarry.getLevelUpgrade() + 1), quarry.getCostUpgradeStoneOneLevel(quarry.getLevelUpgrade() + 1))) {
+                setLevelQuarry(1);
+                removeWood(quarry.getCostUpgradeWoodOneLevel(quarry.getLevelUpgrade()));
+                removeStone(quarry.getCostUpgradeStoneOneLevel(quarry.getLevelUpgrade()));
+                System.out.println("INFO: Building Quarry is bought.\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (quarry.getCostUpgradeWoodOneLevel(quarry.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (warehouse.getCostUpgradeStoneOneLevel(warehouse.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else {
+            System.out.println("INFO: Building Quarry was bought. Transaction isn't realized.\n");
+        }
+    }
+    public void buyLumberjack() {
+        if (lumberjack.getLevelUpgrade() == 0) {
+            if (enoughMaterials(lumberjack.getCostUpgradeWoodOneLevel(lumberjack.getLevelUpgrade() + 1), lumberjack.getCostUpgradeStoneOneLevel(lumberjack.getLevelUpgrade() + 1))) {
+                setLevelLumberjack(1);
+                removeWood(lumberjack.getCostUpgradeWoodOneLevel(lumberjack.getLevelUpgrade()));
+                removeStone(lumberjack.getCostUpgradeStoneOneLevel(lumberjack.getLevelUpgrade()));
+                System.out.println("INFO: Building Lumberjack is bought..\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (lumberjack.getCostUpgradeWoodOneLevel(lumberjack.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (lumberjack.getCostUpgradeStoneOneLevel(lumberjack.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else {
+            System.out.println("INFO: Building Lumberjack was bought. Transaction isn't realized.\n");
+        }
+    }
+    public void buyFlowerbed() {
+        if (flowerbed.getLevelUpgrade() == 0) {
+            if (enoughMaterials(flowerbed.getCostUpgradeWoodOneLevel(flowerbed.getLevelUpgrade() + 1), flowerbed.getCostUpgradeStoneOneLevel(flowerbed.getLevelUpgrade() + 1))) {
+                setLevelFlowerbed(1);
+                removeWood(flowerbed.getCostUpgradeWoodOneLevel(flowerbed.getLevelUpgrade()));
+                removeStone(flowerbed.getCostUpgradeStoneOneLevel(flowerbed.getLevelUpgrade()));
+                System.out.println("INFO: Building Flowerbed is bought..\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (flowerbed.getCostUpgradeWoodOneLevel(flowerbed.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (flowerbed.getCostUpgradeStoneOneLevel(flowerbed.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else {
+            System.out.println("INFO: Building Architect was bought. Transaction isn't realized.\n");
+        }
+    }
+    public void buyHouse() {
+        if (house.getLevelUpgrade() == 0) {
+            if (enoughMaterials(quarry.getCostUpgradeWoodOneLevel(quarry.getLevelUpgrade() + 1), quarry.getCostUpgradeStoneOneLevel(quarry.getLevelUpgrade() + 1))) {
+                setLevelHouse(1);
+                removeWood(quarry.getCostUpgradeWoodOneLevel(quarry.getLevelUpgrade()));
+                removeStone(quarry.getCostUpgradeStoneOneLevel(quarry.getLevelUpgrade()));
+                System.out.println("INFO: Building House is bought..\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (quarry.getCostUpgradeWoodOneLevel(quarry.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (warehouse.getCostUpgradeStoneOneLevel(warehouse.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else {
+            System.out.println("INFO: Building House was bought. Transaction isn't realized.\n");
+        }
+    }
 
 
     //////////////////////////////////////////////
@@ -490,11 +571,11 @@ public class ManagerObjects {
         warehouse.setLevelUpgrade(level);
     }
     public void setLevelQuarry(int level) {
-        produceStone();
+        produceMaterials();
         quarry.setLevelUpgrade(level);
     }
     public void setLevelLumberjack(int level) {
-        produceWood();
+        produceMaterials();
         lumberjack.setLevelUpgrade(level);
     }
     public void setLevelFlowerbed(int level) {
@@ -537,7 +618,7 @@ public class ManagerObjects {
         }
     }
 
-    public void levelUpArchitect() {
+    /**public void levelUpArchitect() {
         if (architect.getLevelUpgrade() == architect.getMaximumUpgradeLevel()) {
             System.out.println("INFO: Building Architect has achieved the highest level.\n");
         } else if ((architect.getLevelUpgrade() < architect.getMaximumUpgradeLevel()) && (architect.getLevelUpgrade() >= architect.getMinimumUpgradeLevel())) {
@@ -589,12 +670,108 @@ public class ManagerObjects {
             System.out.println("INFO: Building House upgrades about one level. New level amounts " + house.getLevelUpgrade() + ".\n");
         } else if (house.getLevelUpgrade() == 0)
             System.out.println("INFO: Building House hasn't existed. At first, you should buy the game.\n");
+    }*/
+
+    public void levelUpArchitect() {
+        produceMaterials();
+        if (architect.getLevelUpgrade() == architect.getMaximumUpgradeLevel()) {
+            System.out.println("INFO: Building Architect has achieved the highest level.\n");
+        } else if ((architect.getLevelUpgrade() < architect.getMaximumUpgradeLevel()) && (architect.getLevelUpgrade() >= architect.getMinimumUpgradeLevel())) {
+            if (enoughMaterials(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1), architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1))) {
+                architect.addLevelUpgrade(1);
+                removeWood(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade()));
+                removeStone(architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade()));
+                System.out.println("INFO: Building Architect upgrades about one level. New level amounts " + architect.getLevelUpgrade() + ".\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else if (architect.getLevelUpgrade() == 0) System.out.println("INFO: Building Architect hasn't existed. At first, you should buy the game.\n");
+    }
+    public void levelUpWarehouse() {
+        produceMaterials();
+        if (warehouse.getLevelUpgrade() == warehouse.getMaximumUpgradeLevel()) {
+            System.out.println("INFO: Building Warehouse has achieved the highest level.\n");
+        } else if ((warehouse.getLevelUpgrade() < warehouse.getMaximumUpgradeLevel()) && (warehouse.getLevelUpgrade() >= warehouse.getMinimumUpgradeLevel())) {
+            if (enoughMaterials(warehouse.getCostUpgradeWoodOneLevel(warehouse.getLevelUpgrade() + 1), warehouse.getCostUpgradeStoneOneLevel(warehouse.getLevelUpgrade() + 1))) {
+                warehouse.addLevelUpgrade(1);
+                removeWood(warehouse.getCostUpgradeWoodOneLevel(warehouse.getLevelUpgrade()));
+                removeStone(warehouse.getCostUpgradeStoneOneLevel(warehouse.getLevelUpgrade()));
+                System.out.println("INFO: Building Warehouse upgrades about one level. New level amounts " + warehouse.getLevelUpgrade() + ".\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (warehouse.getCostUpgradeWoodOneLevel(warehouse.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (warehouse.getCostUpgradeStoneOneLevel(warehouse.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else if (warehouse.getLevelUpgrade() == 0) System.out.println("INFO: Building Warehouse hasn't existed. At first, you should buy the game.\n");
+    }
+    public void levelUpQuarry() {
+        produceMaterials();
+        if (quarry.getLevelUpgrade() == quarry.getMaximumUpgradeLevel()) {
+            System.out.println("INFO: Building Quarry has achieved the highest level.\n");
+        } else if ((quarry.getLevelUpgrade() < quarry.getMaximumUpgradeLevel()) && (quarry.getLevelUpgrade() >= quarry.getMinimumUpgradeLevel())) {
+            if (enoughMaterials(quarry.getCostUpgradeWoodOneLevel(quarry.getLevelUpgrade() + 1), quarry.getCostUpgradeStoneOneLevel(quarry.getLevelUpgrade() + 1))) {
+                //produceStone();
+                quarry.addLevelUpgrade(1);
+                removeWood(quarry.getCostUpgradeWoodOneLevel(quarry.getLevelUpgrade()));
+                removeStone(quarry.getCostUpgradeStoneOneLevel(quarry.getLevelUpgrade()));
+                System.out.println("INFO: Building Quarry upgrades about one level. New level amounts " + quarry.getLevelUpgrade() + ".\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (quarry.getCostUpgradeWoodOneLevel(quarry.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (quarry.getCostUpgradeStoneOneLevel(quarry.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else if (quarry.getLevelUpgrade() == 0) System.out.println("INFO: Building Quarry hasn't existed. At first, you should buy the game.\n");
+    }
+    public void levelUpLumberjack() {
+        produceMaterials();
+        if (lumberjack.getLevelUpgrade() == lumberjack.getMaximumUpgradeLevel()) {
+            System.out.println("INFO: Building Lumberjack has achieved the highest level.\n");
+        } else if ((lumberjack.getLevelUpgrade() < lumberjack.getMaximumUpgradeLevel()) && (lumberjack.getLevelUpgrade() >= lumberjack.getMinimumUpgradeLevel())) {
+            if (enoughMaterials(lumberjack.getCostUpgradeWoodOneLevel(lumberjack.getLevelUpgrade() + 1), lumberjack.getCostUpgradeStoneOneLevel(lumberjack.getLevelUpgrade() + 1))) {
+                //produceWood();
+                lumberjack.addLevelUpgrade(1);
+                removeWood(lumberjack.getCostUpgradeWoodOneLevel(lumberjack.getLevelUpgrade()));
+                removeStone(lumberjack.getCostUpgradeStoneOneLevel(lumberjack.getLevelUpgrade()));
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (lumberjack.getCostUpgradeWoodOneLevel(lumberjack.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (lumberjack.getCostUpgradeStoneOneLevel(lumberjack.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+            System.out.println("INFO: Building Lumberjack upgrades about one level. New level amounts " + lumberjack.getLevelUpgrade() + ".\n");
+        } else if (lumberjack.getLevelUpgrade() == 0) System.out.println("INFO: Building Lumberjack hasn't existed. At first, you should buy the game.\n");
+    }
+    public void levelUpFlowerbed() {
+        produceMaterials();
+        if (flowerbed.getLevelUpgrade() == flowerbed.getMaximumUpgradeLevel()) {
+            System.out.println("INFO: Building Flowerbed has achieved the highest level.\n");
+        } else if ((flowerbed.getLevelUpgrade() < flowerbed.getMaximumUpgradeLevel()) && (flowerbed.getLevelUpgrade() >= flowerbed.getMinimumUpgradeLevel())) {
+            if (enoughMaterials(flowerbed.getCostUpgradeWoodOneLevel(flowerbed.getLevelUpgrade() + 1), flowerbed.getCostUpgradeStoneOneLevel(flowerbed.getLevelUpgrade() + 1))) {
+                //produceMaterials();
+                flowerbed.addLevelUpgrade(1);
+                removeWood(flowerbed.getCostUpgradeWoodOneLevel(flowerbed.getLevelUpgrade()));
+                removeStone(flowerbed.getCostUpgradeStoneOneLevel(flowerbed.getLevelUpgrade()));
+                System.out.println("INFO: Building Flowerbed upgrades about one level. New level amounts " + flowerbed.getLevelUpgrade() + ".\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (flowerbed.getCostUpgradeWoodOneLevel(flowerbed.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (flowerbed.getCostUpgradeStoneOneLevel(flowerbed.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else if (flowerbed.getLevelUpgrade() == 0) System.out.println("INFO: Building Flowerbed hasn't existed. At first, you should buy the game.\n");
+    }
+    public void levelUpHouse() {
+        produceMaterials();
+        if (house.getLevelUpgrade() == house.getMaximumUpgradeLevel()) {
+            System.out.println("INFO: Building House has achieved the highest level.\n");
+        } else if ((house.getLevelUpgrade() < house.getMaximumUpgradeLevel()) && (house.getLevelUpgrade() >= house.getMinimumUpgradeLevel())) {
+            if (enoughMaterials(house.getCostUpgradeWoodOneLevel(house.getLevelUpgrade() + 1), house.getCostUpgradeStoneOneLevel(house.getLevelUpgrade() + 1))) {
+                //produceMaterials();
+                house.addLevelUpgrade(1);
+                removeWood(house.getCostUpgradeWoodOneLevel(house.getLevelUpgrade()));
+                removeStone(house.getCostUpgradeStoneOneLevel(house.getLevelUpgrade()));
+                System.out.println("INFO: Building House upgrades about one level. New level amounts " + house.getLevelUpgrade() + ".\n");
+            } else {
+                System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (house.getCostUpgradeWoodOneLevel(house.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (house.getCostUpgradeStoneOneLevel(house.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            }
+        } else if (house.getLevelUpgrade() == 0)
+            System.out.println("INFO: Building House hasn't existed. At first, you should buy the game.\n");
     }
 
 
     //////////////////////////////////////////////
     // Ulepszenie o kilka poziomów budynków
-    public void levelsUpBuilding(String building, int levels) {
+    /*public void levelsUpBuilding(String building, int levels) {
         //sprawdzenie czy można wykonać operację
         //sprawdzenie kosztów
         //operacja odjęcia kosztów
@@ -643,7 +820,7 @@ public class ManagerObjects {
     public void levelsUpHouse(int levels) {
         produceMaterials();
         house.addLevelUpgrade(levels);
-    }
+    }*/
 
 
     //////////////////////////////////////////////
@@ -792,7 +969,7 @@ public class ManagerObjects {
 
 
 /////////////////////////////////////////////////////////////////////////////
-// METODY DOTYCZĄCE MATERIAŁÓw
+// METODY ZARZĄDZAJĄCE MATERIAŁAMI
 
     public void setInitialQuantityMaterials() {
         setQuantityStone(100);
@@ -802,9 +979,23 @@ public class ManagerObjects {
     public void setQuantityStone(int quantity) {
         warehouse.setOccupiedSpaceByMaterial(indexOfMaterialStone, quantity);
     }
-
     public void setQuantityWood(int quantity) {
         warehouse.setOccupiedSpaceByMaterial(indexOfMaterialWood, quantity);
+    }
+
+
+    public void addWood(int quantity) {
+        warehouse.addWood(quantity);
+    }
+    public void addStone(int quantity) {
+        warehouse.addStone(quantity);
+    }
+
+    public void removeWood(int quantity) {
+        warehouse.removeWood(quantity);
+    }
+    public void removeStone(int quantity) {
+        warehouse.removeStone(quantity);
     }
 
 
@@ -851,7 +1042,7 @@ public class ManagerObjects {
 
     private void deliverWoodToWarehouse() {
         int quantity = productionOfWood.getProducedMaterial() - productionOfWood.getDeliveredMaterial();
-        warehouse.addWood(quantity);
+        addWood(quantity);
         productionOfWood.addDeliveredMaterial(quantity);
     }
 
@@ -890,7 +1081,7 @@ public class ManagerObjects {
 
     private void deliverStoneToWarehouse() {
         int quantity = productionOfStone.getProducedMaterial() - productionOfStone.getDeliveredMaterial();
-        warehouse.addStone(quantity);
+        addStone(quantity);
         productionOfStone.addDeliveredMaterial(quantity);
     }
 

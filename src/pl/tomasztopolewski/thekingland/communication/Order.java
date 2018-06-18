@@ -124,6 +124,34 @@ public class Order {
         else return false;
     }*/
 
+    private void processArgumentsIntString(String order, int searchIndex) {
+        /**
+         * order - linia polecenia z argumentami
+         * searchIndex - indeks początka linii argumentów (długość polecenia)
+         */
+
+                /*if (order.startsWith("set quantity of material wood")) {
+                    String arguments = (order.substring(29, order.length())).trim();
+
+                    int number = 0;
+                    try {
+                        number = Integer.parseInt(arguments);
+                    } catch (NumberFormatException nfe) {
+                        return 0;
+                    }
+                    this.argumentsInt = number;
+                    return 4;
+                }*/
+
+        String arguments = (order.substring(searchIndex, order.length())).trim();
+
+        int number = 0;
+        try {
+            number = Integer.parseInt(arguments);
+        } catch (NumberFormatException nfe) {}
+        this.argumentsInt = number;
+    }
+
     public int returnNumber() {
         //System.out.print("\torder in createNumber: " + order + "\n");
 
@@ -136,23 +164,23 @@ public class Order {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku polecenia.\n");
             //polecenia 'buy'
             if (order.startsWith("buy")) {
-                if (order.startsWith("buy game")) {
-                    if (order.startsWith("buy game architect")) return 10101;
-                    else if (order.startsWith("buy game warehouse")) return 20101;
-                    else if (order.startsWith("buy game quarry")) return 30101;
-                    else if (order.startsWith("buy game lumberjack")) return 40101;
-                    else if (order.startsWith("buy game flowerbed")) return 50101;
-                    else if (order.startsWith("buy game house")) return 60101;
+                if (order.startsWith("buy building")) {
+                    if (order.startsWith("buy building architect")) return 10101;
+                    else if (order.startsWith("buy building warehouse")) return 20101;
+                    else if (order.startsWith("buy building quarry")) return 30101;
+                    else if (order.startsWith("buy building lumberjack")) return 40101;
+                    else if (order.startsWith("buy building flowerbed")) return 50101;
+                    else if (order.startsWith("buy building house")) return 60101;
                 }
             //polecenia 'upgrade'
             } else if (order.startsWith("upgrade")) {
-                if (order.startsWith("upgrade game")) {
-                    if (order.startsWith("upgrade game architect")) return 10102;
-                    else if (order.startsWith("upgrade game warehouse")) return 20102;
-                    else if (order.startsWith("upgrade game quarry")) return 30102;
-                    else if (order.startsWith("upgrade game lumberjack")) return 40102;
-                    else if (order.startsWith("upgrade game flowerbed")) return 50102;
-                    else if (order.startsWith("upgrade game house")) return 60102;
+                if (order.startsWith("upgrade building")) {
+                    if (order.startsWith("upgrade building architect")) return 10102;
+                    else if (order.startsWith("upgrade building warehouse")) return 20102;
+                    else if (order.startsWith("upgrade building quarry")) return 30102;
+                    else if (order.startsWith("upgrade building lumberjack")) return 40102;
+                    else if (order.startsWith("upgrade building flowerbed")) return 50102;
+                    else if (order.startsWith("upgrade building house")) return 60102;
                 }
 
              //polecenia 'view'
@@ -274,8 +302,8 @@ public class Order {
 
     public int returnNumberForCommand() {
         if (order.startsWith("/3") && order.length() == 2) return 3;
-        if (order.startsWith("/4") && order.length() == 2) return 4;
-        if (order.startsWith("/5") && order.length() == 2) return 5;
+        if (order.startsWith("/4") && order.length() == 2) return 4; else if (order.startsWith("/4 ")) { processArgumentsIntString(order, 2); return 4; }
+        if (order.startsWith("/5") && order.length() == 2) return 5; else if (order.startsWith("/5 ")) { processArgumentsIntString(order, 2); return 5; }
         if (order.startsWith("/6") && order.length() == 2) return 6;
         if (order.startsWith("/7") && order.length() == 2) return 7;
         if (order.startsWith("/8") && order.length() == 2) return 8;
@@ -291,6 +319,7 @@ public class Order {
         if (order.startsWith("/810") && order.length() == 4) return 810;
         if (order.startsWith("/811") && order.length() == 4) return 811;
         if (order.startsWith("/812") && order.length() == 4) return 812;
+        if (order.startsWith("/989") && order.length() == 4) return 989;
         if (order.startsWith("/990") && order.length() == 4) return 990;
         if (order.startsWith("/991") && order.length() == 4) return 991;
         if (order.startsWith("/992") && order.length() == 4) return 992;

@@ -9,13 +9,50 @@ public abstract class TestMain {
         function();
     }
 
-
-
     public static void function() {
+
+    }
+
+
+    /*public static void function() {
+
+        viewHelp();
+        System.out.println();
+        viewHelpWithNumbersSwitch();
+    }
+
+    private static void viewHelp() {
+        System.out.println(" - - - - HELP start - - - - ");
+        System.out.println("1) author, version, exit");
+        System.out.println("2) buy building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        System.out.println("3) upgrade building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        System.out.println("4) view parameter game level: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        System.out.println("5) view status buildings");
+        System.out.println("6) save");
+        System.out.println("7) produce: materials / wood / stone");
+        System.out.println("8) view (absolutive) time of game");
+        System.out.println(" - - - - HELP end - - - - \n");
+    }
+
+    private static void viewHelpWithNumbersSwitch() {
+        System.out.println(" - - - - HELP start - - - - ");
+        System.out.println("1) author(992), version(991), exit(999, fast-998)");
+        System.out.println("2) buy building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
+        System.out.println("3) upgrade building: architect(10102) / warehouse(20102) / quarry(30102) / lumberjack(40102) / flowerbed(50102) / house(60102)");
+        System.out.println("4) view parameter game level: architect(110101) / warehouse(210101) / quarry(310101) / lumberjack(410101) / flowerbed(510101) / house(60101)");
+        System.out.println("5) view status buildings [without separators(101), with separators(102)]");
+        System.out.println("6) save (800)");
+        System.out.println("7) produce: materials(810) / wood(811) / stone(812)");
+        System.out.println("8) view [absolutive] time of game(701) [702]");
+        System.out.println(" - - - - HELP end - - - - \n");
+    }*/
+
+
+    /*public static void function() {
         TimeForProduction time = new TimeForProduction();
         try { Thread.sleep(3000); } catch (InterruptedException e) {}
         System.out.println(time.getActualTime());
-    }
+    }*/
 
     /*public static void function() throws IOException {
         ClassSaveFile classSaveFile = new ClassSaveFile("text", "C:\\Users\\Tomasz\\Downloads\\");
