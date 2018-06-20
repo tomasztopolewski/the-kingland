@@ -1,2 +1,3 @@
 # the-kingland
-The KingLand 
+The KingLand for Console
+By Tomasz Topolewski
