@@ -98,7 +98,9 @@ public class Map {
         return 0;
     }
 
-    /*public boolean checkWhetherThereIsFreeSpace(int buildingSize) {
+
+/***
+    public boolean checkWhetherThereIsFreeSpace(int buildingSize) {
         int expectedOccupiedArea = 0;
         expectedOccupiedArea = buildingSize + occupiedArea;
 
@@ -109,7 +111,7 @@ public class Map {
 
     public int calcFreeArea() {
         return areaSize - occupiedArea;
-    }*/
+    }
 
     /*public void enlargeAreaSize(int x, int y) {
         this.x += x;
@@ -128,7 +130,11 @@ public class Map {
             System.out.print("Error: Brak miejsca w zamku.\n");
             failedToAddToTheOccupiedArea = false;
         }
-    }*/
+    }
+
+*
+*/
+
 }
 
 // Tomasz Topolewski
