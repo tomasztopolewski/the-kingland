@@ -168,7 +168,15 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
             default: return -1;
         }
     }
+
+
     public void addWood(int quantity) {
+        this.occupiedSpaceByMaterials[indexOfMaterialWood] += quantity <= returnFreeSpace() ? quantity : 0;
+    }
+    public void addStone(int quantity) {
+        this.occupiedSpaceByMaterials[indexOfMaterialStone] += quantity <= returnFreeSpace() ? quantity : 0;
+    }
+    /*public void addWood(int quantity) {
         if (returnFreeSpace() == 0) System.out.println("INFO: Magazyn jest pełny. Nie dodano materiałów.\n");
         else {
             if (quantity <= returnFreeSpace()) {
@@ -193,7 +201,8 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
                 System.out.println("INFO: Dodano do magazynu " + freeSpace + " jedn. kamienia. Magazyn został zapełniony.\n");
             } else System.out.println("INFO: Materiały nie zostały dodane do magazynu.\n");
         }
-    }
+    }*/
+
     /*public void addMaterial(int numberOfMaterial, int quantity) {
         switch (numberOfMaterial) {
             case 0:
@@ -208,6 +217,12 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
 
 
     public void removeWood(int quantity) {
+        this.occupiedSpaceByMaterials[indexOfMaterialWood] -= quantity <= this.occupiedSpaceByMaterials[indexOfMaterialWood] ? quantity : 0;
+    }
+    public void removeStone(int quantity) {
+        this.occupiedSpaceByMaterials[indexOfMaterialStone] -= quantity <= this.occupiedSpaceByMaterials[indexOfMaterialStone] ? quantity: 0;
+    }
+    /*public void removeWood(int quantity) {
         if (this.occupiedSpaceByMaterials[indexOfMaterialWood] == 0) System.out.println("INFO: Brak drewna w magazynie.\n");
         else {
             if (quantity <= this.occupiedSpaceByMaterials[indexOfMaterialWood]) {
@@ -228,8 +243,7 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
                 System.out.println("INFO: Nie pobrano " + quantity + " jedn. kamienia. W magazynie brakuje " + (quantity - this.occupiedSpaceByMaterials[indexOfMaterialStone]) + " jedn. kamienia.\n");
             } else System.out.println("INFO: Materiały nie zostały pobrane z magazynu.\n");
         }
-    }
-
+    }*/
     /*public void removeMaterial(int numberOfMaterial, int quantity) {
         switch (numberOfMaterial) {
             case 0:

@@ -984,18 +984,67 @@ public class ManagerObjects {
     }
 
 
-    public void addWood(int quantity) {
+    /*public void addWood(int quantity) {
         warehouse.addWood(quantity);
     }
     public void addStone(int quantity) {
         warehouse.addStone(quantity);
+    }*/
+    public void addWood(int quantity) {
+        if (warehouse.returnFreeSpace() == 0) System.out.println("INFO: Magazyn jest pełny. Nie dodano materiałów.\n");
+        else {
+            if (quantity <= warehouse.returnFreeSpace()) {
+                warehouse.addWood(quantity);
+                System.out.println("INFO: Dodano do magazynu " + quantity + " jedn. drewna.\n");
+            } else if (quantity > warehouse.returnFreeSpace()) {
+                int freeSpace = warehouse.returnFreeSpace();
+                warehouse.addWood(freeSpace);
+                System.out.println("INFO: Dodano do magazynu " + freeSpace + " jedn. drewna. Magazyn został zapełniony.\n");
+            } else System.out.println("INFO: Materiały nie zostały dodane do magazynu.\n");
+        }
     }
 
-    public void removeWood(int quantity) {
+    public void addStone(int quantity) {
+        if (warehouse.returnFreeSpace() == 0) System.out.println("INFO: Magazyn jest pełny. Nie dodano materiałów.\n");
+        else {
+            if (quantity <= warehouse.returnFreeSpace()) {
+                warehouse.addStone(quantity);
+                System.out.println("INFO: Dodano do magazynu " + quantity + " jedn. kamienia.\n");
+            } else if (quantity > warehouse.returnFreeSpace()) {
+                int freeSpace = warehouse.returnFreeSpace();
+                warehouse.addStone(freeSpace);
+                System.out.println("INFO: Dodano do magazynu " + freeSpace + " jedn. kamienia. Magazyn został zapełniony.\n");
+            } else System.out.println("INFO: Materiały nie zostały dodane do magazynu.\n");
+        }
+    }
+
+    /*public void removeWood(int quantity) {
         warehouse.removeWood(quantity);
     }
     public void removeStone(int quantity) {
         warehouse.removeStone(quantity);
+    }*/
+    public void removeWood(int quantity) {
+        if (warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood) == 0) System.out.println("INFO: Brak drewna w magazynie.\n");
+        else {
+            if (quantity <= warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) {
+                warehouse.removeWood(quantity);
+                System.out.println("INFO: Pobrano z magazynu " + quantity + " jedn. drewna.\n");
+            } else if (quantity > warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) {
+                System.out.println("INFO: Nie pobrano " + quantity + " jedn. drewna. W magazynie brakuje " + (quantity - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna.\n");
+            } else System.out.println("INFO: Drewno nie zostało pobrane z magazynu.\n");
+        }
+    }
+    public void removeStone(int quantity) {
+        if (warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone) == 0) System.out.println("INFO: Brak kamienia w magazynie.\n");
+        else {
+            if (quantity <= warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) {
+                warehouse.removeStone(quantity);
+                System.out.println("INFO: Pobrano z magazynu " + quantity + " jedn. kamienia.\n");
+            } else if (quantity > warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) {
+                System.out.println("INFO: Nie pobrano " + quantity + " jedn. kamienia. W magazynie brakuje " + (quantity - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            } else System.out.println("INFO: Kamien nie został pobrany z magazynu.\n");
+        }
     }
 
 

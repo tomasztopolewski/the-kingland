@@ -42,4 +42,36 @@
     }
 
 
+}
+class T1 {
+    public void removeWood(int quantity) {
+        this.occupiedSpaceByMaterials[indexOfMaterialWood] -= quantity <= this.occupiedSpaceByMaterials[indexOfMaterialWood] ? quantity : 0;
+    }
+    public void removeStone(int quantity) {
+        this.occupiedSpaceByMaterials[indexOfMaterialStone] -= quantity <= this.occupiedSpaceByMaterials[indexOfMaterialStone] ? quantity: 0;
+    }
+
+
+    public void removeWood(int quantity) {
+        if (warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood) == 0) System.out.println("INFO: Brak drewna w magazynie.\n");
+        else {
+            if (quantity <= warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) {
+                warehouse.removeWood(quantity);
+                System.out.println("INFO: Pobrano z magazynu " + quantity + " jedn. drewna.\n");
+            } else if (quantity > warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) {
+                System.out.println("INFO: Nie pobrano " + quantity + " jedn. drewna. W magazynie brakuje " + (quantity - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna.\n");
+            } else System.out.println("INFO: Drewno nie zostało pobrane z magazynu.\n");
+        }
+    }
+    public void removeStone(int quantity) {
+        if (warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone) == 0) System.out.println("INFO: Brak kamienia w magazynie.\n");
+        else {
+            if (quantity <= warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) {
+                warehouse.removeStone(quantity);
+                System.out.println("INFO: Pobrano z magazynu " + quantity + " jedn. kamienia.\n");
+            } else if (quantity > warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) {
+                System.out.println("INFO: Nie pobrano " + quantity + " jedn. kamienia. W magazynie brakuje " + (quantity - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+            } else System.out.println("INFO: Kamien nie został pobrany z magazynu.\n");
+        }
+    }
 }*/
