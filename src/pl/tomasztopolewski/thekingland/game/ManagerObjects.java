@@ -448,7 +448,7 @@ public class ManagerObjects {
     }
     */
 
-    public void buyArchitect() {
+    /*public void buyArchitect() {
         if (architect.getLevelUpgrade() == 0) {
             if (enoughMaterials(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1), architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1))) {
                 setLevelArchitect(1);
@@ -461,6 +461,22 @@ public class ManagerObjects {
         } else {
             System.out.println("INFO: Building Architect was bought. Transaction isn't realized.\n");
         }
+    }*/
+    public void buyArchitect() {
+        if (architect.getLevelUpgrade() == 0) {
+            if (enoughMaterials(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1), architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1))) {
+                setLevelArchitect(1);
+                removeWood(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade()));
+                removeStone(architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade()));
+                System.out.println("INFO: Building Architect is bought.\n");
+            } else {
+                if ((!enoughWood(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1))) && (!enoughStone(architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1)))) System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+				else {
+					if (!enoughWood(architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1))) System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (architect.getCostUpgradeWoodOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna.\n");
+					else if (!enoughStone(architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1))) System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+				}				
+            }
+        } else System.out.println("INFO: Building Architect was bought. Transaction isn't realized.\n");
     }
     public void buyWarehouse() {
         if (warehouse.getLevelUpgrade() == 0) {
@@ -471,6 +487,8 @@ public class ManagerObjects {
                 System.out.println("INFO: Building Warehouse is bought.\n");
             } else {
                 System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (warehouse.getCostUpgradeWoodOneLevel(warehouse.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna i " + (warehouse.getCostUpgradeStoneOneLevel(warehouse.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
+                //if (!enoughWood(warehouse.getCostUpgradeWoodOneLevel(warehouse.getLevelUpgrade() + 1))) System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (warehouse.getCostUpgradeWoodOneLevel(warehouse.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)) + " jedn. drewna.\n");
+				//else if (!enoughStone()) System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + () - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
             }
         } else {
             System.out.println("INFO: Building Warehouse was bought. Transaction isn't realized.\n");
@@ -879,8 +897,13 @@ public class ManagerObjects {
     // Sprawdzanie dostępności materiałów
 
     private boolean enoughMaterials(int quantityWood, int quantityStone) {
-        if (warehouse.enoughWood(quantityWood) && warehouse.enoughStone(quantityStone)) return true;
-        else return false;
+        return enoughWood(quantityWood) && enoughStone(quantityStone);
+    }
+    private boolean enoughWood(int quantity) {
+        return warehouse.enoughWood(quantity);
+    }
+    private boolean enoughStone(int quantity) {
+        return warehouse.enoughStone(quantity);
     }
 
 
