@@ -571,19 +571,19 @@ public class ManagerObjects {
         warehouse.setLevelUpgrade(level);
     }
     public void setLevelQuarry(int level) {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         quarry.setLevelUpgrade(level);
     }
     public void setLevelLumberjack(int level) {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         lumberjack.setLevelUpgrade(level);
     }
     public void setLevelFlowerbed(int level) {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         flowerbed.setLevelUpgrade(level);
     }
     public void setLevelHouse(int level) {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         house.setLevelUpgrade(level);
     }
 
@@ -673,7 +673,7 @@ public class ManagerObjects {
     }*/
 
     public void levelUpArchitect() {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         if (architect.getLevelUpgrade() == architect.getMaximumUpgradeLevel()) {
             System.out.println("INFO: Building Architect has achieved the highest level.\n");
         } else if ((architect.getLevelUpgrade() < architect.getMaximumUpgradeLevel()) && (architect.getLevelUpgrade() >= architect.getMinimumUpgradeLevel())) {
@@ -688,7 +688,7 @@ public class ManagerObjects {
         } else if (architect.getLevelUpgrade() == 0) System.out.println("INFO: Building Architect hasn't existed. At first, you should buy the game.\n");
     }
     public void levelUpWarehouse() {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         if (warehouse.getLevelUpgrade() == warehouse.getMaximumUpgradeLevel()) {
             System.out.println("INFO: Building Warehouse has achieved the highest level.\n");
         } else if ((warehouse.getLevelUpgrade() < warehouse.getMaximumUpgradeLevel()) && (warehouse.getLevelUpgrade() >= warehouse.getMinimumUpgradeLevel())) {
@@ -703,7 +703,7 @@ public class ManagerObjects {
         } else if (warehouse.getLevelUpgrade() == 0) System.out.println("INFO: Building Warehouse hasn't existed. At first, you should buy the game.\n");
     }
     public void levelUpQuarry() {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         if (quarry.getLevelUpgrade() == quarry.getMaximumUpgradeLevel()) {
             System.out.println("INFO: Building Quarry has achieved the highest level.\n");
         } else if ((quarry.getLevelUpgrade() < quarry.getMaximumUpgradeLevel()) && (quarry.getLevelUpgrade() >= quarry.getMinimumUpgradeLevel())) {
@@ -719,7 +719,7 @@ public class ManagerObjects {
         } else if (quarry.getLevelUpgrade() == 0) System.out.println("INFO: Building Quarry hasn't existed. At first, you should buy the game.\n");
     }
     public void levelUpLumberjack() {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         if (lumberjack.getLevelUpgrade() == lumberjack.getMaximumUpgradeLevel()) {
             System.out.println("INFO: Building Lumberjack has achieved the highest level.\n");
         } else if ((lumberjack.getLevelUpgrade() < lumberjack.getMaximumUpgradeLevel()) && (lumberjack.getLevelUpgrade() >= lumberjack.getMinimumUpgradeLevel())) {
@@ -735,7 +735,7 @@ public class ManagerObjects {
         } else if (lumberjack.getLevelUpgrade() == 0) System.out.println("INFO: Building Lumberjack hasn't existed. At first, you should buy the game.\n");
     }
     public void levelUpFlowerbed() {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         if (flowerbed.getLevelUpgrade() == flowerbed.getMaximumUpgradeLevel()) {
             System.out.println("INFO: Building Flowerbed has achieved the highest level.\n");
         } else if ((flowerbed.getLevelUpgrade() < flowerbed.getMaximumUpgradeLevel()) && (flowerbed.getLevelUpgrade() >= flowerbed.getMinimumUpgradeLevel())) {
@@ -751,7 +751,7 @@ public class ManagerObjects {
         } else if (flowerbed.getLevelUpgrade() == 0) System.out.println("INFO: Building Flowerbed hasn't existed. At first, you should buy the game.\n");
     }
     public void levelUpHouse() {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         if (house.getLevelUpgrade() == house.getMaximumUpgradeLevel()) {
             System.out.println("INFO: Building House has achieved the highest level.\n");
         } else if ((house.getLevelUpgrade() < house.getMaximumUpgradeLevel()) && (house.getLevelUpgrade() >= house.getMinimumUpgradeLevel())) {
@@ -841,19 +841,19 @@ public class ManagerObjects {
         warehouse.setLevelUpgrade(warehouse.getMinimumUpgradeLevel());
     }
     public void setMinimumUpgradeLevelForQuarry() {
-        produceStone();
+        produceMaterialsWithoutComments();
         quarry.setLevelUpgrade(quarry.getMinimumUpgradeLevel());
     }
     public void setMinimumUpgradeLevelForLumberjack() {
-        produceWood();
+        produceMaterialsWithoutComments();
         lumberjack.setLevelUpgrade(lumberjack.getMinimumUpgradeLevel());
     }
     public void setMinimumUpgradeLevelForFlowerbed() {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         flowerbed.setLevelUpgrade(flowerbed.getMinimumUpgradeLevel());
     }
     public void setMinimumUpgradeLevelForHouse() {
-        produceMaterials();
+        produceMaterialsWithoutComments();
         house.setLevelUpgrade(house.getMinimumUpgradeLevel());
     }
 
@@ -1057,6 +1057,11 @@ public class ManagerObjects {
         produceWood();
         produceStone();
     }
+    public void produceMaterialsWithoutComments() {
+        produceWoodWithoutComments();
+        produceStoneWithoutComments();
+    }
+
 
 
     //////////////////////////////////////////////
@@ -1087,11 +1092,21 @@ public class ManagerObjects {
     public void produceWood() {
         updateIndicatorsProductionOfWood();
         if (productionOfWood.produce()) deliverWoodToWarehouse();
+        else System.out.println("INFO: Produkcja jest w trakcie. Spróbuj za " + (10 - productionOfWood.getTimeOfProduction()) + " sec.\n");
+    }
+    public void produceWoodWithoutComments() {
+        updateIndicatorsProductionOfWood();
+        if (productionOfWood.produce()) deliverWoodToWarehouseWithoutComments();
     }
 
     private void deliverWoodToWarehouse() {
         int quantity = productionOfWood.getProducedMaterial() - productionOfWood.getDeliveredMaterial();
         addWood(quantity);
+        productionOfWood.addDeliveredMaterial(quantity);
+    }
+    private void deliverWoodToWarehouseWithoutComments() {
+        int quantity = productionOfWood.getProducedMaterial() - productionOfWood.getDeliveredMaterial();
+        warehouse.addWood(quantity);
         productionOfWood.addDeliveredMaterial(quantity);
     }
 
@@ -1126,11 +1141,22 @@ public class ManagerObjects {
     public void produceStone() {
         updateIndicatorsProductionOfStone();
         if (productionOfStone.produce()) deliverStoneToWarehouse();
+        else System.out.println("INFO: Produkcja jest w trakcie. Spróbuj za " + (10 - productionOfStone.getTimeOfProduction()) + " sec.\n");
+
+    }
+    public void produceStoneWithoutComments() {
+        updateIndicatorsProductionOfStone();
+        if (productionOfStone.produce()) deliverStoneToWarehouseWithoutComments();
     }
 
     private void deliverStoneToWarehouse() {
         int quantity = productionOfStone.getProducedMaterial() - productionOfStone.getDeliveredMaterial();
         addStone(quantity);
+        productionOfStone.addDeliveredMaterial(quantity);
+    }
+    private void deliverStoneToWarehouseWithoutComments() {
+        int quantity = productionOfStone.getProducedMaterial() - productionOfStone.getDeliveredMaterial();
+        warehouse.addStone(quantity);
         productionOfStone.addDeliveredMaterial(quantity);
     }
 

@@ -15,6 +15,10 @@ public class Production {
     }
 
 
+    public int getTimeOfProduction() {
+        return timeOfProduction.getTimeOfProduction();
+    }
+
     public double getIndicatorOfProduction() {
         return indicatorOfProduction;
     }
@@ -60,7 +64,7 @@ public class Production {
             //System.out.println("production: (int) " + (int) (powerOfFactory * (timeOfProduction * indicatorOfProduction)));
             addProducedMaterial((int) (powerOfFactory * (timeOfProduction * indicatorOfProduction)));
             return true;
-        } else System.out.println("INFO: Produkcja jest w trakcie. Spróbuj za " + (10 - timeOfProduction) + " sec.\n");
+        } //else System.out.println("INFO: Produkcja jest w trakcie. Spróbuj za " + (10 - timeOfProduction) + " sec.\n");
         //System.out.println("produced Material after: " + producedMaterial);
         return false;
     }
