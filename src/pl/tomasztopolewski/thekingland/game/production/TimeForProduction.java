@@ -24,11 +24,7 @@ public class TimeForProduction extends Time {
     public void addTimeOfProduction(int timeOfProduction) {
         this.timeOfProduction += timeOfProduction >= 0 ? timeOfProduction : 0;
     }
-    /*public void calcTimeOfProduction() {
-                int time = getTime();
-                calcTimeSec();
 
-    }*/
     public int reutrnTimeOfProduction() {
         downloadCurrentTimeMil();
         calcTimeSec();

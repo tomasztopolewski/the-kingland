@@ -119,30 +119,7 @@ public class Order {
         //System.out.print("download line: " + downloadLine + "\n");
     }
 
-    /*public boolean processDownloadLine() {
-        if (order.equals("buy game architect") || order.equals("buy game warehouse") || order.equals("buy game quarry") || order.equals("buy game lumberjack") ||order.equals("buy game flowerbed") || order.equals("buy game house")) return true;
-        else return false;
-    }*/
-
     private void processArgumentsIntString(String order, int searchIndex) {
-        /**
-         * order - linia polecenia z argumentami
-         * searchIndex - indeks początka linii argumentów (długość polecenia)
-         */
-
-                /*if (order.startsWith("set quantity of material wood")) {
-                    String arguments = (order.substring(29, order.length())).trim();
-
-                    int number = 0;
-                    try {
-                        number = Integer.parseInt(arguments);
-                    } catch (NumberFormatException nfe) {
-                        return 0;
-                    }
-                    this.argumentsInt = number;
-                    return 4;
-                }*/
-
         String arguments = (order.substring(searchIndex, order.length())).trim();
 
         int number = 0;
@@ -162,18 +139,8 @@ public class Order {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku super komendy.\n");
         } else {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku polecenia.\n");
-            //polecenia 'buy'
-            if (order.startsWith("buy")) {
-                /*if (order.startsWith("buy building")) {
-                    if (order.startsWith("buy building architect")) return 10101;
-                    else if (order.startsWith("buy building warehouse")) return 20101;
-                    else if (order.startsWith("buy building quarry")) return 30101;
-                    else if (order.startsWith("buy building lumberjack")) return 40101;
-                    else if (order.startsWith("buy building flowerbed")) return 50101;
-                    else if (order.startsWith("buy building house")) return 60101;
-                }*/
             //polecenia 'upgrade'
-            } else if (order.startsWith("upgrade")) {
+            if (order.startsWith("upgrade")) {
                 if (order.startsWith("upgrade building")) {
                     if (order.startsWith("upgrade building architect")) return 10101;
                     else if (order.startsWith("upgrade building warehouse")) return 20101;
@@ -333,14 +300,6 @@ public class Order {
         if (order.startsWith("/40101") && order.length() == 6) return 40101;
         if (order.startsWith("/50101") && order.length() == 6) return 50101;
         if (order.startsWith("/60101") && order.length() == 6) return 60101;
-
-        //
-        /*if (order.startsWith("/10102") && order.length() == 6) return 10102;
-        if (order.startsWith("/20102") && order.length() == 6) return 20102;
-        if (order.startsWith("/30102") && order.length() == 6) return 30102;
-        if (order.startsWith("/40102") && order.length() == 6) return 40102;
-        if (order.startsWith("/50102") && order.length() == 6) return 50102;
-        if (order.startsWith("/60102") && order.length() == 6) return 60102;*/
 
         // polecenia 'view'
         if (order.startsWith("/110101") && order.length() == 7) return 110101;

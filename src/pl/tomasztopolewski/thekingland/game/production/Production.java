@@ -55,17 +55,12 @@ public class Production {
 
 
     public boolean produce() {
-        //System.out.println("produced Material before: " + producedMaterial);
         int timeOfProduction = this.timeOfProduction.reutrnTimeOfProduction();
-        //System.out.println("timeOfProduction: " + timeOfProduction);
         if (timeOfProduction >= 10) {
             this.timeOfProduction.addTimeOfProduction(timeOfProduction);
-            //System.out.println("production: (double) " + (powerOfFactory * (timeOfProduction * indicatorOfProduction)));
-            //System.out.println("production: (int) " + (int) (powerOfFactory * (timeOfProduction * indicatorOfProduction)));
             addProducedMaterial((int) (powerOfFactory * (timeOfProduction * indicatorOfProduction)));
             return true;
-        } //else System.out.println("INFO: Produkcja jest w trakcie. Spróbuj za " + (10 - timeOfProduction) + " sec.\n");
-        //System.out.println("produced Material after: " + producedMaterial);
+        }
         return false;
     }
 

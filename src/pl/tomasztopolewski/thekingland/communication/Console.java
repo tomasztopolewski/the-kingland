@@ -155,25 +155,6 @@ public class Console {
             case 60101: managerObjects.levelUpHouse(); break;
 
 
-            // upgrade building Architect
-            /*case 10102: managerObjects.levelUpArchitect(); break;
-
-            // upgrade building Warehouse
-            case 20102: managerObjects.levelUpWarehouse(); break;
-
-            // upgrade building Quarry
-            case 30102: managerObjects.levelUpQuarry(); break;
-
-            // upgrade building Lumberjack
-            case 40102: managerObjects.levelUpLumberjack(); break;
-
-            // upgrade building Flowerbed
-            case 50102: managerObjects.levelUpFlowerbed(); break;
-
-            // upgrade building House
-            case 60102: managerObjects.levelUpHouse(); break;*/
-
-
             // view parameter game level architect
             case 110101: managerObjects.viewLevelArchitect(); break;
 
