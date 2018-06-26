@@ -164,23 +164,23 @@ public class Order {
             //System.out.print("  SYSTEM_INFO: Ustawianie 'numberSwitch' przez 'Order' w warunku polecenia.\n");
             //polecenia 'buy'
             if (order.startsWith("buy")) {
-                if (order.startsWith("buy building")) {
+                /*if (order.startsWith("buy building")) {
                     if (order.startsWith("buy building architect")) return 10101;
                     else if (order.startsWith("buy building warehouse")) return 20101;
                     else if (order.startsWith("buy building quarry")) return 30101;
                     else if (order.startsWith("buy building lumberjack")) return 40101;
                     else if (order.startsWith("buy building flowerbed")) return 50101;
                     else if (order.startsWith("buy building house")) return 60101;
-                }
+                }*/
             //polecenia 'upgrade'
             } else if (order.startsWith("upgrade")) {
                 if (order.startsWith("upgrade building")) {
-                    if (order.startsWith("upgrade building architect")) return 10102;
-                    else if (order.startsWith("upgrade building warehouse")) return 20102;
-                    else if (order.startsWith("upgrade building quarry")) return 30102;
-                    else if (order.startsWith("upgrade building lumberjack")) return 40102;
-                    else if (order.startsWith("upgrade building flowerbed")) return 50102;
-                    else if (order.startsWith("upgrade building house")) return 60102;
+                    if (order.startsWith("upgrade building architect")) return 10101;
+                    else if (order.startsWith("upgrade building warehouse")) return 20101;
+                    else if (order.startsWith("upgrade building quarry")) return 30101;
+                    else if (order.startsWith("upgrade building lumberjack")) return 40101;
+                    else if (order.startsWith("upgrade building flowerbed")) return 50101;
+                    else if (order.startsWith("upgrade building house")) return 60101;
                 }
 
              //polecenia 'view'
@@ -197,7 +197,7 @@ public class Order {
                     }
 
                 } else if (order.startsWith("view status")) {
-                    if (order.startsWith("view status buildings")) return 1000001;
+                    if (order.startsWith("view status buildings")) return 101;
                 }
             } else if (order.startsWith("set")) {
                 if (order.startsWith("set quantity of material")) {
@@ -326,7 +326,7 @@ public class Order {
         if (order.startsWith("/998") && order.length() == 4) return 998;
         if (order.startsWith("/999") && order.length() == 4) return 999;
 
-        // polecenia 'buy'
+        // polecenia 'upgrade'
         if (order.startsWith("/10101") && order.length() == 6) return 10101;
         if (order.startsWith("/20101") && order.length() == 6) return 20101;
         if (order.startsWith("/30101") && order.length() == 6) return 30101;
@@ -334,13 +334,13 @@ public class Order {
         if (order.startsWith("/50101") && order.length() == 6) return 50101;
         if (order.startsWith("/60101") && order.length() == 6) return 60101;
 
-        // polecenia 'upgrade'
-        if (order.startsWith("/10102") && order.length() == 6) return 10102;
+        //
+        /*if (order.startsWith("/10102") && order.length() == 6) return 10102;
         if (order.startsWith("/20102") && order.length() == 6) return 20102;
         if (order.startsWith("/30102") && order.length() == 6) return 30102;
         if (order.startsWith("/40102") && order.length() == 6) return 40102;
         if (order.startsWith("/50102") && order.length() == 6) return 50102;
-        if (order.startsWith("/60102") && order.length() == 6) return 60102;
+        if (order.startsWith("/60102") && order.length() == 6) return 60102;*/
 
         // polecenia 'view'
         if (order.startsWith("/110101") && order.length() == 7) return 110101;

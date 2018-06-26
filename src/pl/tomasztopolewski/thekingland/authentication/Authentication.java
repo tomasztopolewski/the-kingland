@@ -60,7 +60,7 @@ public class Authentication {
                     System.out.println("SYSTEM-INFO: Logowanie administratora...");
                     System.out.println("INFO: Zalogowano konto administratora.");
                     System.out.println("INFO: Twoje uprawnienie nie zostały sprawdzone oraz aktywowane.");
-                    System.out.println("WARN: Potwierdzić swoje uprawnienia, stosując komendę specjalną.");
+                    System.out.println("WARN: Proszę potwierdzić uprawnienia, stosując komendę specjalną.");
                     if (passAdmin()) {
                         return 1000;
                     } else {
@@ -91,7 +91,7 @@ public class Authentication {
     }
 
     private boolean passAdmin() {
-        //  /*
+        ///*
         System.out.print("SYSTEM-INFO: Wprowadź hasło administatora: ");
         if (new Scanner(System.in).nextLine().trim().equals("$/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString())) {
             System.out.println("SYSTEM-INFO: Uprawienia administratora zostały pomyślenie autoryzowane.\n");

@@ -33,9 +33,9 @@ public class Flowerbed extends Building implements EssentialsBuilding, BuildingW
         this.square = 0;
         this.levelUpgrade = 0;
     }
-    public Flowerbed(int square, int levelUpgrade) {
-        this.square = (square <= maximumSquare ? square : 0);
+    public Flowerbed(int levelUpgrade, int square) {
         this.levelUpgrade = (levelUpgrade <= maximumUpgradeLevel ? levelUpgrade : 0);
+        this.square = (square <= maximumSquare ? square : 0);
     }
 
 

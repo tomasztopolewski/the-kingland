@@ -76,11 +76,15 @@ public class Architect extends Building implements EssentialsBuilding, BuildingW
     }
     public int getLevelOfAdvancementBuilding(int numberLevel) { return levelOfAdvancementBuilding[numberLevel];}
 
-    public int getArchitectExperienceForLevel(int numberLevel) {
+    public int getArchitectExperience(int numberLevel) {
         return architectExperience[numberLevel];
     }
     public int getArchitectExperience() {
         return architectExperience[levelUpgrade];
+    }
+
+    public boolean enoughArchitectExperience(int architectExperience) {
+        return getArchitectExperience() >= architectExperience;
     }
 
 }

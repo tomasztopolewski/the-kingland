@@ -43,7 +43,7 @@ public abstract class Communique {
     public static final String nameGame = "The KingLand";
     public static final String author = "Tomasz Topolewski";
 
-    public static final String numberOfVersion = "v90.15.301";
+    public static final String numberOfVersion = "v91.00.000";
     public static final String typeOfVersion = "DEV_alpha";
     public static final String version = numberOfVersion + "-main(May 2018) " + typeOfVersion;
     public static final String versionOfTested = numberOfVersion + "-tested(May 2018) " + typeOfVersion;
@@ -131,8 +131,8 @@ public abstract class Communique {
     public static void viewGoodbay() throws InterruptedException {
         System.out.println("Good bay!\n");
         System.out.println("\nCreated by " + author + "\n\n");
-        Thread.sleep(2000);
-        System.out.println(newVersion + " / " + version + "\n");
+        Thread.sleep(1000);
+        System.out.println(newVersion + " [" + version + "]\n");
         System.exit(1);
     }
 }
