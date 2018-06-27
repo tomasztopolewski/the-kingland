@@ -48,13 +48,13 @@ public class Console {
         if (loginAdmin) {
             try { loadSettings(); }
             catch (FileNotFoundException e) {
-                System.out.println("SYSTEM-ERROR: Plik ustawień nie został odnaleziony. Ładowanie ustawień nie powiodło się.\n");
+                System.out.nonStaitcPrintln("SYSTEM-ERROR: Plik ustawień nie został odnaleziony. Ładowanie ustawień nie powiodło się.\n");
                 e.printStackTrace();
             }
             //managerObjects = new ManagerObjectsAdmin();
             time = new Time(returnDownloadedAbsolutiveTimeOfGames());
         } else {
-            System.out.println("SYSTEM-ERROR: Uprawienia administatora nie zostały poprawnie autoryzowane. Spróbuj uruchomnić grę ponownie. Jeśli błąd będzie się powstarzał, skontaktuj się z obsługą techniczna.\n");
+            System.out.nonStaitcPrintln("SYSTEM-ERROR: Uprawienia administatora nie zostały poprawnie autoryzowane. Spróbuj uruchomnić grę ponownie. Jeśli błąd będzie się powstarzał, skontaktuj się z obsługą techniczna.\n");
             fastGoodBye();
         }
     }*/
@@ -176,8 +176,8 @@ public class Console {
 
 
             // wrong order
-            case 0: System.out.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
-            default: System.out.println("SYSTEM-ERROR: System doesn't recognizes the order.\n"); break;
+            case 0: SystemConsoleOut.printlnLog("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
+            default: SystemConsoleOut.printlnLog("SYSTEM-ERROR: System doesn't recognizes the order.\n"); break;
         }
         order = null;
     }
@@ -220,42 +220,42 @@ public class Console {
 
     private void viewHelp() {
         int i = 0;
-        System.out.println(" - - - - HELP start - - - - ");
-        System.out.println(++i + ") author, version, exit");
-        //System.out.println(++i + ") buy building: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        System.out.println(++i + ") upgrade building: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        System.out.println(++i + ") view parameter game level: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        System.out.println(++i + ") view status buildings");
-        System.out.println(++i + ") save");
-        System.out.println(++i + ") produce: materials / wood / stone");
-        System.out.println(++i + ") view (absolutive) time of game");
-        System.out.println(" - - - - HELP end - - - - \n");
+        SystemConsoleOut.printlnLog(" - - - - HELP start - - - - ");
+        SystemConsoleOut.printlnLog(++i + ") author, version, exit");
+        //System.out.nonStaitcPrintln(++i + ") buy building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        SystemConsoleOut.printlnLog(++i + ") upgrade building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        SystemConsoleOut.printlnLog(++i + ") view parameter game level: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        SystemConsoleOut.printlnLog(++i + ") view status buildings");
+        SystemConsoleOut.printlnLog(++i + ") save");
+        SystemConsoleOut.printlnLog(++i + ") produce: materials / wood / stone");
+        SystemConsoleOut.printlnLog(++i + ") view (absolutive) time of game");
+        SystemConsoleOut.printlnLog(" - - - - HELP end - - - - \n");
     }
 
     private void viewHelpWithNumbersSwitch() {
         int i = 0;
-        System.out.println(" - - - - HELP start - - - - ");
-        System.out.println(++i + ") author(992), version(991), exit(999, fast-998)");
-        //System.out.println(++i + ") buy building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
-        System.out.println(++i + ") upgrade building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
-        System.out.println(++i + ") view parameter game level: architect(110101) / warehouse(210101) / quarry(310101) / lumberjack(410101) / flowerbed(510101) / house(60101)");
-        System.out.println(++i + ") view status buildings [with separators(101), without separators(102)]");
-        System.out.println(++i + ") save (800)");
-        System.out.println(++i + ") produce: materials(810) / wood(811) / stone(812)");
-        System.out.println(++i + ") view [absolutive] time of game(701) [702]");
-        System.out.println(" - - - - HELP end - - - - \n");
+        SystemConsoleOut.printlnLog(" - - - - HELP start - - - - ");
+        SystemConsoleOut.printlnLog(++i + ") author(992), version(991), exit(999, fast-998)");
+        //System.out.nonStaitcPrintln(++i + ") buy building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
+        SystemConsoleOut.printlnLog(++i + ") upgrade building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
+        SystemConsoleOut.printlnLog(++i + ") view parameter game level: architect(110101) / warehouse(210101) / quarry(310101) / lumberjack(410101) / flowerbed(510101) / house(60101)");
+        SystemConsoleOut.printlnLog(++i + ") view status buildings [with separators(101), without separators(102)]");
+        SystemConsoleOut.printlnLog(++i + ") save (800)");
+        SystemConsoleOut.printlnLog(++i + ") produce: materials(810) / wood(811) / stone(812)");
+        SystemConsoleOut.printlnLog(++i + ") view [absolutive] time of game(701) [702]");
+        SystemConsoleOut.printlnLog(" - - - - HELP end - - - - \n");
     }
 
     private void goodBye() {
-        System.out.println("\nSYSTEM-INFO: Do you exit game? YES or NO?");
+        SystemConsoleOut.printlnLog("\nSYSTEM-INFO: Do you exit game? YES or NO?");
         if (new Scanner(System.in).nextLine().trim().toLowerCase().equals("yes")) {
-            System.out.println("\nSYSTEM-INFO: Do you save game? YES or NO?");
+            SystemConsoleOut.printlnLog("\nSYSTEM-INFO: Do you save game? YES or NO?");
             if (new Scanner(System.in).nextLine().trim().toLowerCase().equals("yes")) {
                 managerObjects.produceMaterials();
                 managerObjects.save();
                 saveSettings();
             }
-            else System.out.println("SYSTEM-INFO: Game and settings aren't saved.");
+            else SystemConsoleOut.printlnLog("SYSTEM-INFO: Game and settings aren't saved.");
 
             try {
                 viewTimeOfGame();
@@ -263,12 +263,12 @@ public class Console {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        } else System.out.println("SYSTEM-INFO: Procedure of exit isn't finished.\n");
+        } else SystemConsoleOut.printlnLog("SYSTEM-INFO: Procedure of exit isn't finished.\n");
     }
     private void fastGoodBye() {
-        System.out.println("\nSYSTEM-INFO: Procedure of fast exit...");
-        System.out.println("Created by " + Communique.author);
-        System.out.println(Communique.newVersion + " [" + Communique.version + "]");
+        SystemConsoleOut.printlnLog("\nSYSTEM-INFO: Procedure of fast exit...");
+        SystemConsoleOut.printlnLog("Created by " + Communique.author);
+        SystemConsoleOut.printlnLog(Communique.newVersion + " [" + Communique.version + "]");
         System.exit(1);
     }
 

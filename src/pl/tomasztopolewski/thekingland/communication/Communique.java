@@ -40,10 +40,11 @@
 package pl.tomasztopolewski.thekingland.communication;
 
 public abstract class Communique {
-    public static final String nameGame = "The KingLand";
+    public static final String titleGame = "The KingLand";
+    public static final String nameGame = "thekingland";
     public static final String author = "Tomasz Topolewski";
 
-    public static final String numberOfVersion = "v91.00.005";
+    public static final String numberOfVersion = "v91.30.000";
     public static final String typeOfVersion = "DEV_alpha";
     public static final String version = numberOfVersion + "-main(May 2018) " + typeOfVersion;
     public static final String versionOfTested = numberOfVersion + "-tested(May 2018) " + typeOfVersion;
@@ -58,7 +59,7 @@ public abstract class Communique {
 
 
     public String getNameGame() {
-        return nameGame;
+        return titleGame;
     }
     public String getAuthor() {
         return author;
@@ -78,12 +79,15 @@ public abstract class Communique {
 
 
     public static void viewWelcome() {
-        System.out.print("\t" + nameGame + " " + version + "\n");
-        System.out.print("\t\t\t" + medianStartDateWork + " - " + medianDate + "\n\n");
+        SystemConsoleOut.print("\t" + titleGame + " " + version + "\n");
+        SystemConsoleOut.print("\t\t\t" + medianStartDateWork + " - " + medianDate + "\n\n");
+
+        SystemConsoleOut.log(titleGame + " " + version);
+        SystemConsoleOut.log(medianStartDateWork + " - " + medianDate);
     }
 
     public static void viewHeaderWelcome() {
-        System.out.println("\t" + nameGame + " " + newVersion + " by " + author);
+        System.out.println("\t" + titleGame + " " + newVersion + " by " + author);
     }
     public static void viewSpecialWelcome() {
         System.out.println("****************************************************************");
@@ -92,7 +96,7 @@ public abstract class Communique {
     }
 
     public void viewNameGame() {
-        System.out.print("Name game: " + nameGame);
+        System.out.print("Name game: " + titleGame);
     }
     public static void viewAuthor() {
         System.out.print("Author of game: " + author + "\n");
@@ -113,7 +117,7 @@ public abstract class Communique {
 
     public static void animationStartLoadingSettings() throws InterruptedException {
         Thread.sleep(500);
-        System.out.print("Loading settings ");
+        SystemConsoleOut.printLog("Loading settings ");
         Thread.sleep(200);
         System.out.print("0% ");
         for (int k = 0; k < 3; k++) {
@@ -124,7 +128,7 @@ public abstract class Communique {
     }
     public static void animationEndLoadingSettings() throws InterruptedException {
         Thread.sleep(1500);
-        System.out.print("Loading settings 100%\n\n");
+        SystemConsoleOut.printlnLog("Loading settings 100%\n\n");
         //Thread.sleep(500);
     }
 
@@ -133,6 +137,8 @@ public abstract class Communique {
         System.out.println("\nCreated by " + author + "\n\n");
         Thread.sleep(1000);
         System.out.println(newVersion + " [" + version + "]\n");
+        SystemConsoleOut.log("Created by " + author + " / version " + newVersion + " [" + version + "]\n");
+        SystemConsoleOut.logEnd("Ending app " + Communique.nameGame + "_" + Communique.numberOfVersion + "_" + Communique.typeOfVersion);
         System.exit(1);
     }
 }

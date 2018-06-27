@@ -14,13 +14,13 @@ public class ConsoleAdmin {
             try {
                 loadSettings();
             } catch (FileNotFoundException e) {
-                System.out.println("SYSTEM-ERROR: Plik ustawień nie został odnaleziony. Ładowanie ustawień nie powiodło się.\n");
+                System.out.nonStaitcPrintln("SYSTEM-ERROR: Plik ustawień nie został odnaleziony. Ładowanie ustawień nie powiodło się.\n");
                 e.printStackTrace();
             }
             //managerObjects = new ManagerObjectsAdmin();
             time = new Time(returnDownloadedAbsolutiveTimeOfGames());
         } else {
-            System.out.println("SYSTEM-ERROR: Uprawienia administatora nie zostały poprawnie autoryzowane. Spróbuj uruchomnić grę ponownie. Jeśli błąd będzie się powstarzał, skontaktuj się z obsługą techniczna.\n");
+            System.out.nonStaitcPrintln("SYSTEM-ERROR: Uprawienia administatora nie zostały poprawnie autoryzowane. Spróbuj uruchomnić grę ponownie. Jeśli błąd będzie się powstarzał, skontaktuj się z obsługą techniczna.\n");
             fastGoodBye();
         }
     }

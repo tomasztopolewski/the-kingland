@@ -1,6 +1,7 @@
 package pl.tomasztopolewski.thekingland.game;
 
 import pl.tomasztopolewski.thekingland.authentication.preparation.Installation;
+import pl.tomasztopolewski.thekingland.communication.SystemConsoleOut;
 import pl.tomasztopolewski.thekingland.game.buildings.factories.Lumberjack;
 import pl.tomasztopolewski.thekingland.game.buildings.factories.Quarry;
 import pl.tomasztopolewski.thekingland.game.buildings.management.Architect;
@@ -471,7 +472,7 @@ public class ManagerObjects {
                         else if (!enoughStone(architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1))) System.out.println("INFO: W magazynie nie ma wystarczającej ilości materiałów. Potrzeba jeszcze: " + (architect.getCostUpgradeStoneOneLevel(architect.getLevelUpgrade() + 1) - warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)) + " jedn. kamienia.\n");
                     }
                 }
-            } // dla budynku Architect warunek będzie zawsze prawdziwy //else System.out.println("INFO: Nie można ulepszyć budynku Architect. Posiadasz tylko " + architect.getArchitectExperience() + " pkt. Musisz ulepszyć budynek Architekt.");
+            } // dla budynku Architect warunek będzie zawsze prawdziwy //else System.out.nonStaitcPrintln("INFO: Nie można ulepszyć budynku Architect. Posiadasz tylko " + architect.getArchitectExperience() + " pkt. Musisz ulepszyć budynek Architekt.");
         } else System.out.println("WARN: Transaction (levelUpArchitect) isn't realized.");
     }
     public void levelUpWarehouse() {
@@ -671,14 +672,14 @@ public class ManagerObjects {
     /**
      private void destroyedBuilding(String game) {
      // TODO: funkcja ma oddawać 30-40% z materiałów jakie trzeba dać na konkretny budnek o konretnym level
-     //if, gdy lvl budynku będzie równy 0 to: wyrzuci println
+     //if, gdy lvl budynku będzie równy 0 to: wyrzuci nonStaitcPrintln
      //gdy większy od 0 to ustaw budynek na 0
      try {
      if (buildings[returnIndexOfBuilding(game)].getLevelUpgrade() > 0) {
 
      }
      } catch (ArrayIndexOutOfBoundsException aioobe) {
-     System.out.print("Error-ManagerObjects:destroyedBuilding() : Nie mozna wywolac funkcji 'ManagerObjects::destroyedBuilding' z powodu nie wlasciwego adresu refenecji do budynku.\n");
+     System.out.nonStaitcPrint("Error-ManagerObjects:destroyedBuilding() : Nie mozna wywolac funkcji 'ManagerObjects::destroyedBuilding' z powodu nie wlasciwego adresu refenecji do budynku.\n");
      } finally {}
      }
      */
@@ -748,7 +749,7 @@ public class ManagerObjects {
 
     // DETAILS BUILDING WITH SEPARATOR
     public void viewDetailsArchitectWithSeparator() {
-        System.out.format("  Architect: %1$3s lvl. | architect experience: %2$s %n", String.valueOf(architect.getLevelUpgrade()), String.valueOf(architect.getArchitectExperience()));
+        SystemConsoleOut.printlnLog(System.out.format("  Architect: %1$3s lvl. | architect experience: %2$s %n", String.valueOf(architect.getLevelUpgrade()), String.valueOf(architect.getArchitectExperience())).toString());
     }
     public void viewDetailsWarehouseWithSeparator() {
         System.out.format("  Warehouse: %1$3s lvl. | space: %4$s/%5$s  (wood: %2$s, stone: %3$s) %n",
@@ -877,7 +878,7 @@ public class ManagerObjects {
     }
 
     private void updateIndicatorProductionOfWood() {
-        //System.out.println("Indicator Production Of Wood: " + ((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 1000);
+        //System.out.nonStaitcPrintln("Indicator Production Of Wood: " + ((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 1000);
         productionOfWood.setIndicatorOfProduction(((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 100);
     }
 
@@ -926,7 +927,7 @@ public class ManagerObjects {
     }
 
     private void updateIndicatorProductionOfStone() {
-        //System.out.println("Indicator Production Of Stone: " + ((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 1000);
+        //System.out.nonStaitcPrintln("Indicator Production Of Stone: " + ((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 1000);
         productionOfStone.setIndicatorOfProduction(((flowerbed.getEmbellishmentsPoints() * flowerbed.getSquare()) * house.getNumberOfPeople()) / 100);
     }
 

@@ -3,11 +3,14 @@ package pl.tomasztopolewski.thekingland;
 import pl.tomasztopolewski.thekingland.authentication.Authentication;
 import pl.tomasztopolewski.thekingland.communication.Communique;
 import pl.tomasztopolewski.thekingland.communication.Console;
+import pl.tomasztopolewski.thekingland.communication.SystemConsoleOut;
 
 import java.io.FileNotFoundException;
 
 public abstract class Main {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException, NumberFormatException {
+        SystemConsoleOut.logStart("Starting app " + Communique.nameGame + "_" + Communique.numberOfVersion + "_" + Communique.typeOfVersion);
+
         Console console;
         switch(new Authentication().start()) {
             case 0:
@@ -26,7 +29,7 @@ public abstract class Main {
                 Communique.viewWelcome();
                 console = new Console();
                 //console = new ConsoleAdmin();
-                System.out.println("SYSTEM-INFO: Settings and saves are loaded. Administators tools are activated.\n");
+                SystemConsoleOut.printlnLog("SYSTEM-INFO: Settings and saves are loaded. Administators tools are activated.\n");
                 while (true) console.processOrder();
 
             default:
