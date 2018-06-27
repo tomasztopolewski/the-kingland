@@ -28,9 +28,9 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
 
     private final int[] space = {0, 3000, 6000, 12000, 35000, 60000};
 
-    private final int numberOfMaterials = 2;
-    private final int indexOfMaterialWood = 0;
-    private final int indexOfMaterialStone = 1;
+    public final int numberOfMaterials = 2;
+    public final int indexOfMaterialWood = 0;
+    public final int indexOfMaterialStone = 1;
 
     private int[] occupiedSpaceByMaterials; //zajęta przestrzeń przez materiały
 
@@ -93,7 +93,7 @@ public class Warehouse extends Building implements EssentialsBuilding, BuildingW
     public int getSpace() {
         return space[levelUpgrade];
     }
-    public int getSpaceForLevel(int numberLevel) {
+    public int getSpace(int numberLevel) {
         return space[numberLevel];
     }
 

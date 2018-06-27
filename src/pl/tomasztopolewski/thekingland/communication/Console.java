@@ -78,7 +78,14 @@ public class Console {
             case 5:
                 managerObjects.addStone(order.getArgumentsInt());
                 break;
-            case 6: break;
+            case 6:
+                managerObjects.viewDetailsAboutBuilding(managerObjects.getArchitect());
+                managerObjects.viewDetailsAboutBuilding(managerObjects.getWarehouse());
+                managerObjects.viewDetailsAboutBuilding(managerObjects.getQuarry());
+                managerObjects.viewDetailsAboutBuilding(managerObjects.getLumberjack());
+                managerObjects.viewDetailsAboutBuilding(managerObjects.getFlowerbed());
+                managerObjects.viewDetailsAboutBuilding(managerObjects.getHouse());
+                break;
             case 7: break;
             case 8: break;
             case 9: break;

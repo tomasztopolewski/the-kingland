@@ -14,7 +14,7 @@ public class Flowerbed extends Building implements EssentialsBuilding, BuildingW
     private final int maximumSquare = 50;
 
     private final String codeGroupBuilding = "mood";
-    private final String codeBuilding = "flower";
+    private final String codeBuilding = "flowerbed";
 
     private int levelUpgrade;
     private final int minimumUpgradeLevel = 1;
@@ -90,7 +90,7 @@ public class Flowerbed extends Building implements EssentialsBuilding, BuildingW
     public float getEmbellishmentsPoints() {
         return embellishmentsPoints[levelUpgrade];
     }
-    public float getEmbellishmentsPointsForLevel(int numberLevel) {
+    public float getEmbellishmentsPoints(int numberLevel) {
         return embellishmentsPoints[numberLevel];
     }
 }

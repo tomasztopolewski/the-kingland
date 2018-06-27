@@ -1,5 +1,6 @@
 package pl.tomasztopolewski.thekingland.game;
 
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import pl.tomasztopolewski.thekingland.authentication.preparation.Installation;
 import pl.tomasztopolewski.thekingland.communication.SystemConsoleOut;
 import pl.tomasztopolewski.thekingland.game.buildings.factories.Lumberjack;
@@ -96,7 +97,28 @@ public class ManagerObjects {
     }
 
 
-/////////////////////////////////////////////////////////////////////////////
+
+    public Architect getArchitect() {
+        return architect;
+    }
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+    public Quarry getQuarry() {
+        return quarry;
+    }
+    public Lumberjack getLumberjack() {
+        return lumberjack;
+    }
+    public Flowerbed getFlowerbed() {
+        return flowerbed;
+    }
+    public House getHouse() {
+        return house;
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////
 // METODY TWORZĄCE OBIEKTY USTAWIEŃ I ŁADUJĄCE USTAWIENIA Z PLIKU
 
     public void loadFileWithObjects() throws FileNotFoundException {
@@ -752,29 +774,78 @@ public class ManagerObjects {
         SystemConsoleOut.printlnLog(System.out.format("  Architect: %1$3s lvl. | architect experience: %2$s %n", String.valueOf(architect.getLevelUpgrade()), String.valueOf(architect.getArchitectExperience())).toString());
     }
     public void viewDetailsWarehouseWithSeparator() {
-        System.out.format("  Warehouse: %1$3s lvl. | space: %4$s/%5$s  (wood: %2$s, stone: %3$s) %n",
+        SystemConsoleOut.printlnLog(System.out.format("  Warehouse: %1$3s lvl. | space: %4$s/%5$s  (wood: %2$s, stone: %3$s) %n",
                 String.valueOf(warehouse.getLevelUpgrade()), String.valueOf(warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)),
                 String.valueOf(warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)), String.valueOf(warehouse.getAllOccupiedSpaceByMaterials()),
-                String.valueOf(warehouse.getSpace()));
+                String.valueOf(warehouse.getSpace())).toString());
     }
     public void viewDetailsQuarryWithSeparator() {
-        System.out.format("  Quarry: %1$6s lvl. | power of factory: %2$s %n", String.valueOf(quarry.getLevelUpgrade()), String.valueOf(quarry.getPowerOfFactory()));
+        SystemConsoleOut.printlnLog(System.out.format("  Quarry: %1$6s lvl. | power of factory: %2$s %n", String.valueOf(quarry.getLevelUpgrade()), String.valueOf(quarry.getPowerOfFactory())).toString());
     }
     public void viewDetailsLumberjackWithSeparator() {
-        System.out.format("  Lumberjack: %1$2s lvl. | power of factory: %2$s %n", String.valueOf(lumberjack.getLevelUpgrade()), String.valueOf(lumberjack.getPowerOfFactory()));
+        SystemConsoleOut.printlnLog(System.out.format("  Lumberjack: %1$2s lvl. | power of factory: %2$s %n", String.valueOf(lumberjack.getLevelUpgrade()), String.valueOf(lumberjack.getPowerOfFactory())).toString());
     }
     public void viewDetailsFlowerbedWithSeparator() {
-        System.out.format("  Flowerbed: %1$3s lvl. | square: %2$s m2  embellishments points: %3$s points %n", String.valueOf(flowerbed.getLevelUpgrade()), String.valueOf(flowerbed.getSquare()), String.valueOf(flowerbed.getEmbellishmentsPoints()));
+        SystemConsoleOut.printlnLog(System.out.format("  Flowerbed: %1$3s lvl. | square: %2$s m2  embellishments points: %3$s points %n", String.valueOf(flowerbed.getLevelUpgrade()), String.valueOf(flowerbed.getSquare()), String.valueOf(flowerbed.getEmbellishmentsPoints())).toString());
     }
     public void viewDetailsHouseWithSeparator() {
-        System.out.format("  House: %1$7s lvl. | number of people: %2$s %n", String.valueOf(house.getLevelUpgrade()), String.valueOf(house.getNumberOfPeople()));
+        SystemConsoleOut.printlnLog(System.out.format("  House: %1$7s lvl. | number of people: %2$s %n", String.valueOf(house.getLevelUpgrade()), String.valueOf(house.getNumberOfPeople())).toString());
     }
     public void viewDetailsProductionStoneWithSeparator() {
-        System.out.format("  Stone indicator: %1$4s%% %n", String.valueOf(productionOfStone.getIndicatorOfProduction() * 10));
+        SystemConsoleOut.printlnLog(System.out.format("  Stone indicator: %1$4s%% %n", String.valueOf(productionOfStone.getIndicatorOfProduction() * 10)).toString());
     }
 
     public void viewDetailsProductionWoodWithSeparator() {
-        System.out.format("  Wood indicator: %1$5s%% %n", String.valueOf(productionOfWood.getIndicatorOfProduction() * 10));
+        SystemConsoleOut.printlnLog(System.out.format("  Wood indicator: %1$5s%% %n", String.valueOf(productionOfWood.getIndicatorOfProduction() * 10)).toString());
+    }
+
+
+    // DETAILS ABOUT BUILDING
+    public void viewDetailsAboutBuilding(Building building) {
+        SystemConsoleOut.println("Info about building: " + building.getCodeBuilding() +
+                " (" + building.getLevelUpgrade() + " lvl./ " + building.getSquare() + " m2)");
+        SystemConsoleOut.println("Min. level: " + building.getMinimumUpgradeLevel() + "  Max. level: " + building.getMaximumUpgradeLevel());
+        SystemConsoleOut.println("Cost upgrade wood:");
+        for (int i = 1; i <=  building.getMaximumUpgradeLevel(); i++) SystemConsoleOut.print(i + ": " + building.getCostUpgradeWoodOneLevel(i) + " jedn.  ");
+        SystemConsoleOut.println("\nCost upgrade stone:");
+        for (int i = 1; i <=  building.getMaximumUpgradeLevel(); i++) SystemConsoleOut.print(i + ": " + building.getCostUpgradeStoneOneLevel(i) + " jedn.  ");
+        SystemConsoleOut.println("\nLevel of advancement building:");
+        for (int i = 1; i <=  building.getMaximumUpgradeLevel(); i++) SystemConsoleOut.print(i + ": " + building.getLevelOfAdvancementBuilding(i) + " points  ");
+
+        switch (returnIndexOfBuilding(building.getCodeBuilding()) + 1) {
+            case 1:
+                SystemConsoleOut.println("\nActual architect experience: " + architect.getArchitectExperience() + " points");
+                SystemConsoleOut.println("Architect experience for level:");
+                for (int i = 1; i <=  building.getMaximumUpgradeLevel(); i++) SystemConsoleOut.print(i + ": " + architect.getArchitectExperience(i) + " points  ");
+                break;
+            case 2:
+                SystemConsoleOut.println("\nActual occupied space: " + warehouse.getAllOccupiedSpaceByMaterials() + "/" + warehouse.getSpace() + " (stone: " + warehouse.getOccupiedSpaceByMaterial(warehouse.indexOfMaterialStone) + " jedn. / wood: " + warehouse.getOccupiedSpaceByMaterial(warehouse.indexOfMaterialWood) + " jedn.)");
+                SystemConsoleOut.println("Space warehouse for level:");
+                for (int i = 1; i <=  building.getMaximumUpgradeLevel(); i++) SystemConsoleOut.print(i + ": " + warehouse.getSpace(i) + " jedn.  ");
+                break;
+            case 3:
+                SystemConsoleOut.println("\nActual power of factory: " + (quarry.getPowerOfFactory()*100) + "%");
+                SystemConsoleOut.println("Power of factory for level:");
+                for (int i = 1; i <=  building.getMaximumUpgradeLevel(); i++) SystemConsoleOut.print(i + ": " + (quarry.getPowerOfFactory(i)*100) + "%  ");
+                break;
+            case 4:
+                SystemConsoleOut.println("\nActual power of factory: " + (lumberjack.getPowerOfFactory()*100) + "%");
+                SystemConsoleOut.println("Power of factory for level:");
+                for (int i = 1; i <=  building.getMaximumUpgradeLevel(); i++) SystemConsoleOut.print(i + ": " + (lumberjack.getPowerOfFactory(i)*100) + "%  ");
+                break;
+            case 5:
+                SystemConsoleOut.println("\nActual points of embellishments: " + lumberjack.getPowerOfFactory() + " points of embellishments");
+                SystemConsoleOut.println("Points of embellishments for level:");
+                for (int i = 1; i <=  building.getMaximumUpgradeLevel(); i++) SystemConsoleOut.print(i + ": " + flowerbed.getEmbellishmentsPoints(i) + "points  ");
+                break;
+            case 6:
+                SystemConsoleOut.println("\nActual number of people: " + house.getNumberOfPeople() + " people");
+                SystemConsoleOut.println("Number of people for level:");
+                for (int i = 1; i <=  building.getMaximumUpgradeLevel(); i++) SystemConsoleOut.print(i + ": " + house.getNumberOfPeople(i) + " people  ");
+                break;
+            default: break;
+        }
+        SystemConsoleOut.println("\n");
     }
 
 

@@ -18,7 +18,7 @@ public class Architect extends Building implements EssentialsBuilding, BuildingW
 
     private int levelUpgrade;
     private final int minimumUpgradeLevel = 1;
-    private final int maximumUpgradeLevel = 5;
+    private final int maximumUpgradeLevel = 4;
 
     private final int[] costUpgradeGold =  {0, 500, 2000, 9000, 45000};
     private final int[] costUpgradeWood =  {0, 250, 800, 2000, 4000};

@@ -44,18 +44,18 @@ public abstract class Communique {
     public static final String nameGame = "thekingland";
     public static final String author = "Tomasz Topolewski";
 
-    public static final String numberOfVersion = "v91.30.000";
+    public static final String numberOfVersion = "v95.00.000";
     public static final String typeOfVersion = "DEV_alpha";
-    public static final String version = numberOfVersion + "-main(May 2018) " + typeOfVersion;
+    public static final String version = numberOfVersion + "-main(Juny 2018) " + typeOfVersion;
     public static final String versionOfTested = numberOfVersion + "-tested(May 2018) " + typeOfVersion;
     public static final String newVersion = numberOfVersion + " " + typeOfVersion;
 
     public static final String longStartDateWork = "October 11th 2015";
     public static final String medianStartDateWork = "October 2015";
     public static final String shortStartDateWork = "Oct 2015";
-    public static final String longDate = "May 18th 2018";
-    public static final String medianDate = "May 2018";
-    public static final String shortDate = "May 2018";
+    public static final String longDate = "June 27th 2018";
+    public static final String medianDate = "June 2018";
+    public static final String shortDate = "Jun 2018";
 
 
     public String getNameGame() {

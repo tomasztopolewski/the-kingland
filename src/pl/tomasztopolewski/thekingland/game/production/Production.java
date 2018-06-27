@@ -3,7 +3,7 @@ package pl.tomasztopolewski.thekingland.game.production;
 public class Production {
     private TimeForProduction timeOfProduction;
     private double indicatorOfProduction;
-    private float powerOfFactory;
+    private double powerOfFactory;
 
     private int producedMaterial;
     private int deliveredMaterial;
@@ -26,10 +26,10 @@ public class Production {
         this.indicatorOfProduction = indicatorOfProduction >= 0 ? indicatorOfProduction : 0;
     }
 
-    public float getPowerOfFactory() {
+    public double getPowerOfFactory() {
         return powerOfFactory;
     }
-    public void setPowerOfFactory(float powerOfFactory) {
+    public void setPowerOfFactory(double powerOfFactory) {
         this.powerOfFactory = powerOfFactory >= 0 ? powerOfFactory : 0;
     }
 

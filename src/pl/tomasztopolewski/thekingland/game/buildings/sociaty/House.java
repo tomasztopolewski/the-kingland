@@ -76,11 +76,11 @@ public class House extends Building implements EssentialsBuilding, BuildingWithS
     }
     public int getLevelOfAdvancementBuilding(int numberLevel) { return levelOfAdvancementBuilding[numberLevel];}
 
-    public int getNumberOfPeopleForLevel(int numberLevel) {
-        return numberOfPeople[numberLevel];
-    }
     public int getNumberOfPeople() {
         return numberOfPeople[levelUpgrade];
+    }
+    public int getNumberOfPeople(int numberLevel) {
+        return numberOfPeople[numberLevel];
     }
 }
 

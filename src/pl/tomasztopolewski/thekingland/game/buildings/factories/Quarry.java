@@ -26,7 +26,7 @@ public class Quarry extends Building implements EssentialsBuilding, BuildingWith
     private final int[] levelOfAdvancementBuilding = {0, 200, 200, 800, 800, 3600, 3600, 18000, 18000};
     //private final float[] costOfBuyingMoreBuildings = {0, 1, (float) 1.2, (float) 1.9, (float) 2.8, 4};
 
-    private final float[] powerOfFactory = {0, 1, (float)1.2, (float)1.8, 2, (float) 2.1, (float)2.5, (float)2.85, (float)3.2};
+    private final double[] powerOfFactory = {0, 1, 1.2, 1.8, 2, 2.1, 2.5, 2.85, 3.2};
 
     private Production productionOfStone;
 
@@ -79,10 +79,10 @@ public class Quarry extends Building implements EssentialsBuilding, BuildingWith
     }
     public int getLevelOfAdvancementBuilding(int numberLevel) { return levelOfAdvancementBuilding[numberLevel];}
 
-    public float getPowerOfFactory() {
+    public double getPowerOfFactory() {
         return powerOfFactory[levelUpgrade];
     }
-    public float getPowerOfFactoryForLevel(int numberLevel) {
+    public double getPowerOfFactory(int numberLevel) {
         return powerOfFactory[numberLevel];
     }
 
