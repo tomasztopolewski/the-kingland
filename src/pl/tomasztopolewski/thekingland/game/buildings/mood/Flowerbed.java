@@ -11,6 +11,7 @@ import pl.tomasztopolewski.thekingland.game.BuildingWithChangingSquare;
 
 public class Flowerbed extends Building implements EssentialsBuilding, BuildingWithChangingSquare {
     private int square;
+    private final int minmumSquare = 0;
     private final int maximumSquare = 50;
 
     private final String codeGroupBuilding = "mood";
@@ -40,14 +41,22 @@ public class Flowerbed extends Building implements EssentialsBuilding, BuildingW
 
 
     public void setSquare(int square) {
-        this.square = (square <= maximumSquare ? square : 0);
+        this.square = square >= minmumSquare && square <= maximumSquare ? square : 0;
     }
     public int getSquare() {
         return square;
     }
     public void addSquare(int square) {
-        this.square += (this.square + square <= maximumSquare ? square : 0);
+        this.square += this.square + square <= maximumSquare ? square : 0;
     }
+    public void removeSquare(int square) {
+        this.square -= this.square - square >= minmumSquare ? square : 0;
+    }
+
+    public int getMinmumSquare() {
+        return minmumSquare;
+    }
+
     public int getMaximumSquare() {
         return maximumSquare;
     }
