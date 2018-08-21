@@ -183,8 +183,8 @@ public class Console {
 
 
             // wrong order
-            case 0: SystemConsoleOut.printlnLog("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
-            default: SystemConsoleOut.printlnLog("SYSTEM-ERROR: System doesn't recognizes the order.\n"); break;
+            case 0: SystemConsoleOut.println("SYSTEM-WARN: System doesn't recognizes the order.\n"); break;
+            default: SystemConsoleOut.println("SYSTEM-ERROR: System doesn't recognizes the order.\n"); break;
         }
         order = null;
     }
@@ -227,42 +227,42 @@ public class Console {
 
     private void viewHelp() {
         int i = 0;
-        SystemConsoleOut.printlnLog(" - - - - HELP start - - - - ");
-        SystemConsoleOut.printlnLog(++i + ") author, version, exit");
-        //System.out.nonStaitcPrintln(++i + ") buy building: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        SystemConsoleOut.printlnLog(++i + ") upgrade building: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        SystemConsoleOut.printlnLog(++i + ") view parameter game level: architect / warehouse / quarry / lumberjack / flowerbed / house");
-        SystemConsoleOut.printlnLog(++i + ") view status buildings");
-        SystemConsoleOut.printlnLog(++i + ") save");
-        SystemConsoleOut.printlnLog(++i + ") produce: materials / wood / stone");
-        SystemConsoleOut.printlnLog(++i + ") view (absolutive) time of game");
-        SystemConsoleOut.printlnLog(" - - - - HELP end - - - - \n");
+        SystemConsoleOut.println(" - - - - HELP start - - - - ");
+        SystemConsoleOut.println(++i + ") author, version, exit");
+        //System.out.println(++i + ") buy building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        SystemConsoleOut.println(++i + ") upgrade building: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        SystemConsoleOut.println(++i + ") view parameter game level: architect / warehouse / quarry / lumberjack / flowerbed / house");
+        SystemConsoleOut.println(++i + ") view status buildings");
+        SystemConsoleOut.println(++i + ") save");
+        SystemConsoleOut.println(++i + ") produce: materials / wood / stone");
+        SystemConsoleOut.println(++i + ") view (absolutive) time of game");
+        SystemConsoleOut.println(" - - - - HELP end - - - - \n");
     }
 
     private void viewHelpWithNumbersSwitch() {
         int i = 0;
-        SystemConsoleOut.printlnLog(" - - - - HELP start - - - - ");
-        SystemConsoleOut.printlnLog(++i + ") author(992), version(991), exit(999, fast-998)");
-        //System.out.nonStaitcPrintln(++i + ") buy building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
-        SystemConsoleOut.printlnLog(++i + ") upgrade building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
-        SystemConsoleOut.printlnLog(++i + ") view parameter game level: architect(110101) / warehouse(210101) / quarry(310101) / lumberjack(410101) / flowerbed(510101) / house(60101)");
-        SystemConsoleOut.printlnLog(++i + ") view status buildings [with separators(101), without separators(102)]");
-        SystemConsoleOut.printlnLog(++i + ") save (800)");
-        SystemConsoleOut.printlnLog(++i + ") produce: materials(810) / wood(811) / stone(812)");
-        SystemConsoleOut.printlnLog(++i + ") view [absolutive] time of game(701) [702]");
-        SystemConsoleOut.printlnLog(" - - - - HELP end - - - - \n");
+        SystemConsoleOut.println(" - - - - HELP start - - - - ");
+        SystemConsoleOut.println(++i + ") author(992), version(991), exit(999, fast-998)");
+        //System.out.println(++i + ") buy building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
+        SystemConsoleOut.println(++i + ") upgrade building: architect(10101) / warehouse(20101) / quarry(30101) / lumberjack(40101) / flowerbed(50101) / house(60101)");
+        SystemConsoleOut.println(++i + ") view parameter game level: architect(110101) / warehouse(210101) / quarry(310101) / lumberjack(410101) / flowerbed(510101) / house(60101)");
+        SystemConsoleOut.println(++i + ") view status buildings [with separators(101), without separators(102)]");
+        SystemConsoleOut.println(++i + ") save (800)");
+        SystemConsoleOut.println(++i + ") produce: materials(810) / wood(811) / stone(812)");
+        SystemConsoleOut.println(++i + ") view [absolutive] time of game(701) [702]");
+        SystemConsoleOut.println(" - - - - HELP end - - - - \n");
     }
 
     private void goodBye() {
-        SystemConsoleOut.printlnLog("\nSYSTEM-INFO: Do you exit game? YES or NO?");
+        SystemConsoleOut.println("\nSYSTEM-INFO: Do you exit game? YES or NO?");
         if (new Scanner(System.in).nextLine().trim().toLowerCase().equals("yes")) {
-            SystemConsoleOut.printlnLog("\nSYSTEM-INFO: Do you save game? YES or NO?");
+            SystemConsoleOut.println("\nSYSTEM-INFO: Do you save game? YES or NO?");
             if (new Scanner(System.in).nextLine().trim().toLowerCase().equals("yes")) {
                 managerObjects.produceMaterials();
                 managerObjects.save();
                 saveSettings();
             }
-            else SystemConsoleOut.printlnLog("SYSTEM-INFO: Game and settings aren't saved.");
+            else SystemConsoleOut.println("SYSTEM-INFO: Game and settings aren't saved.");
 
             try {
                 viewTimeOfGame();
@@ -270,12 +270,12 @@ public class Console {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        } else SystemConsoleOut.printlnLog("SYSTEM-INFO: Procedure of exit isn't finished.\n");
+        } else SystemConsoleOut.println("SYSTEM-INFO: Procedure of exit isn't finished.\n");
     }
     private void fastGoodBye() {
-        SystemConsoleOut.printlnLog("\nSYSTEM-INFO: Procedure of fast exit...");
-        SystemConsoleOut.printlnLog("Created by " + Communique.author);
-        SystemConsoleOut.printlnLog(Communique.newVersion + " [" + Communique.version + "]");
+        SystemConsoleOut.println("\nSYSTEM-INFO: Procedure of fast exit...");
+        SystemConsoleOut.println("Created by " + Communique.author);
+        SystemConsoleOut.println(Communique.newVersion + " [" + Communique.version + "]");
         System.exit(1);
     }
 

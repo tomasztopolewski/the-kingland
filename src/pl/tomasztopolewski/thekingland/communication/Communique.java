@@ -44,7 +44,7 @@ public abstract class Communique {
     public static final String nameGame = "thekingland";
     public static final String author = "Tomasz Topolewski";
 
-    public static final String numberOfVersion = "v95.01.100";
+    public static final String numberOfVersion = "v95.02.000";
     public static final String typeOfVersion = "DEV_alpha";
     public static final String version = numberOfVersion + "-main(Juny 2018) " + typeOfVersion;
     public static final String versionOfTested = numberOfVersion + "-tested(May 2018) " + typeOfVersion;
@@ -117,7 +117,7 @@ public abstract class Communique {
 
     public static void animationStartLoadingSettings() throws InterruptedException {
         Thread.sleep(500);
-        SystemConsoleOut.printLog("Loading settings ");
+        SystemConsoleOut.print("Loading settings ");
         Thread.sleep(200);
         System.out.print("0% ");
         for (int k = 0; k < 3; k++) {
@@ -128,7 +128,7 @@ public abstract class Communique {
     }
     public static void animationEndLoadingSettings() throws InterruptedException {
         Thread.sleep(1500);
-        SystemConsoleOut.printlnLog("Loading settings 100%\n\n");
+        SystemConsoleOut.println("Loading settings 100%\n\n");
         //Thread.sleep(500);
     }
 
@@ -137,7 +137,7 @@ public abstract class Communique {
         System.out.println("\nCreated by " + author + "\n\n");
         Thread.sleep(1000);
         System.out.println(newVersion + " [" + version + "]\n");
-        SystemConsoleOut.log("Created by " + author + " / version " + newVersion + " [" + version + "]\n");
+        SystemConsoleOut.log("Created by " + author + " / version " + newVersion + " [" + version + "]");
         SystemConsoleOut.logEnd("Ending app " + Communique.nameGame + "_" + Communique.numberOfVersion + "_" + Communique.typeOfVersion);
         System.exit(1);
     }

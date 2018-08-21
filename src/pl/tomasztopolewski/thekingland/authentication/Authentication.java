@@ -13,11 +13,12 @@ public class Authentication {
 
     public int start() throws InterruptedException {
         commandPreparation = new CommandPreparation();
-        SystemConsoleOut.println("\n" + Communique.nameGame + "_" + Communique.newVersion + ": Uruchamianie aplikacji...");
+        System.out.println("\n" + Communique.nameGame + "_" + Communique.newVersion + ": Uruchamianie aplikacji...");
         SystemConsoleOut.log(Communique.nameGame + "_" + Communique.newVersion + ": Uruchamianie aplikacji...");
 
         if (Installation.installation()) {
-            SystemConsoleOut.printlnLog( Communique.nameGame + "_" + Communique.newVersion + ": Stan instalacji aplikacji jest poprawny.\n");
+            SystemConsoleOut.println(Communique.nameGame + "_" + Communique.newVersion + ": Stan instalacji aplikacji jest poprawny.\n");
+            SystemConsoleOut.log(Communique.nameGame + "_" + Communique.newVersion + ": Stan instalacji aplikacji jest poprawny.");
             // instalacja gry jest poprawna
 
             Communique.viewHeaderWelcome();
@@ -33,15 +34,15 @@ public class Authentication {
                     //gdy użytkownik wprowadzi polecenie logowania
                     if (!commandPreparation.getArguments().equals("")) {
                         if (checkIsItInBasadatePlayers(commandPreparation.getArguments())) {
-                            SystemConsoleOut.printlnLog("SYSTEM-INFO: Logowanie '" + commandPreparation.getArguments() + "'...");
-                            SystemConsoleOut.printlnLog("INFO: Zalogowano pomyślnie '" + commandPreparation.getArguments() + "'.\n");
+                            SystemConsoleOut.println("SYSTEM-INFO: Logowanie '" + commandPreparation.getArguments() + "'...");
+                            SystemConsoleOut.println("INFO: Zalogowano pomyślnie '" + commandPreparation.getArguments() + "'.\n");
                         } else {
                             System.out.println("SYSTEM-WARN: Gracz '" + commandPreparation.getArguments() + "' nie istnieje w bazie danych.");
                             System.out.println("SYSTEM-WARN: Nie zalogowano poprawnie gracza '" + commandPreparation.getArguments() + "'. Spróbuj zalogować się za pomocą innego konta.");
                         }
                     } else {
-                        SystemConsoleOut.printlnLog("SYSTEM-INFO: Logowanie...");
-                        SystemConsoleOut.printlnLog("INFO: Zalogowano pomyślnie.\n");
+                        SystemConsoleOut.println("SYSTEM-INFO: Logowanie...");
+                        SystemConsoleOut.println("INFO: Zalogowano pomyślnie.\n");
                     }
                     return 1;
 
@@ -59,14 +60,14 @@ public class Authentication {
 
                 case 1000:
                     // gdy użytkownik wprowadzi polecenie logowania administratora
-                    SystemConsoleOut.printlnLog("SYSTEM-INFO: Logowanie administratora...");
-                    SystemConsoleOut.printlnLog("INFO: Zalogowano konto administratora.");
-                    SystemConsoleOut.printlnLog("INFO: Twoje uprawnienie nie zostały sprawdzone oraz aktywowane.");
-                    SystemConsoleOut.printlnLog("WARN: Proszę potwierdzić uprawnienia, stosując komendę specjalną.");
+                    SystemConsoleOut.println("SYSTEM-INFO: Logowanie administratora...");
+                    SystemConsoleOut.println("INFO: Zalogowano konto administratora.");
+                    SystemConsoleOut.println("INFO: Twoje uprawnienie nie zostały sprawdzone oraz aktywowane.");
+                    SystemConsoleOut.println("WARN: Proszę potwierdzić uprawnienia, stosując komendę specjalną.");
                     if (passAdmin()) {
                         return 1000;
                     } else {
-                        SystemConsoleOut.printlnLog("SYSTEM-ERROR: Niepoprawne dane dostępowe. Aplikacja zostaje zatrzymana.\n");
+                        SystemConsoleOut.println("SYSTEM-ERROR: Niepoprawne dane dostępowe. Aplikacja zostaje zatrzymana.\n");
                         Thread.sleep(2000);
                         Communique.viewGoodbay();
                         return 0;
@@ -74,7 +75,7 @@ public class Authentication {
 
                 default:
                     //gdy użytkownik wprowadzi nie poprawne polecenie
-                    SystemConsoleOut.printlnLog("WARN: Pobrane polecenie nie istnieje.");
+                    SystemConsoleOut.println("WARN: Pobrane polecenie nie istnieje.");
                     SystemConsoleOut.logEnd("Ending app " + Communique.nameGame + "_" + Communique.numberOfVersion + "_" + Communique.typeOfVersion);
                     System.exit(0);
                     break;
@@ -98,16 +99,16 @@ public class Authentication {
         SystemConsoleOut.print("SYSTEM-INFO: Wprowadź hasło administatora: ");
         SystemConsoleOut.log("SYSTEM-INFO: Wprowadź hasło administatora: *****");
         if (new Scanner(System.in).nextLine().trim().equals("$/" + new Decryption("0gs6z6f01lmzcm9dg3y6").decodeString())) {
-            SystemConsoleOut.printlnLog("SYSTEM-INFO: Uprawienia administratora zostały pomyślenie autoryzowane.\n");
+            SystemConsoleOut.println("SYSTEM-INFO: Uprawienia administratora zostały pomyślenie autoryzowane.\n");
             return true;
         } else return false;
         */
         ///*
-        SystemConsoleOut.printlnLog("\nSYSTEM-ERROR: WYŁĄCZONO OPCJĘ AUTORYZOWANIA ADMINISTATORA.");
-        SystemConsoleOut.printlnLog("SYSTEM-ERROR: LOGOWANIE ADMINISTATORA BEZ AUTORYZACJI.");
-        SystemConsoleOut.printlnLog("SYSTEM-ERROR: TRYB ADMINISTATORA AKTYWOWANY W MODULE NIEAUTORYZOWANYM.");
-        SystemConsoleOut.printlnLog("SYSTEM-ERROR: UPRAWIENIA ADMINISTRATORA NIE ZOSTAŁY POMYŚLENIE AUTORYZOWANE.\n");
-        SystemConsoleOut.printlnLog("SYSTEM-WARN: Narzędzia administatora wymagają autoryzacji. Tryb awaryjny został włączony.\n");
+        SystemConsoleOut.println("\nSYSTEM-ERROR: WYŁĄCZONO OPCJĘ AUTORYZOWANIA ADMINISTATORA.");
+        SystemConsoleOut.println("SYSTEM-ERROR: LOGOWANIE ADMINISTATORA BEZ AUTORYZACJI.");
+        SystemConsoleOut.println("SYSTEM-ERROR: TRYB ADMINISTATORA AKTYWOWANY W MODULE NIEAUTORYZOWANYM.");
+        SystemConsoleOut.println("SYSTEM-ERROR: UPRAWIENIA ADMINISTRATORA NIE ZOSTAŁY POMYŚLENIE AUTORYZOWANE.\n");
+        SystemConsoleOut.println("SYSTEM-WARN: Narzędzia administatora wymagają autoryzacji. Tryb awaryjny został włączony.\n");
         return true;
         //*/
     }

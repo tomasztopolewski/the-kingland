@@ -771,32 +771,40 @@ public class ManagerObjects {
 
     // DETAILS BUILDING WITH SEPARATOR
     public void viewDetailsArchitectWithSeparator() {
-        SystemConsoleOut.printlnLog(System.out.format("  Architect: %1$3s lvl. | architect experience: %2$s %n", String.valueOf(architect.getLevelUpgrade()), String.valueOf(architect.getArchitectExperience())).toString());
+        //SystemConsoleOut.println(
+                System.out.format("  Architect: %1$3s lvl. | architect experience: %2$s %n", String.valueOf(architect.getLevelUpgrade()), String.valueOf(architect.getArchitectExperience()));//.toString());
     }
     public void viewDetailsWarehouseWithSeparator() {
-        SystemConsoleOut.printlnLog(System.out.format("  Warehouse: %1$3s lvl. | space: %4$s/%5$s  (wood: %2$s, stone: %3$s) %n",
+        //SystemConsoleOut.println(
+                System.out.format("  Warehouse: %1$3s lvl. | space: %4$s/%5$s  (wood: %2$s, stone: %3$s) %n",
                 String.valueOf(warehouse.getLevelUpgrade()), String.valueOf(warehouse.getOccupiedSpaceByMaterial(indexOfMaterialWood)),
                 String.valueOf(warehouse.getOccupiedSpaceByMaterial(indexOfMaterialStone)), String.valueOf(warehouse.getAllOccupiedSpaceByMaterials()),
-                String.valueOf(warehouse.getSpace())).toString());
+                String.valueOf(warehouse.getSpace()));//.toString());
     }
     public void viewDetailsQuarryWithSeparator() {
-        SystemConsoleOut.printlnLog(System.out.format("  Quarry: %1$6s lvl. | power of factory: %2$s %n", String.valueOf(quarry.getLevelUpgrade()), String.valueOf(quarry.getPowerOfFactory())).toString());
+        //SystemConsoleOut.println(
+                System.out.format("  Quarry: %1$6s lvl. | power of factory: %2$s %n", String.valueOf(quarry.getLevelUpgrade()), String.valueOf(quarry.getPowerOfFactory()));//.toString());
     }
     public void viewDetailsLumberjackWithSeparator() {
-        SystemConsoleOut.printlnLog(System.out.format("  Lumberjack: %1$2s lvl. | power of factory: %2$s %n", String.valueOf(lumberjack.getLevelUpgrade()), String.valueOf(lumberjack.getPowerOfFactory())).toString());
+        //SystemConsoleOut.println(
+                System.out.format("  Lumberjack: %1$2s lvl. | power of factory: %2$s %n", String.valueOf(lumberjack.getLevelUpgrade()), String.valueOf(lumberjack.getPowerOfFactory()));//.toString());
     }
     public void viewDetailsFlowerbedWithSeparator() {
-        SystemConsoleOut.printlnLog(System.out.format("  Flowerbed: %1$3s lvl. | square: %2$s m2  embellishments points: %3$s points %n", String.valueOf(flowerbed.getLevelUpgrade()), String.valueOf(flowerbed.getSquare()), String.valueOf(flowerbed.getEmbellishmentsPoints())).toString());
+        //SystemConsoleOut.println(
+                System.out.format("  Flowerbed: %1$3s lvl. | square: %2$s m2  embellishments points: %3$s points %n", String.valueOf(flowerbed.getLevelUpgrade()), String.valueOf(flowerbed.getSquare()), String.valueOf(flowerbed.getEmbellishmentsPoints()));//.toString());
     }
     public void viewDetailsHouseWithSeparator() {
-        SystemConsoleOut.printlnLog(System.out.format("  House: %1$7s lvl. | number of people: %2$s %n", String.valueOf(house.getLevelUpgrade()), String.valueOf(house.getNumberOfPeople())).toString());
+        //SystemConsoleOut.println(
+                System.out.format("  House: %1$7s lvl. | number of people: %2$s %n", String.valueOf(house.getLevelUpgrade()), String.valueOf(house.getNumberOfPeople()));//.toString());
     }
     public void viewDetailsProductionStoneWithSeparator() {
-        SystemConsoleOut.printlnLog(System.out.format("  Stone indicator: %1$4s%% %n", String.valueOf(productionOfStone.getIndicatorOfProduction() * 10)).toString());
+        //SystemConsoleOut.println(
+                System.out.format("  Stone indicator: %1$4s%% %n", String.valueOf(productionOfStone.getIndicatorOfProduction() * 10));//.toString());
     }
 
     public void viewDetailsProductionWoodWithSeparator() {
-        SystemConsoleOut.printlnLog(System.out.format("  Wood indicator: %1$5s%% %n", String.valueOf(productionOfWood.getIndicatorOfProduction() * 10)).toString());
+        //SystemConsoleOut.println(
+                System.out.format("  Wood indicator: %1$5s%% %n", String.valueOf(productionOfWood.getIndicatorOfProduction() * 10));//.toString());
     }
 
 

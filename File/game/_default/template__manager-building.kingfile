@@ -1,0 +1,9 @@
+management.architect[level]
+management.warehouse[level]
+factories.quarry[level]
+factories.lumberjack[level]
+mood.flowerbed[level; square]
+sociaty.house[level]
+
+// [name_of_group].[code]:[{argument}:{value};]
+// OR [name_of_group].[code]:[{value};]

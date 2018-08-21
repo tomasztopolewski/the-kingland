@@ -15,10 +15,10 @@ public abstract class TestMain {
         String s3 = "Wiadomość trzecia";
 
         SystemConsoleOut.logStart("Start logging...");
-        SystemConsoleOut.printlnLog(s1);
+        SystemConsoleOut.println(s1);
         System.out.println("\n");
-        SystemConsoleOut.printlnLog(s2);
-        SystemConsoleOut.printlnLog(s3 + "\n");
+        SystemConsoleOut.println(s2);
+        SystemConsoleOut.println(s3 + "\n");
         SystemConsoleOut.logEnd("End logging...");
         //SystemConsoleOut.
     }
