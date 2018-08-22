@@ -2,6 +2,7 @@ package pl.tomasztopolewski.thekingland;
 
 import pl.tomasztopolewski.thekingland.communication.Communique;
 import pl.tomasztopolewski.thekingland.communication.SystemConsoleOut;
+import pl.tomasztopolewski.thekingland.security.*;
 
 public abstract class TestMain {
     public static void main(String[] args) {
@@ -10,6 +11,10 @@ public abstract class TestMain {
     }
 
     public static void function() {
+
+    }
+
+    /*public static void function() {
         String s1 = "Wiadomość pierwsza";
         String s2 = "Wiadomość druga";
         String s3 = "Wiadomość trzecia";
@@ -21,7 +26,7 @@ public abstract class TestMain {
         SystemConsoleOut.println(s3 + "\n");
         SystemConsoleOut.logEnd("End logging...");
         //SystemConsoleOut.
-    }
+    }*/
 
 
     /*public static void function() {

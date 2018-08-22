@@ -249,7 +249,15 @@ public class Console {
         SystemConsoleOut.println(++i + ") view status buildings [with separators(101), without separators(102)]");
         SystemConsoleOut.println(++i + ") save (800)");
         SystemConsoleOut.println(++i + ") produce: materials(810) / wood(811) / stone(812)");
-        SystemConsoleOut.println(++i + ") view [absolutive] time of game(701) [702]");
+        SystemConsoleOut.println(++i + ") view [absolutive] time of game(701) [702]\n");
+        SystemConsoleOut.println(++i + ") FUNCTIONS QUICK-ACCESS: ");
+        SystemConsoleOut.println(++i + ")     3 - set quintity stone and wood to '1'");
+        SystemConsoleOut.println(++i + ")    4 - add wood with downloaded quantity");
+        SystemConsoleOut.println(++i + ")    5 - add stone with downloaded quantity");
+        SystemConsoleOut.println(++i + ")    6 - view deatils about all buildings");
+        SystemConsoleOut.println(++i + ")    7 - nothing/break");
+        SystemConsoleOut.println(++i + ")    8 - nothing/break");
+        SystemConsoleOut.println(++i + ")    9 - nothing/break");
         SystemConsoleOut.println(" - - - - HELP end - - - - \n");
     }
 
