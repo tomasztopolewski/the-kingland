@@ -7,8 +7,8 @@ import pl.tomasztopolewski.thekingland.security.*;
 public abstract class TestMain {
     public static void main(String[] args) {
         System.out.println("\n" + Communique.titleGame + " " + Communique.versionOfTested + " [" + Communique.newVersion + "]\nTesting 'function()' in pl.tomasztopolewski.thekingland.TestMain");
-        function();
-    }
+    function();
+}
 
     public static void function() {
 
