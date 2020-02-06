@@ -29,7 +29,9 @@ public abstract class Main {
                 Communique.viewWelcome();
                 console = new Console();
                 //console = new ConsoleAdmin();
+                Thread.sleep(1000);
                 SystemConsoleOut.println("SYSTEM-INFO: Settings and saves are loaded. Administators tools are activated.\n");
+                Thread.sleep(1000);
                 SystemConsoleOut.log("SYSTEM-INFO: Settings and saves are loaded. Administators tools are activated.");
                 while (true) console.processOrder();
 

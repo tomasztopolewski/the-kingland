@@ -61,9 +61,13 @@ public class Authentication {
                 case 1000:
                     // gdy użytkownik wprowadzi polecenie logowania administratora
                     SystemConsoleOut.println("SYSTEM-INFO: Logowanie administratora...");
+                    Thread.sleep(1000);
                     SystemConsoleOut.println("INFO: Zalogowano konto administratora.");
-                    SystemConsoleOut.println("INFO: Twoje uprawnienie nie zostały sprawdzone oraz aktywowane.");
-                    SystemConsoleOut.println("WARN: Proszę potwierdzić uprawnienia, stosując komendę specjalną.");
+                    //Thread.sleep(1000);
+                    SystemConsoleOut.println("INFO: Uuprawnienie nie zostały sprawdzone oraz aktywowane.");
+                    //Thread.sleep(1000);
+                    SystemConsoleOut.println("WARN: Proszę potwierdzić uprawnienia w panelu administratora.");
+                    //Thread.sleep(2000);
                     if (passAdmin()) {
                         return 1000;
                     } else {
@@ -94,7 +98,7 @@ public class Authentication {
         return 0;
     }
 
-    private boolean passAdmin() {
+    private boolean passAdmin() throws InterruptedException {
         /*
         SystemConsoleOut.print("SYSTEM-INFO: Wprowadź hasło administatora: ");
         SystemConsoleOut.log("SYSTEM-INFO: Wprowadź hasło administatora: *****");
@@ -104,11 +108,18 @@ public class Authentication {
         } else return false;
         */
         ///*
-        SystemConsoleOut.println("\nSYSTEM-ERROR: WYŁĄCZONO OPCJĘ AUTORYZOWANIA ADMINISTATORA.");
-        SystemConsoleOut.println("SYSTEM-ERROR: LOGOWANIE ADMINISTATORA BEZ AUTORYZACJI.");
-        SystemConsoleOut.println("SYSTEM-ERROR: TRYB ADMINISTATORA AKTYWOWANY W MODULE NIEAUTORYZOWANYM.");
-        SystemConsoleOut.println("SYSTEM-ERROR: UPRAWIENIA ADMINISTRATORA NIE ZOSTAŁY POMYŚLENIE AUTORYZOWANE.\n");
-        SystemConsoleOut.println("SYSTEM-WARN: Narzędzia administatora wymagają autoryzacji. Tryb awaryjny został włączony.\n");
+
+        SystemConsoleOut.println("\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
+        SystemConsoleOut.println("*  SYSTEM-ERROR: WYŁĄCZONO OPCJĘ AUTORYZOWANIA ADMINISTATORA.                                 *");
+        //Thread.sleep(1000);
+        SystemConsoleOut.println("*  SYSTEM-ERROR: LOGOWANIE ADMINISTATORA BEZ AUTORYZACJI.                                     *");
+        SystemConsoleOut.println("*  SYSTEM-ERROR: TRYB ADMINISTATORA AKTYWOWANY W MODULE NIEAUTORYZOWANYM.                     *");
+        SystemConsoleOut.println("*  SYSTEM-ERROR: UPRAWIENIA ADMINISTRATORA NIE ZOSTAŁY POMYŚLENIE AUTORYZOWANE.               *");
+        //Thread.sleep(2000);
+        SystemConsoleOut.println("*                                                                                             *");
+        SystemConsoleOut.println("*  SYSTEM-WARN: Narzędzia administatora wymagają autoryzacji.                                 *");
+        //Thread.sleep(1000);
+        SystemConsoleOut.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
         return true;
         //*/
     }

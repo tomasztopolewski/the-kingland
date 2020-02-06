@@ -115,6 +115,9 @@ public class Console {
             // save
             case 800: managerObjects.save(); break;
 
+            // produce materials without comments
+            case 809: managerObjects.produceMaterialsWithoutComments(); break;
+
             // produce materials
             case 810: managerObjects.produceMaterials(); break;
 
@@ -141,6 +144,9 @@ public class Console {
 
             // exit
             case 999: goodBye(); break;
+
+
+            ////////////////////////////////////////////
 
 
             // upgrade building Architect
@@ -180,6 +186,8 @@ public class Console {
             // view parameter game level house
             case 610101: managerObjects.viewLevelHouse(); break;
 
+
+            ////////////////////////////////////////////
 
 
             // wrong order
@@ -288,6 +296,10 @@ public class Console {
     }
 
     private void viewStatusOfBuildings() {
+        // aktualizacja stanów
+        managerObjects.produceMaterialsWithoutComments();
+
+        // wyświetlenie stanów
         System.out.println("Status of buildings:");
         managerObjects.viewDetailsArchitect();
         managerObjects.viewDetailsWarehouse();
@@ -299,6 +311,10 @@ public class Console {
     }
 
     private void viewStatusOfBuildingsWithSeparator() {
+        // aktualizacja stanów
+        managerObjects.produceMaterialsWithoutComments();
+
+        // wyświetlenie stanów
         System.out.println("Status of buildings:");
         managerObjects.viewDetailsArchitectWithSeparator();
         managerObjects.viewDetailsWarehouseWithSeparator();
